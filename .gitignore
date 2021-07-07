@@ -52,5 +52,5 @@ Mkfile.old
 dkms.conf
 
 .vs/*
-ScientificCalculator/*
-
+ScientificCalculator/bin/*
+ScientificCalculator/obj/*
