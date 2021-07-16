@@ -67,6 +67,7 @@ namespace ScientificCalculator
 
 
 
+
 		// Lanczos Approximation 
 		static int g = 7; static int n = 8;
 		const double PI = 3.14159265358979323846;
@@ -75,14 +76,12 @@ namespace ScientificCalculator
 		 771.32342877765313, -176.61502916214059, 12.507343278686905,
 		 -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7};
 
-		
-
 		public static double Gamma(double x)
         {
 			double sum;
 			double ba;
 		
-			if (z < 0.5) 
+			if (x < 0.5) 
 			{
 				// Use Euler's reflection formula:
 				//Gamma(x) = Pi / [Sin[Pi*z] * Gamma[1-z]];
