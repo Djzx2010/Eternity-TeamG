@@ -64,5 +64,46 @@ namespace ScientificCalculator
 			else
 				return 0.0;
 		}
+
+
+
+		// Lanczos Approximation 
+		static int g = 7; static int n = 8;
+		const double PI = 3.14159265358979323846;
+		const double sqrt_2PI = 0.91893853320467274178;
+		static double[] p = {0.99999999999980993, 676.5203681218851, -1259.1392167224028,
+		 771.32342877765313, -176.61502916214059, 12.507343278686905,
+		 -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7};
+
+		
+
+		public static double Gamma(double x)
+        {
+			double sum;
+			double ba;
+		
+			if (z < 0.5) 
+			{
+				// Use Euler's reflection formula:
+				//Gamma(x) = Pi / [Sin[Pi*z] * Gamma[1-z]];
+				return log(PI / sin(PI * x)) - Gamma(1.0 - x);
+			}
+
+			else
+            {
+				x -= 1.0;
+				ba = x + g + 0.5;
+				sum = 0;
+				
+				for (int i = n; i >= 1; i--)
+                {
+					sum += p[i] / (x + ((double)i));
+                }
+				sum += p[0];
+
+				return ((sqrt_2PI + log(sum)) - ba) + log(ba) * (x + 0.5);
+			}
+
+		}
 	}
 }
