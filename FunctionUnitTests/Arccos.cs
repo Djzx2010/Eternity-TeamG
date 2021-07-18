@@ -48,8 +48,7 @@ namespace FunctionUnitTests
         }
 
         [TestMethod]
-        // Test acceptable value range for random calculations
-        public void Correct_Value_Test()
+        public void Correct_Value_Static_Test()
         {
             const double test_value = 0.7;
 
@@ -62,8 +61,7 @@ namespace FunctionUnitTests
         }
 
         [TestMethod]
-        // Test acceptable value range for random calculations
-        public void Correct_Value_Test_Two()
+        public void Correct_Value_Static_Test_Two()
         {
             const double test_value = 0.23;
 
@@ -76,12 +74,12 @@ namespace FunctionUnitTests
         }
 
         [TestMethod]
-        // Test acceptable value range for random calculations
+        // Test random number value between -1 and 1
         public void Correct_Value_Test_Random()
         {
             System.Random rand = new System.Random();
 
-            // Generate a random number between -1 and 1 rounded to two decimal places
+            // Generate a random number between -1 and 1 rounded to three decimal places
             double test_value = System.Math.Round(rand.NextDouble() * 2 - 1, 3);
 
             double custom_result = ScientificCalculator.Math.Arccos(test_value);
