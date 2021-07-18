@@ -2,7 +2,7 @@
 
 namespace ScientificCalculator
 {
-	class Math
+	public class Math
 	{
 		private const double TOLERANCE = 0.0000000001;
 

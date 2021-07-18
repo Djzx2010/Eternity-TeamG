@@ -52,6 +52,8 @@ Mkfile.old
 dkms.conf
 ScientificCalculator/obj/*
 ScientificCalculator/bin/*
+FunctionUnitTests/obj/*
+FunctionUnitTests/bin/*
 .vs/*
 
 
