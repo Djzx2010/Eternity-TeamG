@@ -87,7 +87,7 @@ namespace FunctionUnitTests
 
             testContextInstance.WriteLine($"Test Value: {test_value}, Custom: {custom_result}, Native: {native_result}");
 
-            Assert.AreEqual(native_result, custom_result, 0.001);
+            Assert.AreEqual(native_result, custom_result, 0.01);
         }
     }
 }

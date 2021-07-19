@@ -220,7 +220,11 @@ namespace ScientificCalculator
         {
 			// Exception for now, but probably needs to be something else
 			// Arccos is only defined within the range of [-1, 1]
-			if (x < -1 || x > 1) throw new System.ArgumentException();
+			if (x < -1 || x > 1)
+            {
+				throw new System.ArgumentException();
+            }
+				
 
 			double result = 0;
 
@@ -235,17 +239,18 @@ namespace ScientificCalculator
             }
 			else
             {
-				for (int i = 0; i < 99; i++)
+				for (var i = 0; i < 99; i++)
                 {
-					double fact = Factorial(2 * i);
-					double pow1 = Pow(2, 2 * i);
-					double pow2 = Pow(Factorial(i), 2);
+					var fact = Factorial(2 * i);
+					var pow1 = Exponent(2, 2 * i);
+					var pow2 = Exponent(Factorial(i), 2);
+					var exponent = (2 * i) + 1;
+					var b = Exponent(x, exponent) / exponent;
 
-					int exponent = (2 * i) + 1;
-
-					double b = Pow(x, exponent) / exponent;
-
-					if (double.IsInfinity(fact)) break;
+					if (double.IsInfinity(fact))
+					{
+						break;
+					}
 
 					result += ((fact / (pow1 * pow2)) * b);
                 }
@@ -260,7 +265,7 @@ namespace ScientificCalculator
         }
 
 		// Convert RADS to DEG
-		public static Func<double, double> toDegrees = (rads) => (rads * (180 / System.Math.PI));
+		public static Func<double, double> toDegrees = (rads) => rads * (180 / System.Math.PI);
 
 		// Iterative factorial function
 		public static double Factorial(int x)
@@ -272,32 +277,6 @@ namespace ScientificCalculator
 				for (int i = 1; i <= x; i++)
 				{
 					result *= i;
-				}
-			}
-
-			return result;
-		}
-
-		// Iterative exponent function
-		public static double Pow(double b, int pow)
-		{
-			double result = 1;
-
-			if (pow != 0)
-			{
-				if (pow > 0)
-				{
-					for (int i = pow; i > 0; i--)
-					{
-						result *= b;
-					}
-				}
-				else
-				{
-					for (int i = pow; i < 0; i++)
-					{
-						result *= b;
-					}
 				}
 			}
 
