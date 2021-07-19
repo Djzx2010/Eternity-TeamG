@@ -30,6 +30,7 @@ namespace ScientificCalculator
             Function1d squareDel = ScientificCalculator.Math.Square;
             Function1d sqrtDel = ScientificCalculator.Math.Sqrt;
             Function1d absDel = ScientificCalculator.Math.Abs;
+            Function1d sinhDel = ScientificCalculator.Math.Sinh;
             FunctionNd meanAbsDevDel = ScientificCalculator.Math.MeanAbsoluteDeviation;
             FunctionNd meanDel = ScientificCalculator.Math.Mean;
             FunctionNd stddevDel = ScientificCalculator.Math.StdDev;
@@ -39,6 +40,7 @@ namespace ScientificCalculator
             SetFunction("Square", squareDel);
             SetFunction("Sqrt", sqrtDel);
             SetFunction("Abs", absDel);
+            SetFunction("Sinh", sinhDel);
             SetFunction("MeanAbsDel", meanAbsDevDel);
             SetFunction("Mean", meanDel);
             SetFunction("StdDev", stddevDel);

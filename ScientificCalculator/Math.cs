@@ -5,6 +5,7 @@ namespace ScientificCalculator
 	class Math
 	{
 		private const double TOLERANCE = 0.0000000001;
+		private const double EULERS_NUMBER = 2.7182818284590452353602874713527;
 
 		public static double Abs(double x)
 		{
@@ -63,6 +64,54 @@ namespace ScientificCalculator
 			}
 			else
 				return 0.0;
+		}
+
+		public static double Exponent(double x, double exponent)
+		{
+			if (exponent % 1 == 0) //Integer exponent
+			{
+				if (exponent == 0)
+					return 1;
+
+				double result = 1;
+				bool isExponentPositive = exponent > 0;
+
+				for (int i = 0; i < Math.Abs(exponent); i++)
+					result = isExponentPositive ? result * x : result / x;
+
+				return result;
+			}
+			else //Floating point exponent
+            {
+				//https://stackoverflow.com/a/29877278/7916867
+				int accuracy = 1000000;
+				double accuracy2 = 1.0 + 1.0 / accuracy;
+
+				bool isExponentNegative = exponent < 0;
+				exponent = Abs(exponent);
+
+				bool isAnsMoreThanA = (x > 1 && exponent > 1) || (x < 1 && exponent < 1); //Example: 0.5^2=0.25 so answer is lower than A.
+				double total = System.Math.Log(x) * accuracy * exponent; //TODO: Replace "System.Math.Log"
+
+				double t = x;
+				while (true)
+				{
+					double t2 = System.Math.Log(t) * accuracy; //TODO: Replace "System.Math.Log"
+					if ((isAnsMoreThanA && t2 > total) || (!isAnsMoreThanA && t2 < total)) break;
+					if (isAnsMoreThanA) t *= accuracy2;
+					else t /= accuracy2;
+				}
+
+				if (isExponentNegative)
+					t = 1 / t;
+
+				return t;
+			}
+		}
+
+		public static double Sinh(double x)
+		{
+			return (Exponent(EULERS_NUMBER, x) - Exponent(EULERS_NUMBER, (x * -1))) / 2;
 		}
 
 
