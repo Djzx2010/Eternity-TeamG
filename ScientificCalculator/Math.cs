@@ -1,8 +1,8 @@
-﻿
+﻿using System;
 
 namespace ScientificCalculator
 {
-	class Math
+	public class Math
 	{
 		private const double TOLERANCE = 0.0000000001;
 		private const double EULERS_NUMBER = 2.7182818284590452353602874713527;
@@ -213,6 +213,95 @@ namespace ScientificCalculator
 				return ((_SQRT_2PI + System.Math.Log(sum)) - ba) + System.Math.Log(ba) * (x + 0.5);
 			}
 
+		}
+
+		/* Arccos calculating using Taylor-Series, currently defaults to rads */
+		public static double Arccos(double x)
+        {
+			// Exception for now, but probably needs to be something else
+			// Arccos is only defined within the range of [-1, 1]
+			if (x < -1 || x > 1) throw new System.ArgumentException();
+
+			double result = 0;
+
+			// Arccos(1) = 0 and Arccos(-1) = PI, return the values right away instead of wasting resources calculating
+			if (x == 1)
+            {
+				return result;
+            }
+			else if (x == -1)
+            {
+				return System.Math.PI;
+            }
+			else
+            {
+				for (int i = 0; i < 99; i++)
+                {
+					double fact = Factorial(2 * i);
+					double pow1 = Pow(2, 2 * i);
+					double pow2 = Pow(Factorial(i), 2);
+
+					int exponent = (2 * i) + 1;
+
+					double b = Pow(x, exponent) / exponent;
+
+					if (double.IsInfinity(fact)) break;
+
+					result += ((fact / (pow1 * pow2)) * b);
+                }
+
+				result = ((System.Math.PI / 2) - result);
+
+				// TODO: Maybe have a toggle between DEG and RADS?
+				// return HelperFunctions.toDegrees(result);
+
+				return result;
+            }
+        }
+
+		// Convert RADS to DEG
+		public static Func<double, double> toDegrees = (rads) => (rads * (180 / System.Math.PI));
+
+		// Iterative factorial function
+		public static double Factorial(int x)
+		{
+			double result = 1;
+
+			if (x != 0)
+			{
+				for (int i = 1; i <= x; i++)
+				{
+					result *= i;
+				}
+			}
+
+			return result;
+		}
+
+		// Iterative exponent function
+		public static double Pow(double b, int pow)
+		{
+			double result = 1;
+
+			if (pow != 0)
+			{
+				if (pow > 0)
+				{
+					for (int i = pow; i > 0; i--)
+					{
+						result *= b;
+					}
+				}
+				else
+				{
+					for (int i = pow; i < 0; i++)
+					{
+						result *= b;
+					}
+				}
+			}
+
+			return result;
 		}
 	}
 }

@@ -34,6 +34,7 @@ namespace ScientificCalculator
             FunctionNd meanAbsDevDel = ScientificCalculator.Math.MeanAbsoluteDeviation;
             FunctionNd meanDel = ScientificCalculator.Math.Mean;
             FunctionNd stddevDel = ScientificCalculator.Math.StdDev;
+            Function1d acosDel = ScientificCalculator.Math.Arccos;
             GetArray getArrayDel = GetArr;
 
             //Bind the delegates to the tokens in the expression
@@ -45,6 +46,7 @@ namespace ScientificCalculator
             SetFunction("Mean", meanDel);
             SetFunction("StdDev", stddevDel);
             SetFunction("GetArr", getArrayDel);
+            SetFunction("Arccos", acosDel);
             SetVariable("ans", answer);
             SetVariable("arr", arr);
 
