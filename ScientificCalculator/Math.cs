@@ -66,6 +66,15 @@ namespace ScientificCalculator
 		}
 
 
+        public static double MeanAbsoluteDeviation(params double[] x)
+        {
+            double mean = Mean(x);
+            double n = x.Length;
+            double sum = 0.0;
+            for (uint i = 0; i < x.Length; i++)
+                sum += Abs(x[i] - mean);
+            return sum / n;
+        }
 
 
 		// Lanczos Approximation 
