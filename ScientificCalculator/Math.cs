@@ -9,17 +9,23 @@ namespace ScientificCalculator
 
 		public static double Abs(double x)
 		{
-			return x >= 0.0 ? x : -x;
+			return (x >= 0.0) ? x : -x;
 		}
 
 		public static double Round(double x, uint place)
         {
-			uint i;
-			for (i = 0; i<place;i++)
+			for (var i = 0; i < place; i++)
+            {
 				x *= 10;
+            }
+
 			x = (double)((decimal)(x + 0.5));
-			for (i = 0; i < place; i++)
+
+			for (var i = 0; i < place; i++)
+            {
 				x *= 0.1;
+            }
+				
 			return x;
 		}
 
@@ -31,10 +37,15 @@ namespace ScientificCalculator
 			while (true)
 			{
 				sqrt = 0.5 * (x + (x0 / x));
+
 				if (Abs(sqrt - x) < TOLERANCE)
+                {
 					break;
+                }
+
 				x = sqrt;
 			}
+
 			return sqrt;
 		}
 
@@ -46,64 +57,99 @@ namespace ScientificCalculator
 		public static double Mean(params double[] x)
 		{
 			double mean = 0.0;
-			for (uint i = 0; i < x.Length; i++)
+
+			for (var i = 0; i < x.Length; i++)
+            {
 				mean += x[i];
+            }
+				
 			return mean / x.Length;
 		}
 
 		public static double StdDev(params double[] x)
 		{
-			int n = x.Length;
+			var n = x.Length;
+
 			if (n > 0)
 			{
 				double sigma = 0.0;
 				double _mean = Mean(x);
-				for (uint i = 0; i < n; i++)
+
+				for (var i = 0; i < n; i++)
+                {
 					sigma += Square(x[i] - _mean);
+				}
+
 				return Sqrt(sigma / n);
 			}
 			else
+            {
 				return 0.0;
+            }
+				
 		}
 
 		public static double Exponent(double x, double exponent)
 		{
-			if (exponent % 1 == 0) //Integer exponent
+			// Integer exponent
+			if (exponent % 1 == 0) 
 			{
 				if (exponent == 0)
+                {
 					return 1;
+                }
 
 				double result = 1;
-				bool isExponentPositive = exponent > 0;
+				var isExponentPositive = exponent > 0;
+				var roundedExponent = Math.Abs(exponent);
 
-				for (int i = 0; i < Math.Abs(exponent); i++)
-					result = isExponentPositive ? result * x : result / x;
+				for (var i = 0; i < roundedExponent; i++)
+                {
+					result = isExponentPositive ? (result * x) : (result / x);
+                }
 
 				return result;
 			}
-			else //Floating point exponent
+			// Floating point exponent
+			else 
             {
-				//https://stackoverflow.com/a/29877278/7916867
+				// https://stackoverflow.com/a/29877278/7916867
 				int accuracy = 1000000;
 				double accuracy2 = 1.0 + 1.0 / accuracy;
 
-				bool isExponentNegative = exponent < 0;
+				bool isExponentNegative = (exponent < 0);
 				exponent = Abs(exponent);
 
-				bool isAnsMoreThanA = (x > 1 && exponent > 1) || (x < 1 && exponent < 1); //Example: 0.5^2=0.25 so answer is lower than A.
-				double total = System.Math.Log(x) * accuracy * exponent; //TODO: Replace "System.Math.Log"
-
+				// Example: 0.5^2=0.25 so answer is lower than A.
+				var isAnsMoreThanA = ((x > 1) && (exponent > 1)) || ((x < 1) && (exponent < 1)); 
+				// TODO: Replace "System.Math.Log"
+				double total = System.Math.Log(x) * accuracy * exponent; 
 				double t = x;
+
 				while (true)
 				{
-					double t2 = System.Math.Log(t) * accuracy; //TODO: Replace "System.Math.Log"
-					if ((isAnsMoreThanA && t2 > total) || (!isAnsMoreThanA && t2 < total)) break;
-					if (isAnsMoreThanA) t *= accuracy2;
-					else t /= accuracy2;
+					// TODO: Replace "System.Math.Log"
+					double t2 = System.Math.Log(t) * accuracy;
+
+					if ((isAnsMoreThanA && t2 > total) || (!isAnsMoreThanA && t2 < total))
+                    {
+						break;
+                    }
+
+					if (isAnsMoreThanA)
+                    {
+						t *= accuracy2;
+                    }
+                    else
+                    {
+						t /= accuracy2;
+                    }
 				}
 
 				if (isExponentNegative)
+                {
 					t = 1 / t;
+                }
 
 				return t;
 			}
@@ -117,48 +163,54 @@ namespace ScientificCalculator
 
         public static double MeanAbsoluteDeviation(params double[] x)
         {
-            double mean = Mean(x);
-            double n = x.Length;
-            double sum = 0.0;
-            for (uint i = 0; i < x.Length; i++)
-                sum += Abs(x[i] - mean);
+            var mean = Mean(x);
+            var n = x.Length;
+            var sum = 0.0;
+
+            for (var i = 0; i < x.Length; i++)
+            {
+				sum += Abs(x[i] - mean);
+            }
+
             return sum / n;
         }
 
 
 		// Lanczos Approximation 
-		static int g = 7; static int n = 8;
-		const double PI = 3.14159265358979323846;
-		const double sqrt_2PI = 0.91893853320467274178;
-		static double[] p = {0.99999999999980993, 676.5203681218851, -1259.1392167224028,
-		 771.32342877765313, -176.61502916214059, 12.507343278686905,
-		 -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7};
-
+		private const int _g = 7;
+		private const int _n = 8;
+		private const double _SQRT_2PI = 0.91893853320467274178;
+		private static readonly double[] _p = { 
+			0.99999999999980993, 676.5203681218851, -1259.1392167224028,
+			771.32342877765313, -176.61502916214059, 12.507343278686905,
+			-0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7
+		};
 		public static double Gamma(double x)
         {
-			double sum;
-			double ba;
-		
+
 			if (x < 0.5) 
 			{
 				// Use Euler's reflection formula:
-				//Gamma(x) = Pi / [Sin[Pi*z] * Gamma[1-z]];
-				return log(PI / sin(PI * x)) - Gamma(1.0 - x);
+				// Gamma(x) = Pi / [Sin[Pi*z] * Gamma[1-z]];
+				// TODO: Update these to not use built in functions
+				return System.Math.Log(System.Math.PI / System.Math.Sin(System.Math.PI * x)) - Gamma(1.0 - x);
 			}
 
 			else
             {
 				x -= 1.0;
-				ba = x + g + 0.5;
-				sum = 0;
+				var sum = 0.0;
+				var ba = x + _g + 0.5;
 				
-				for (int i = n; i >= 1; i--)
+				for (var i = _n; i >= 1; i--)
                 {
-					sum += p[i] / (x + ((double)i));
+					sum += _p[i] / (x + i);
                 }
-				sum += p[0];
 
-				return ((sqrt_2PI + log(sum)) - ba) + log(ba) * (x + 0.5);
+				sum += _p[0];
+
+				// TODO: Update these to not use built in functions
+				return ((_SQRT_2PI + System.Math.Log(sum)) - ba) + System.Math.Log(ba) * (x + 0.5);
 			}
 
 		}
