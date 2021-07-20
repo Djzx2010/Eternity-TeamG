@@ -282,5 +282,57 @@ namespace ScientificCalculator
 
 			return result;
 		}
+
+		//Logarithmic Function
+		public static double Log(double _base, double exponentLog)
+		{
+			// https://www.codeproject.com/Tips/311714/Natural-Logarithms-and-Exponent
+
+			double result = 0;
+			var sign = 1; //negative or postive
+
+			//No negative logs or 0 logs allowed, results undefined
+			if (exponentLog <= 0 || _base <= 0)
+			{
+				return double.NaN;
+			}
+			//Infinite results
+			if (_base == 1)
+			{
+				if (exponentLog == 1)
+				{
+					return double.NaN;
+				}
+				return double.PositiveInfinity;
+			}
+
+			//Dealing with decimal bases/exponents
+			if (exponentLog < 1)
+			{
+				exponentLog = 1 / exponentLog;
+				sign *= -1;
+			}
+			if (_base < 1)
+			{
+				_base = 1 / _base;
+				sign *= -1;
+			}
+
+
+			double count = exponentLog;
+
+			while (count >= _base)
+			{
+				result++;
+				count /= _base;
+			}
+
+			if (count == 1)
+			{
+				return (sign * result);
+			}
+
+			return sign * (result + (1 / Log(count, _base)));
+		}
 	}
 }
