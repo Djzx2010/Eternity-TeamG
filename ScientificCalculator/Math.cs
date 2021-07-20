@@ -14,14 +14,15 @@ namespace ScientificCalculator
 
 		public static double Round(double x, uint place)
         {
-			for (var i = 0; i < place; i++)
+			var i = 0;
+			for (; i < place; i++)
             {
 				x *= 10;
             }
 
 			x = (double)((decimal)(x + 0.5));
 
-			for (var i = 0; i < place; i++)
+			for (i = 0; i < place; i++)
             {
 				x *= 0.1;
             }
