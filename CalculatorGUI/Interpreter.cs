@@ -88,8 +88,15 @@ namespace ScientificCalculator
             expression = expression.Replace("σ", "StdDev");
             expression = expression.Replace("√", "Sqrt");
             expression = expression.Replace("÷", "/");
-            answer = Eval<double>(expression);
-            SetVariable("ans", answer);
+            try
+            {
+                answer = Eval<double>(expression);
+                SetVariable("ans", answer);
+            }
+            catch(Exception e)
+            {
+                answer = Double.NaN;
+            }
             return answer;
         }
 

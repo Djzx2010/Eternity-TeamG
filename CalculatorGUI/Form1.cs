@@ -18,7 +18,6 @@ namespace CalculatorGUI
     public partial class Form1 : Form
     {
         private ScientificCalculator.Interpreter interpreter;
-        private List<String> keyStack = new List<string>();
         bool shiftHeld = false;
         public Form1()
         {
@@ -139,8 +138,6 @@ namespace CalculatorGUI
             Double res = interpreter.EvaluateString(displayField.Text);
             displayField.Text = res.ToString();
             listBox1.Items.Add(res.ToString());
-            keyStack.Clear();
-            keyStack.Add(displayField.Text);
         }
 
         private KeysConverter keyConverter = new KeysConverter();
@@ -154,12 +151,8 @@ namespace CalculatorGUI
             }
            else if (e.KeyCode == Keys.Back)
             {
-                if (keyStack.Count > 0)
-                {
-                    String prevKey = keyStack[keyStack.Count - 1];
-                    keyStack.RemoveAt(keyStack.Count - 1);
-                    displayField.Text = displayField.Text.Substring(0, displayField.Text.Length - prevKey.Length);
-                }
+                if(displayField.Text.Length>0)
+                    displayField.Text = displayField.Text.Substring(0, displayField.Text.Length - 1);
 
             }
             else
@@ -168,7 +161,6 @@ namespace CalculatorGUI
                 char c = Convert.ToChar(e.KeyCode);
                 prevKey += c;
                 prevKey = prevKey.ToLower();
-                keyStack.Add(prevKey);
                 displayField.AppendText(prevKey);
             }
         }
