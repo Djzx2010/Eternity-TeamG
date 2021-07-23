@@ -55,6 +55,7 @@ ScientificCalculator/bin/*
 FunctionUnitTests/obj/*
 FunctionUnitTests/bin/*
 .vs/*
-
+CalculatorGUI/bin/*
+CalculatorGUI/obj/*
 
 

@@ -87,6 +87,7 @@ namespace ScientificCalculator
             expression = expression.Replace("x", "*");
             expression = expression.Replace("σ", "StdDev");
             expression = expression.Replace("√", "Sqrt");
+            expression = expression.Replace("÷", "/");
             answer = Eval<double>(expression);
             SetVariable("ans", answer);
             return answer;
