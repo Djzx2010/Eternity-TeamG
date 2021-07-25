@@ -387,11 +387,11 @@ namespace ScientificCalculator
 			else
 			{
 				if (b < 0)
-                {
+				{
 					throw new System.ArgumentException();
 				}
 				else
-                {
+				{
 					bool negative = x < 0;
 					x = Abs(x);
 					bool smallBase = (b > 1 && x > 1) || (b < 1 && x < 1);
@@ -432,29 +432,29 @@ namespace ScientificCalculator
 		// ab^x
 		// Power function (double * double^double).
 		public static double Power(double a, double b, double x)
-        {			
+		{
 			if (a == 0)
 			{
 				if (b == 0 && x == -1)
-                {
+				{
 					throw new System.ArgumentException();
 				}
 				else
-                {
+				{
 					return a;
 				}
 			}
 			else
-            {
+			{
 				if (x == 0 && b == 0)
 				{
 					return 1;
-                }
-                else
-                {
+				}
+				else
+				{
 					return a * Power(b, x);
 				}				
 			}
-        }
+		}
 	}
 }
