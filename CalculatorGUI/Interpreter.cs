@@ -36,6 +36,8 @@ namespace ScientificCalculator
             FunctionNd stddevDel = ScientificCalculator.Math.StdDev;
             Function1d acosDel = ScientificCalculator.Math.Arccos;
             Function2d logDel = ScientificCalculator.Math.Log;
+            Function2d expDel = ScientificCalculator.Math.Exponent;
+            Function1d gammaDel = ScientificCalculator.Math.Gamma;
             GetArray getArrayDel = GetArr;
 
             //Bind the delegates to the tokens in the expression
@@ -48,7 +50,9 @@ namespace ScientificCalculator
             SetFunction("StdDev", stddevDel);
             SetFunction("GetArr", getArrayDel);
             SetFunction("Arccos", acosDel);
+            SetFunction("Gamma", gammaDel);
             SetFunction("Log", logDel);
+            SetFunction("Pow", expDel);
             SetVariable("ans", answer);
             SetVariable("arr", arr);
 
@@ -88,6 +92,8 @@ namespace ScientificCalculator
             expression = expression.Replace("σ", "StdDev");
             expression = expression.Replace("√", "Sqrt");
             expression = expression.Replace("÷", "/");
+            expression = expression.Replace("Γ", "Gamma");
+
             try
             {
                 answer = Eval<double>(expression);

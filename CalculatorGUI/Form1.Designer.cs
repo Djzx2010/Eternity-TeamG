@@ -32,6 +32,7 @@ namespace CalculatorGUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonEvaluate = new System.Windows.Forms.Button();
             this.buttonDecimal = new System.Windows.Forms.Button();
@@ -54,9 +55,17 @@ namespace CalculatorGUI
             this.buttonClosedBracket = new System.Windows.Forms.Button();
             this.buttonOpenBracket = new System.Windows.Forms.Button();
             this.displayField = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.listBoxHistory = new System.Windows.Forms.ListBox();
+            this.buttonSTD = new System.Windows.Forms.Button();
+            this.buttonComma = new System.Windows.Forms.Button();
+            this.buttonArccos = new System.Windows.Forms.Button();
+            this.button_Exponent = new System.Windows.Forms.Button();
+            this.buttonLog = new System.Windows.Forms.Button();
+            this.buttonGamma = new System.Windows.Forms.Button();
+            this.button_MAD = new System.Windows.Forms.Button();
+            this.buttonSinh = new System.Windows.Forms.Button();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.toolTipInfo = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -392,37 +401,109 @@ namespace CalculatorGUI
             this.displayField.Size = new System.Drawing.Size(335, 53);
             this.displayField.TabIndex = 1;
             this.displayField.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.displayField.TextChanged += new System.EventHandler(this.displayField_TextChanged);
             // 
-            // listBox1
+            // listBoxHistory
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(275, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(335, 104);
-            this.listBox1.TabIndex = 2;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBoxHistory.FormattingEnabled = true;
+            this.listBoxHistory.ItemHeight = 20;
+            this.listBoxHistory.Location = new System.Drawing.Point(275, 12);
+            this.listBoxHistory.Name = "listBoxHistory";
+            this.listBoxHistory.Size = new System.Drawing.Size(335, 104);
+            this.listBoxHistory.TabIndex = 2;
+            this.listBoxHistory.DoubleClick += new System.EventHandler(this.listBoxHistory_DoubleClick);
             // 
-            // button10
+            // buttonSTD
             // 
-            this.button10.Location = new System.Drawing.Point(12, 195);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(62, 53);
-            this.button10.TabIndex = 3;
-            this.button10.Text = "σ";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.buttonSTD.Location = new System.Drawing.Point(12, 195);
+            this.buttonSTD.Name = "buttonSTD";
+            this.buttonSTD.Size = new System.Drawing.Size(62, 53);
+            this.buttonSTD.TabIndex = 3;
+            this.buttonSTD.Text = "σ";
+            this.toolTipInfo.SetToolTip(this.buttonSTD, "σ(x1, x2, x3, ..., xn)");
+            this.buttonSTD.UseVisualStyleBackColor = true;
+            this.buttonSTD.Click += new System.EventHandler(this.buttonSTD_Click);
             // 
-            // button11
+            // buttonComma
             // 
-            this.button11.Location = new System.Drawing.Point(81, 195);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(64, 53);
-            this.button11.TabIndex = 4;
-            this.button11.Text = ",";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.buttonComma.Location = new System.Drawing.Point(81, 195);
+            this.buttonComma.Name = "buttonComma";
+            this.buttonComma.Size = new System.Drawing.Size(64, 53);
+            this.buttonComma.TabIndex = 4;
+            this.buttonComma.Text = ",";
+            this.buttonComma.UseVisualStyleBackColor = true;
+            this.buttonComma.Click += new System.EventHandler(this.buttonComma_Click);
+            // 
+            // buttonArccos
+            // 
+            this.buttonArccos.Location = new System.Drawing.Point(151, 195);
+            this.buttonArccos.Name = "buttonArccos";
+            this.buttonArccos.Size = new System.Drawing.Size(64, 53);
+            this.buttonArccos.TabIndex = 5;
+            this.buttonArccos.Text = "Arccos";
+            this.toolTipInfo.SetToolTip(this.buttonArccos, "Arccos(x)");
+            this.buttonArccos.UseVisualStyleBackColor = true;
+            this.buttonArccos.Click += new System.EventHandler(this.buttonArccos_Click);
+            // 
+            // button_Exponent
+            // 
+            this.button_Exponent.Location = new System.Drawing.Point(10, 254);
+            this.button_Exponent.Name = "button_Exponent";
+            this.button_Exponent.Size = new System.Drawing.Size(64, 54);
+            this.button_Exponent.TabIndex = 6;
+            this.button_Exponent.Text = "ab˟";
+            this.toolTipInfo.SetToolTip(this.button_Exponent, "Pow(base, exponent)");
+            this.button_Exponent.UseVisualStyleBackColor = true;
+            this.button_Exponent.Click += new System.EventHandler(this.button_Exponent_Click);
+            // 
+            // buttonLog
+            // 
+            this.buttonLog.Location = new System.Drawing.Point(81, 254);
+            this.buttonLog.Name = "buttonLog";
+            this.buttonLog.Size = new System.Drawing.Size(64, 54);
+            this.buttonLog.TabIndex = 7;
+            this.buttonLog.Text = "log";
+            this.toolTipInfo.SetToolTip(this.buttonLog, "log(base, x) ");
+            this.buttonLog.UseVisualStyleBackColor = true;
+            this.buttonLog.Click += new System.EventHandler(this.buttonLog_Click);
+            // 
+            // buttonGamma
+            // 
+            this.buttonGamma.Location = new System.Drawing.Point(151, 254);
+            this.buttonGamma.Name = "buttonGamma";
+            this.buttonGamma.Size = new System.Drawing.Size(64, 54);
+            this.buttonGamma.TabIndex = 8;
+            this.buttonGamma.Text = "Γ";
+            this.buttonGamma.UseVisualStyleBackColor = true;
+            this.buttonGamma.Click += new System.EventHandler(this.buttonGamma_Click);
+            // 
+            // button_MAD
+            // 
+            this.button_MAD.Location = new System.Drawing.Point(12, 314);
+            this.button_MAD.Name = "button_MAD";
+            this.button_MAD.Size = new System.Drawing.Size(62, 51);
+            this.button_MAD.TabIndex = 9;
+            this.button_MAD.Text = "MAD";
+            this.button_MAD.UseVisualStyleBackColor = true;
+            // 
+            // buttonSinh
+            // 
+            this.buttonSinh.Location = new System.Drawing.Point(80, 314);
+            this.buttonSinh.Name = "buttonSinh";
+            this.buttonSinh.Size = new System.Drawing.Size(65, 51);
+            this.buttonSinh.TabIndex = 10;
+            this.buttonSinh.Text = "sinh";
+            this.buttonSinh.UseVisualStyleBackColor = true;
+            this.buttonSinh.Click += new System.EventHandler(this.buttonSinh_Click);
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(13, 371);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(132, 48);
+            this.buttonClear.TabIndex = 11;
+            this.buttonClear.Text = "CLR";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // Form1
             // 
@@ -430,9 +511,16 @@ namespace CalculatorGUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(622, 594);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.buttonClear);
+            this.Controls.Add(this.buttonSinh);
+            this.Controls.Add(this.button_MAD);
+            this.Controls.Add(this.buttonGamma);
+            this.Controls.Add(this.buttonLog);
+            this.Controls.Add(this.button_Exponent);
+            this.Controls.Add(this.buttonArccos);
+            this.Controls.Add(this.buttonComma);
+            this.Controls.Add(this.buttonSTD);
+            this.Controls.Add(this.listBoxHistory);
             this.Controls.Add(this.displayField);
             this.Controls.Add(this.tableLayoutPanel1);
             this.KeyPreview = true;
@@ -472,9 +560,17 @@ namespace CalculatorGUI
         private System.Windows.Forms.Button buttonOpenBracket;
         private System.Windows.Forms.TextBox displayField;
         private System.Windows.Forms.Button buttonEvaluate;
-        private ListBox listBox1;
-        private Button button10;
-        private Button button11;
+        private ListBox listBoxHistory;
+        private Button buttonSTD;
+        private Button buttonComma;
+        private Button buttonArccos;
+        private Button button_Exponent;
+        private Button buttonLog;
+        private Button buttonGamma;
+        private Button button_MAD;
+        private Button buttonSinh;
+        private Button buttonClear;
+        private ToolTip toolTipInfo;
     }
 }
 
