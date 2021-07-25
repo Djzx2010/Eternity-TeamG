@@ -186,7 +186,7 @@ namespace CalculatorGUI
         }
 
         // EXPONENT
-        private void button_Exponent_Click(object sender, EventArgs e)
+        private void buttonExponent_Click(object sender, EventArgs e)
         {
             displayField.AppendText("Pow(");
         }
@@ -213,6 +213,12 @@ namespace CalculatorGUI
         private void buttonSinh_Click(object sender, EventArgs e)
         {
             displayField.AppendText("Sinh(");
+        }
+
+        // MAD
+        private void buttonMAD_Click(object sender, EventArgs e)
+        {
+
         }
 
         /*

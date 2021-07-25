@@ -59,10 +59,10 @@ namespace CalculatorGUI
             this.buttonSTD = new System.Windows.Forms.Button();
             this.buttonComma = new System.Windows.Forms.Button();
             this.buttonArccos = new System.Windows.Forms.Button();
-            this.button_Exponent = new System.Windows.Forms.Button();
+            this.buttonExponent = new System.Windows.Forms.Button();
             this.buttonLog = new System.Windows.Forms.Button();
             this.buttonGamma = new System.Windows.Forms.Button();
-            this.button_MAD = new System.Windows.Forms.Button();
+            this.buttonMAD = new System.Windows.Forms.Button();
             this.buttonSinh = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
             this.toolTipInfo = new System.Windows.Forms.ToolTip(this.components);
@@ -444,16 +444,16 @@ namespace CalculatorGUI
             this.buttonArccos.UseVisualStyleBackColor = true;
             this.buttonArccos.Click += new System.EventHandler(this.buttonArccos_Click);
             // 
-            // button_Exponent
+            // buttonExponent
             // 
-            this.button_Exponent.Location = new System.Drawing.Point(10, 254);
-            this.button_Exponent.Name = "button_Exponent";
-            this.button_Exponent.Size = new System.Drawing.Size(64, 54);
-            this.button_Exponent.TabIndex = 6;
-            this.button_Exponent.Text = "ab˟";
-            this.toolTipInfo.SetToolTip(this.button_Exponent, "Pow(base, exponent)");
-            this.button_Exponent.UseVisualStyleBackColor = true;
-            this.button_Exponent.Click += new System.EventHandler(this.button_Exponent_Click);
+            this.buttonExponent.Location = new System.Drawing.Point(10, 254);
+            this.buttonExponent.Name = "buttonExponent";
+            this.buttonExponent.Size = new System.Drawing.Size(64, 54);
+            this.buttonExponent.TabIndex = 6;
+            this.buttonExponent.Text = "ab˟";
+            this.toolTipInfo.SetToolTip(this.buttonExponent, "Pow(base, exponent)");
+            this.buttonExponent.UseVisualStyleBackColor = true;
+            this.buttonExponent.Click += new System.EventHandler(this.buttonExponent_Click);
             // 
             // buttonLog
             // 
@@ -476,14 +476,15 @@ namespace CalculatorGUI
             this.buttonGamma.UseVisualStyleBackColor = true;
             this.buttonGamma.Click += new System.EventHandler(this.buttonGamma_Click);
             // 
-            // button_MAD
+            // buttonMAD
             // 
-            this.button_MAD.Location = new System.Drawing.Point(12, 314);
-            this.button_MAD.Name = "button_MAD";
-            this.button_MAD.Size = new System.Drawing.Size(62, 51);
-            this.button_MAD.TabIndex = 9;
-            this.button_MAD.Text = "MAD";
-            this.button_MAD.UseVisualStyleBackColor = true;
+            this.buttonMAD.Location = new System.Drawing.Point(12, 314);
+            this.buttonMAD.Name = "buttonMAD";
+            this.buttonMAD.Size = new System.Drawing.Size(62, 51);
+            this.buttonMAD.TabIndex = 9;
+            this.buttonMAD.Text = "MAD";
+            this.buttonMAD.UseVisualStyleBackColor = true;
+            this.buttonMAD.Click += new System.EventHandler(this.buttonMAD_Click);
             // 
             // buttonSinh
             // 
@@ -513,10 +514,10 @@ namespace CalculatorGUI
             this.ClientSize = new System.Drawing.Size(622, 594);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonSinh);
-            this.Controls.Add(this.button_MAD);
+            this.Controls.Add(this.buttonMAD);
             this.Controls.Add(this.buttonGamma);
             this.Controls.Add(this.buttonLog);
-            this.Controls.Add(this.button_Exponent);
+            this.Controls.Add(this.buttonExponent);
             this.Controls.Add(this.buttonArccos);
             this.Controls.Add(this.buttonComma);
             this.Controls.Add(this.buttonSTD);
@@ -564,10 +565,10 @@ namespace CalculatorGUI
         private Button buttonSTD;
         private Button buttonComma;
         private Button buttonArccos;
-        private Button button_Exponent;
+        private Button buttonExponent;
         private Button buttonLog;
         private Button buttonGamma;
-        private Button button_MAD;
+        private Button buttonMAD;
         private Button buttonSinh;
         private Button buttonClear;
         private ToolTip toolTipInfo;
