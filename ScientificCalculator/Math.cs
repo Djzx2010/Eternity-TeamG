@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Diagnostics;
+using System;
 
 namespace ScientificCalculator
 {
@@ -6,6 +7,7 @@ namespace ScientificCalculator
 	{
 		private const double TOLERANCE = 0.0000000001;
 		private const double EULERS_NUMBER = 2.7182818284590452353602874713527;
+		private const int ACCURACY = 1000000;
 
 		public static double Abs(double x)
 		{
@@ -117,7 +119,7 @@ namespace ScientificCalculator
 				// https://stackoverflow.com/a/29877278/7916867
 				int accuracy = 1000000;
 				double accuracy2 = 1.0 + 1.0 / accuracy;
-
+				
 				bool isExponentNegative = (exponent < 0);
 				exponent = Abs(exponent);
 
@@ -335,5 +337,124 @@ namespace ScientificCalculator
 
 			return sign * (result + (1 / Log(count, _base)));
 		}
+
+		// Aux function: Power function (double^int).
+		public static double Power(double x, int y)
+		{
+			double res = 1;
+
+			if (y > 0)
+			{
+				for (int i = 1; i <= y; ++i)
+				{
+					res *= x;
+				}
+			}
+			else if (y < 0)
+			{
+				for (int i = -1; i >= y; --i)
+				{
+					res /= x;
+				}
+			}
+
+			return res;
+		}
+
+		// Aux function: Power function (double^double).
+		public static double Power(double b, double x)
+		{
+			if (b == 0)
+			{
+				if (x == 0)
+				{
+					return 1;
+				}
+				else if (x > 0)
+				{
+					return b;
+				}
+				else
+				{
+					return double.PositiveInfinity;
+				}
+			}
+
+			if (x % 1 == 0)
+			{
+				return Power(b, (int)x);
+			}
+			else
+			{
+				if (b < 0)
+                {
+					throw new System.ArgumentException();
+				}
+				else
+                {
+					bool negative = x < 0;
+					x = Abs(x);
+					bool smallBase = (b > 1 && x > 1) || (b < 1 && x < 1);
+
+					double total = System.Math.Log(b) * ACCURACY * x;
+					double tempAccuracy = 1.0 + 1.0 / ACCURACY;
+					double res = b;
+
+					while (true)
+					{
+						double t2 = System.Math.Log(res) * ACCURACY;
+
+						if ((smallBase && t2 > total) || (!smallBase && t2 < total))
+						{
+							break;
+						}
+
+						if (smallBase)
+						{
+							res *= tempAccuracy;
+						}
+						else
+						{
+							res /= tempAccuracy;
+						}
+					}
+
+					if (negative)
+					{
+						res = 1 / res;
+					}
+
+					return res;
+				}
+			}
+		}
+
+		// ab^x
+		// Power function (double * double^double).
+		public static double Power(double a, double b, double x)
+        {			
+			if (a == 0)
+			{
+				if (b == 0 && x == -1)
+                {
+					throw new System.ArgumentException();
+				}
+				else
+                {
+					return a;
+				}
+			}
+			else
+            {
+				if (x == 0 && b == 0)
+				{
+					return 1;
+                }
+                else
+                {
+					return a * Power(b, x);
+				}				
+			}
+        }
 	}
 }
