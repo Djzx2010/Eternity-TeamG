@@ -15,14 +15,14 @@ namespace FunctionUnitTests
 
         [TestMethod]
         // Arccos undefined outside of [-1, 1] so we expect an exception
-        public void Exception_Undefined_Range_Negative()
+        public void Undefined_Range_Negative()
         {
             Assert.IsTrue(double.IsNaN(ScientificCalculator.Math.Arccos(1.5)));
         }
 
         [TestMethod]
         // Arccos undefined outside of [-1, 1] so we expect an exception
-        public void Exception_Undefined_Range_Positive()
+        public void Undefined_Range_Positive()
         {
             Assert.IsTrue(double.IsNaN(ScientificCalculator.Math.Arccos(1.5)));
         }
