@@ -443,7 +443,7 @@ namespace ScientificCalculator
 			{
 				if (b == 0 && x == -1)
 				{
-					throw new System.ArgumentException();
+					return Double.NaN;
 				}
 				else
 				{
