@@ -186,10 +186,10 @@ namespace ScientificCalculator
 
 
 		// Lanczos Approximation 
-		private const int _g = 7;
-		private const int _n = 8;
+		private const int g = 7;
+		private const int n = 8;
 		private const double _SQRT_2PI = 0.91893853320467274178;
-		private static readonly double[] _p = { 
+		private static readonly double[] p = { 
 			0.99999999999980993, 676.5203681218851, -1259.1392167224028,
 			771.32342877765313, -176.61502916214059, 12.507343278686905,
 			-0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7
@@ -201,25 +201,25 @@ namespace ScientificCalculator
 			{
 				// Use Euler's reflection formula:
 				// Gamma(x) = Pi / [Sin[Pi*z] * Gamma[1-z]];
-				// TODO: Update these to not use built in functions
-				return System.Math.Log(System.Math.PI / System.Math.Sin(System.Math.PI * x)) - Gamma(1.0 - x);
+				// TODO: Update these to not use built in functions 
+				return Sinh(System.Math.PI / Sinh(System.Math.PI * x)) - Gamma(1.0 - x);
 			}
 
 			else
             {
 				x -= 1.0;
 				var sum = 0.0;
-				var ba = x + _g + 0.5;
+				var ba = x + g + 0.5;
 				
-				for (var i = _n; i >= 1; i--)
+				for (var i = n; i >= 1; i--)
                 {
-					sum += _p[i] / (x + i);
+					sum += p[i] / (x + i);
                 }
 
-				sum += _p[0];
+				sum += p[0];
 
 				// TODO: Update these to not use built in functions
-				return ((_SQRT_2PI + System.Math.Log(sum)) - ba) + System.Math.Log(ba) * (x + 0.5);
+				return ((_SQRT_2PI + Log(sum, 10)) - ba) + Log(ba, 10) * (x + 0.5);
 			}
 
 		}
