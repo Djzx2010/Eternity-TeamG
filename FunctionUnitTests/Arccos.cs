@@ -14,19 +14,17 @@ namespace FunctionUnitTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(System.ArgumentException))]
         // Arccos undefined outside of [-1, 1] so we expect an exception
         public void Exception_Undefined_Range_Negative()
         {
-            ScientificCalculator.Math.Arccos(1.5);
+            Assert.IsTrue(double.IsNaN(ScientificCalculator.Math.Arccos(1.5)));
         }
 
         [TestMethod]
-        [ExpectedException(typeof(System.ArgumentException))]
         // Arccos undefined outside of [-1, 1] so we expect an exception
         public void Exception_Undefined_Range_Positive()
         {
-            ScientificCalculator.Math.Arccos(-2);
+            Assert.IsTrue(double.IsNaN(ScientificCalculator.Math.Arccos(1.5)));
         }
 
         [TestMethod]
@@ -50,27 +48,27 @@ namespace FunctionUnitTests
         [TestMethod]
         public void Correct_Value_Static_Test()
         {
-            const double test_value = 0.7;
+            const double testValue = 0.7;
 
-            double custom_result = ScientificCalculator.Math.Arccos(test_value);
-            double native_result = System.Math.Acos(test_value);
+            double customResult = ScientificCalculator.Math.Arccos(testValue);
+            double nativeResult = System.Math.Acos(testValue);
 
-            testContextInstance.WriteLine($"Custom: {custom_result}, Native: {native_result}");
+            testContextInstance.WriteLine($"Custom: {customResult}, Native: {nativeResult}");
 
-            Assert.AreEqual(native_result, custom_result, 0.001);
+            Assert.AreEqual(nativeResult, customResult, 0.001);
         }
 
         [TestMethod]
         public void Correct_Value_Static_Test_Two()
         {
-            const double test_value = 0.23;
+            const double testValue = 0.23;
 
-            double custom_result = ScientificCalculator.Math.Arccos(test_value);
-            double native_result = System.Math.Acos(test_value);
+            double customResult = ScientificCalculator.Math.Arccos(testValue);
+            double nativeResult = System.Math.Acos(testValue);
 
-            testContextInstance.WriteLine($"Custom: {custom_result}, Native: {native_result}");
+            testContextInstance.WriteLine($"Custom: {customResult}, Native: {nativeResult}");
 
-            Assert.AreEqual(native_result, custom_result, 0.001);
+            Assert.AreEqual(nativeResult, customResult, 0.001);
         }
 
         [TestMethod]
@@ -80,14 +78,14 @@ namespace FunctionUnitTests
             System.Random rand = new System.Random();
 
             // Generate a random number between -1 and 1 rounded to three decimal places
-            double test_value = System.Math.Round(rand.NextDouble() * 2 - 1, 3);
+            double testValue = System.Math.Round(rand.NextDouble() * 2 - 1, 3);
 
-            double custom_result = ScientificCalculator.Math.Arccos(test_value);
-            double native_result = System.Math.Acos(test_value);
+            double customResult = ScientificCalculator.Math.Arccos(testValue);
+            double nativeResult = System.Math.Acos(testValue);
 
-            testContextInstance.WriteLine($"Test Value: {test_value}, Custom: {custom_result}, Native: {native_result}");
+            testContextInstance.WriteLine($"Test Value: {testValue}, Custom: {customResult}, Native: {nativeResult}");
 
-            Assert.AreEqual(native_result, custom_result, 0.01);
+            Assert.AreEqual(nativeResult, customResult, 0.01);
         }
     }
 }

@@ -16,11 +16,10 @@ namespace FunctionUnitTests
         // a * b^x
 
         [TestMethod]
-        [ExpectedException(typeof(System.ArgumentException))]
         // 0 * 1/0 = Error
         public void Power_ExceptionalCaseZeroOneZero_ArgumentExceptionThrown()
         {
-            ScientificCalculator.Math.Power(0,0,-1);
+            Assert.IsTrue(double.IsNaN(ScientificCalculator.Math.Power(0, 0, -1)));
         }
 
         [TestMethod]        

@@ -227,7 +227,6 @@ namespace ScientificCalculator
 		/* Arccos calculating using Taylor-Series, currently defaults to rads */
 		public static double Arccos(double x)
         {
-			// Exception for now, but probably needs to be something else
 			// Arccos is only defined within the range of [-1, 1]
 			if (x < -1 || x > 1)
             {
