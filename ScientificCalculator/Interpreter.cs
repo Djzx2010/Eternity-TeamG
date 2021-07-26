@@ -36,6 +36,7 @@ namespace ScientificCalculator
             FunctionNd stddevDel = ScientificCalculator.Math.StdDev;
             Function1d acosDel = ScientificCalculator.Math.Arccos;
             Function2d logDel = ScientificCalculator.Math.Log;
+            Function2d powerDel = ScientificCalculator.Math.Power;
             GetArray getArrayDel = GetArr;
 
             //Bind the delegates to the tokens in the expression
@@ -49,6 +50,7 @@ namespace ScientificCalculator
             SetFunction("GetArr", getArrayDel);
             SetFunction("Arccos", acosDel);
             SetFunction("Log", logDel);
+            SetFunction("Power", powerDel);
             SetVariable("ans", answer);
             SetVariable("arr", arr);
 

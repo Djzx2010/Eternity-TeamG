@@ -34,6 +34,9 @@ namespace ScientificCalculator
 
 		public static double Sqrt(double x)
 		{
+			if (x < 0)
+				return Double.NaN;
+
 			double sqrt;
 			double x0 = x;
 
@@ -59,6 +62,9 @@ namespace ScientificCalculator
 
 		public static double Mean(params double[] x)
 		{
+			if (x.Length == 0)
+				return Double.NaN;
+
 			double mean = 0.0;
 
 			for (var i = 0; i < x.Length; i++)
@@ -69,11 +75,11 @@ namespace ScientificCalculator
 			return mean / x.Length;
 		}
 
-		public static double StdDev(params double[] x)
+		public static double StdDev(params double[] x) 
 		{
 			var n = x.Length;
 
-			if (n > 0)
+			if (n > 1)
 			{
 				double sigma = 0.0;
 				double _mean = Mean(x);
@@ -87,8 +93,8 @@ namespace ScientificCalculator
 			}
 			else
             {
-				return 0.0;
-            }
+				return Double.NaN;
+			}
 				
 		}
 
@@ -225,7 +231,7 @@ namespace ScientificCalculator
 			// Arccos is only defined within the range of [-1, 1]
 			if (x < -1 || x > 1)
             {
-				throw new System.ArgumentException();
+				return Double.NaN;
             }
 				
 
@@ -388,7 +394,7 @@ namespace ScientificCalculator
 			{
 				if (b < 0)
 				{
-					throw new System.ArgumentException();
+					return Double.NaN;
 				}
 				else
 				{
