@@ -207,7 +207,7 @@ namespace ScientificCalculator
 			{
 				// Use Euler's reflection formula:
 				// Gamma(x) = Pi / [Sin[Pi*z] * Gamma[1-z]];
-				// TODO: Update these to not use built in functions 
+				// TODO: Replace sinh with sin
 				return Log(EULERS_NUMBER, PI / Sinh(PI * x)) - LnGamma(1.0 - x);
 			}
 
