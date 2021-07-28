@@ -55,6 +55,7 @@ namespace ScientificCalculator
             SetFunction("Power", powerDel);
             SetVariable("ans", answer);
             SetVariable("arr", arr);
+            SetVariable("PI", ScientificCalculator.Math.PI);
 
         }
 
