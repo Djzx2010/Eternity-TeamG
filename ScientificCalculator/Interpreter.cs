@@ -18,6 +18,8 @@ namespace ScientificCalculator
         private double answer;
         private double[] arr;
 
+        private bool arrSet = false;
+
         public Interpreter() : base(InterpreterOptions.PrimitiveTypes)
         {
             answer = 0.0;
@@ -25,7 +27,7 @@ namespace ScientificCalculator
 
             //Default type must be set to double so integer division is correct real number
             SetDefaultNumberType(DefaultNumberType.Double);
-           
+
             //Create instances of the delegates
             Function1d squareDel = ScientificCalculator.Math.Square;
             Function1d sqrtDel = ScientificCalculator.Math.Sqrt;
@@ -56,6 +58,7 @@ namespace ScientificCalculator
             SetVariable("ans", answer);
             SetVariable("arr", arr);
             SetVariable("PI", ScientificCalculator.Math.PI);
+            SetVariable("e", 2.7182818284590452353602874713527);
 
         }
 
@@ -70,11 +73,15 @@ namespace ScientificCalculator
                 {
                     String line = reader.ReadLine();
                     String[] tokens = line.Split(',');
-                    if(tokens[column]!="")
+                    if (column < tokens.Length && tokens[column] != "")
                         arrList.Add(Double.Parse(tokens[column]));
                 }
-                arr = arrList.ToArray();
-                SetVariable("arr", arr);
+                if (arrList.Count > 0)
+                {
+                    arr = arrList.ToArray();
+                    SetVariable("arr", arr);
+                    arrSet = true;
+                }
             }
         }
 
@@ -87,6 +94,7 @@ namespace ScientificCalculator
         {
             arr = x;
             SetVariable("arr", arr);
+            arrSet = true;
         }
 
         public double EvaluateString(String expression)
@@ -94,7 +102,17 @@ namespace ScientificCalculator
             expression = expression.Replace("x", "*");
             expression = expression.Replace("σ", "StdDev");
             expression = expression.Replace("√", "Sqrt");
-            answer = Eval<double>(expression);
+            expression = expression.Replace("π", "PI");
+            if (expression.Contains("arr"))
+            {
+                if (arrSet)
+                    answer = Eval<double>(expression);
+                else
+                    answer = Double.NaN;
+            }
+            else
+                answer = Eval<double>(expression);
+
             SetVariable("ans", answer);
             return answer;
         }
