@@ -170,6 +170,19 @@ namespace ScientificCalculator
 			return (Exponent(EULERS_NUMBER, x) - Exponent(EULERS_NUMBER, (x * -1))) / 2;
 		}
 
+		public static double Sin(double x) // using Taylor's Series
+        {
+			const int TERMS = 7;
+			x %= 360; 
+			double rad = x * PI / 180;
+			double sin = 0; 
+
+			for (int i = 0; i < TERMS; i++)
+			{ 
+				sin += (Exponent(-1, i) * Exponent(rad, 2 * i + 1) / Factorial(2 * i + 1));
+			}
+			return sin;
+		}
 
         public static double MeanAbsoluteDeviation(params double[] x)
         {
@@ -208,7 +221,7 @@ namespace ScientificCalculator
 				// Use Euler's reflection formula:
 				// Gamma(x) = Pi / [Sin[Pi*z] * Gamma[1-z]];
 				// TODO: Replace sinh with sin
-				return Log(EULERS_NUMBER, PI / Sinh(PI * x)) - LnGamma(1.0 - x);
+				return Log(EULERS_NUMBER, PI / Sin(PI * x)) - LnGamma(1.0 - x);
 			}
 
 			else
