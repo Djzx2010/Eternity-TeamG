@@ -60,7 +60,7 @@ namespace ScientificCalculator
         }
 
 
-        public void LoadArrayFromCSV(String fileName)
+        public void LoadArrayFromCSV(String fileName, uint column)
         {
             //Incomplete
             using (var reader = new StreamReader(@fileName))
@@ -69,7 +69,9 @@ namespace ScientificCalculator
                 while (!reader.EndOfStream)
                 {
                     String line = reader.ReadLine();
-                    arrList.Add(Double.Parse(line));
+                    String[] tokens = line.Split(',');
+                    if (tokens[column] != "")
+                        arrList.Add(Double.Parse(tokens[column]));
                 }
                 arr = arrList.ToArray();
                 SetVariable("arr", arr);

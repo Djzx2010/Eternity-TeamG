@@ -268,5 +268,24 @@ namespace CalculatorGUI
         {
 
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenForm openForm = new OpenForm();
+            DialogResult res = openForm.ShowDialog();
+
+
+            openForm.Dispose();
+        }
     }
 }
