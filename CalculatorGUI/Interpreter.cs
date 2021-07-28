@@ -25,19 +25,19 @@ namespace ScientificCalculator
 
             //Default type must be set to double so integer division is correct real number
             SetDefaultNumberType(DefaultNumberType.Double);
-           
+
             //Create instances of the delegates
             Function1d squareDel = ScientificCalculator.Math.Square;
             Function1d sqrtDel = ScientificCalculator.Math.Sqrt;
             Function1d absDel = ScientificCalculator.Math.Abs;
             Function1d sinhDel = ScientificCalculator.Math.Sinh;
+            Function1d gammaDel = ScientificCalculator.Math.Gamma;
             FunctionNd meanAbsDevDel = ScientificCalculator.Math.MeanAbsoluteDeviation;
             FunctionNd meanDel = ScientificCalculator.Math.Mean;
             FunctionNd stddevDel = ScientificCalculator.Math.StdDev;
             Function1d acosDel = ScientificCalculator.Math.Arccos;
             Function2d logDel = ScientificCalculator.Math.Log;
-            Function2d expDel = ScientificCalculator.Math.Exponent;
-            Function1d gammaDel = ScientificCalculator.Math.Gamma;
+            Function2d powerDel = ScientificCalculator.Math.Power;
             GetArray getArrayDel = GetArr;
 
             //Bind the delegates to the tokens in the expression
@@ -45,16 +45,17 @@ namespace ScientificCalculator
             SetFunction("Sqrt", sqrtDel);
             SetFunction("Abs", absDel);
             SetFunction("Sinh", sinhDel);
+            SetFunction("Gamma", gammaDel);
             SetFunction("MeanAbsDel", meanAbsDevDel);
             SetFunction("Mean", meanDel);
             SetFunction("StdDev", stddevDel);
             SetFunction("GetArr", getArrayDel);
             SetFunction("Arccos", acosDel);
-            SetFunction("Gamma", gammaDel);
             SetFunction("Log", logDel);
-            SetFunction("Pow", expDel);
+            SetFunction("Power", powerDel);
             SetVariable("ans", answer);
             SetVariable("arr", arr);
+            SetVariable("PI", ScientificCalculator.Math.PI);
 
         }
 
@@ -91,18 +92,8 @@ namespace ScientificCalculator
             expression = expression.Replace("x", "*");
             expression = expression.Replace("σ", "StdDev");
             expression = expression.Replace("√", "Sqrt");
-            expression = expression.Replace("÷", "/");
-            expression = expression.Replace("Γ", "Gamma");
-
-            try
-            {
-                answer = Eval<double>(expression);
-                SetVariable("ans", answer);
-            }
-            catch(Exception e)
-            {
-                answer = Double.NaN;
-            }
+            answer = Eval<double>(expression);
+            SetVariable("ans", answer);
             return answer;
         }
 
