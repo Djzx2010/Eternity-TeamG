@@ -95,7 +95,10 @@ namespace CalculatorGUI
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -753,15 +756,45 @@ namespace CalculatorGUI
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.aboutToolStripMenuItem.Text = "&About...";
             // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(12, 528);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(64, 54);
+            this.button11.TabIndex = 14;
+            this.button11.Text = "arr";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(151, 314);
+            this.button10.Location = new System.Drawing.Point(12, 468);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(64, 54);
-            this.button10.TabIndex = 13;
-            this.button10.Text = "arr";
+            this.button10.TabIndex = 15;
+            this.button10.Text = "π";
             this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.button10.Click += new System.EventHandler(this.button10_Click_1);
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(82, 528);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(64, 54);
+            this.button12.TabIndex = 16;
+            this.button12.Text = "ans";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(82, 468);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(64, 54);
+            this.button13.TabIndex = 17;
+            this.button13.Text = "e";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // Form1
             // 
@@ -769,7 +802,10 @@ namespace CalculatorGUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(622, 594);
+            this.Controls.Add(this.button13);
+            this.Controls.Add(this.button12);
             this.Controls.Add(this.button10);
+            this.Controls.Add(this.button11);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonSinh);
             this.Controls.Add(this.buttonMAD);
@@ -861,7 +897,10 @@ namespace CalculatorGUI
         private ToolStripMenuItem searchToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripMenuItem aboutToolStripMenuItem;
+        private Button button11;
         private Button button10;
+        private Button button12;
+        private Button button13;
     }
 }
 

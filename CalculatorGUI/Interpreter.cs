@@ -58,6 +58,7 @@ namespace ScientificCalculator
             SetVariable("ans", answer);
             SetVariable("arr", arr);
             SetVariable("PI", ScientificCalculator.Math.PI);
+            SetVariable("e", 2.7182818284590452353602874713527);
 
         }
 
@@ -101,6 +102,7 @@ namespace ScientificCalculator
             expression = expression.Replace("x", "*");
             expression = expression.Replace("σ", "StdDev");
             expression = expression.Replace("√", "Sqrt");
+            expression = expression.Replace("π", "PI");
             if(expression.Contains("arr"))
             {
                 if (arrSet)

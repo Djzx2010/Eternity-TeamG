@@ -291,9 +291,26 @@ namespace CalculatorGUI
             openForm.Dispose();
         }
 
-        private void button10_Click(object sender, EventArgs e)
+
+
+        private void button11_Click(object sender, EventArgs e)
         {
             displayField.AppendText("arr");
+        }
+
+        private void button10_Click_1(object sender, EventArgs e)
+        {
+            displayField.AppendText("π");
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            displayField.AppendText("e");
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            displayField.AppendText("ans");
         }
     }
 }
