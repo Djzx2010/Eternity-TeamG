@@ -13,6 +13,8 @@ namespace CalculatorGUI
 {
     public partial class OpenForm : Form
     {
+        public String fileLocation { get; set; }
+        public decimal column { get; set; }
         public OpenForm()
         {
             InitializeComponent();
@@ -36,6 +38,23 @@ namespace CalculatorGUI
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            column = numericUpDown1.Value;
+            fileLocation = textBox1.Text;
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
         }

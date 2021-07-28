@@ -284,8 +284,16 @@ namespace CalculatorGUI
             OpenForm openForm = new OpenForm();
             DialogResult res = openForm.ShowDialog();
 
-
+            if(res == DialogResult.OK)
+            {
+                interpreter.LoadArrayFromCSV(openForm.fileLocation, (uint)openForm.column);
+            }
             openForm.Dispose();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            displayField.AppendText("arr");
         }
     }
 }

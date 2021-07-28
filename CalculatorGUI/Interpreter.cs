@@ -18,6 +18,8 @@ namespace ScientificCalculator
         private double answer;
         private double[] arr;
 
+        private bool arrSet = false;
+
         public Interpreter() : base(InterpreterOptions.PrimitiveTypes)
         {
             answer = 0.0;
@@ -70,11 +72,15 @@ namespace ScientificCalculator
                 {
                     String line = reader.ReadLine();
                     String[] tokens = line.Split(',');
-                    if (tokens[column] != "")
+                    if (column < tokens.Length && tokens[column] != "")
                         arrList.Add(Double.Parse(tokens[column]));
                 }
-                arr = arrList.ToArray();
-                SetVariable("arr", arr);
+                if (arrList.Count > 0)
+                {
+                    arr = arrList.ToArray();
+                    SetVariable("arr", arr);
+                    arrSet = true;
+                }
             }
         }
 
@@ -87,6 +93,7 @@ namespace ScientificCalculator
         {
             arr = x;
             SetVariable("arr", arr);
+            arrSet = true;
         }
 
         public double EvaluateString(String expression)
@@ -94,7 +101,16 @@ namespace ScientificCalculator
             expression = expression.Replace("x", "*");
             expression = expression.Replace("σ", "StdDev");
             expression = expression.Replace("√", "Sqrt");
-            answer = Eval<double>(expression);
+            if(expression.Contains("arr"))
+            {
+                if (arrSet)
+                    answer = Eval<double>(expression);
+                else
+                    answer = Double.NaN;
+            }
+            else
+                answer = Eval<double>(expression);
+
             SetVariable("ans", answer);
             return answer;
         }

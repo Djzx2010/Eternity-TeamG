@@ -95,6 +95,7 @@ namespace CalculatorGUI
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button10 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -752,12 +753,23 @@ namespace CalculatorGUI
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.aboutToolStripMenuItem.Text = "&About...";
             // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(151, 314);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(64, 54);
+            this.button10.TabIndex = 13;
+            this.button10.Text = "arr";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(622, 594);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonSinh);
             this.Controls.Add(this.buttonMAD);
@@ -849,6 +861,7 @@ namespace CalculatorGUI
         private ToolStripMenuItem searchToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripMenuItem aboutToolStripMenuItem;
+        private Button button10;
     }
 }
 
