@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -103,6 +102,20 @@ namespace FunctionUnitTests
         {
             var testValueBase = 10;
             var testValue = 777.777;
+
+            double custom_result = ScientificCalculator.Math.Log(testValueBase, testValue);
+            double native_result = System.Math.Log(testValue, testValueBase);
+
+            testContextInstance.WriteLine($"Test Value: {testValue} using Base: {testValueBase}, Custom: {custom_result}, Native: {native_result}");
+
+            Assert.AreEqual(native_result, custom_result, 0.001);
+        }
+
+        [TestMethod]
+        public void Correct_Value_Test_Algebraic()
+        {
+            var testValueBase = 10;
+            var testValue = System.Math.Sqrt(2);
 
             double custom_result = ScientificCalculator.Math.Log(testValueBase, testValue);
             double native_result = System.Math.Log(testValue, testValueBase);

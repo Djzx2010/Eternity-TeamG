@@ -79,5 +79,18 @@ namespace FunctionUnitTests
 
             Assert.AreEqual(native_result, custom_result, 0.0001);
         }
+
+        [TestMethod]
+        public void Correct_Value_Algebaric()
+        {
+            double testValue = System.Math.Sqrt(2);
+
+            double custom_result = ScientificCalculator.Math.Sinh(testValue);
+            double native_result = System.Math.Sinh(testValue);
+
+            testContextInstance.WriteLine($"Test Value: {testValue}, Custom: {custom_result}, Native: {native_result}");
+
+            Assert.AreEqual(native_result, custom_result, 0.0001);
+        }
     }
 }

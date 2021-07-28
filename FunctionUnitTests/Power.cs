@@ -103,6 +103,21 @@ namespace FunctionUnitTests
 
             testContextInstance.WriteLine($"Custom: {custom_result}, Native: {native_result}");
             Assert.AreEqual(custom_result, native_result);
-        }        
+        }
+
+        [TestMethod]
+        // Test random double exponent value
+        public void Power_CorrectValue_Algebraic()
+        {
+            double a = 1;
+            double b = System.Math.Sqrt(2);
+            double x = 12;
+
+            double custom_result = ScientificCalculator.Math.Power(a, b, x);
+            double native_result = a * System.Math.Pow(b, x);
+
+            testContextInstance.WriteLine($"Custom: {custom_result}, Native: {native_result}");
+            Assert.AreEqual(custom_result, native_result, 0.000001);
+        }
     }
 }
