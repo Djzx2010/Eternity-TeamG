@@ -5,6 +5,7 @@ namespace ScientificCalculator
 {
 	public class Math
 	{
+		public const double PI = 3.141592653589793;
 		private const double TOLERANCE = 0.0000000001;
 		private const double EULERS_NUMBER = 2.7182818284590452353602874713527;
 		private const int ACCURACY = 1000000;
@@ -194,7 +195,12 @@ namespace ScientificCalculator
 			771.32342877765313, -176.61502916214059, 12.507343278686905,
 			-0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7
 		};
+
 		public static double Gamma(double x)
+        {
+			return Exponent(EULERS_NUMBER, LnGamma(x));
+        }
+		public static double LnGamma(double x)
         {
 
 			if (x < 0.5) 
@@ -202,7 +208,7 @@ namespace ScientificCalculator
 				// Use Euler's reflection formula:
 				// Gamma(x) = Pi / [Sin[Pi*z] * Gamma[1-z]];
 				// TODO: Update these to not use built in functions 
-				return Sinh(System.Math.PI / Sinh(System.Math.PI * x)) - Gamma(1.0 - x);
+				return Log(EULERS_NUMBER, PI / Sinh(PI * x)) - LnGamma(1.0 - x);
 			}
 
 			else
@@ -219,7 +225,7 @@ namespace ScientificCalculator
 				sum += p[0];
 
 				// TODO: Update these to not use built in functions
-				return ((_SQRT_2PI + Log(sum, 10)) - ba) + Log(ba, 10) * (x + 0.5);
+				return ((_SQRT_2PI + Log(EULERS_NUMBER, sum)) - ba) + Log(EULERS_NUMBER, ba) * (x + 0.5);
 			}
 
 		}
