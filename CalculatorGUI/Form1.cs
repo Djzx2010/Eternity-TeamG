@@ -312,5 +312,20 @@ namespace CalculatorGUI
         {
             displayField.AppendText("ans");
         }
+
+        private void buttonTrigUnits_Click(object sender, EventArgs e)
+        {
+            ScientificCalculator.Math.toggleTrigUnits();
+            ScientificCalculator.TrigUnits unitType = ScientificCalculator.Math.GetUnitType();
+
+            if (unitType == ScientificCalculator.TrigUnits.RAD)
+            {
+                buttonTrigUnits.Text = "RAD";
+            }
+            else
+            {
+                buttonTrigUnits.Text = "DEG";
+            }
+        }
     }
 }

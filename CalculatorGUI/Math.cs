@@ -3,12 +3,37 @@ using System;
 
 namespace ScientificCalculator
 {
+	public enum TrigUnits
+    {
+		RAD,
+		DEG
+    }
+
 	public class Math
 	{
 		public const double PI = 3.141592653589793;
 		private const double TOLERANCE = 0.0000000001;
 		private const double EULERS_NUMBER = 2.7182818284590452353602874713527;
 		private const int ACCURACY = 1000000;
+		// Default to RAD
+		private static TrigUnits unitType = TrigUnits.RAD;
+
+		public static TrigUnits GetUnitType()
+        {
+			return unitType;
+        }
+
+		public static void toggleTrigUnits()
+        {
+			if (unitType == TrigUnits.RAD)
+            {
+				unitType = TrigUnits.DEG;
+            }
+			else if (unitType == TrigUnits.DEG)
+            {
+				unitType = TrigUnits.RAD;
+			}
+        }
 
 		public static double Abs(double x)
 		{
@@ -167,7 +192,14 @@ namespace ScientificCalculator
 
 		public static double Sinh(double x)
 		{
-			return (Exponent(EULERS_NUMBER, x) - Exponent(EULERS_NUMBER, (x * -1))) / 2;
+			double result = (Exponent(EULERS_NUMBER, x) - Exponent(EULERS_NUMBER, (x * -1))) / 2;
+
+			if (unitType == TrigUnits.DEG)
+			{
+				result = toDegrees(result);
+			}
+
+			return result;
 		}
 
 
@@ -271,8 +303,10 @@ namespace ScientificCalculator
 
 				result = ((System.Math.PI / 2) - result);
 
-				// TODO: Maybe have a toggle between DEG and RADS?
-				// return HelperFunctions.toDegrees(result);
+				if(unitType == TrigUnits.DEG)
+                {
+					result = toDegrees(result);
+                }
 
 				return result;
 			}
