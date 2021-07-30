@@ -25,7 +25,6 @@ namespace CalculatorGUI
             InitializeComponent();
             this.MinimumSize = this.Size;
             this.MaximumSize = this.Size;
-            this.displayField.ForeColor = Color.Red;
             interpreter = new ScientificCalculator.Interpreter();
             
         }
@@ -220,7 +219,7 @@ namespace CalculatorGUI
         // MAD
         private void buttonMAD_Click(object sender, EventArgs e)
         {
-
+            displayField.AppendText("MAD(");
         }
 
         /*
@@ -236,25 +235,18 @@ namespace CalculatorGUI
         {
 
             //if(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9)
-            if (e.KeyCode == Keys.Shift)
+            if (e.KeyCode == Keys.Enter)
             {
-                shiftHeld = true;
+                listBoxHistory.Items.Add(displayField.Text);
+                Double res = interpreter.EvaluateString(displayField.Text);
+                displayField.Text = res.ToString();
+                listBoxHistory.Items.Add(res.ToString());
             }
-            else if (e.KeyCode == Keys.Back)
+            else if(e.KeyCode == Keys.Back)
             {
-                if (displayField.Text.Length > 0)
-                {
-                    displayField.Text = displayField.Text.Substring(0, displayField.Text.Length - 1);
-                }
+                displayField.Text = "";
             }
-            else
-            {
-                String prevKey = "";
-                char c = Convert.ToChar(e.KeyCode);
-                prevKey += c;
-                prevKey = prevKey.ToLower();
-                displayField.AppendText(prevKey);
-            }
+
         }
 
         // HISTORY / MEMORY LISTBOX
@@ -329,5 +321,7 @@ namespace CalculatorGUI
                 buttonTrigUnits.Text = "DEG";
             }
         }
+
+
     }
 }

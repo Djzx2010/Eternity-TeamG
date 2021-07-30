@@ -54,7 +54,6 @@ namespace CalculatorGUI
             this.buttonModulus = new System.Windows.Forms.Button();
             this.buttonClosedBracket = new System.Windows.Forms.Button();
             this.buttonOpenBracket = new System.Windows.Forms.Button();
-            this.displayField = new System.Windows.Forms.TextBox();
             this.listBoxHistory = new System.Windows.Forms.ListBox();
             this.buttonSTD = new System.Windows.Forms.Button();
             this.buttonComma = new System.Windows.Forms.Button();
@@ -99,6 +98,7 @@ namespace CalculatorGUI
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.buttonTrigUnits = new System.Windows.Forms.Button();
+            this.displayField = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -422,19 +422,6 @@ namespace CalculatorGUI
             this.buttonOpenBracket.Text = "(";
             this.buttonOpenBracket.UseVisualStyleBackColor = true;
             this.buttonOpenBracket.Click += new System.EventHandler(this.buttonOpenBracket_Click);
-            // 
-            // displayField
-            // 
-            this.displayField.BackColor = System.Drawing.SystemColors.Control;
-            this.displayField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.displayField.Enabled = false;
-            this.displayField.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.displayField.Location = new System.Drawing.Point(225, 122);
-            this.displayField.MaxLength = 34;
-            this.displayField.Name = "displayField";
-            this.displayField.Size = new System.Drawing.Size(335, 53);
-            this.displayField.TabIndex = 1;
-            this.displayField.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // listBoxHistory
             // 
@@ -798,12 +785,24 @@ namespace CalculatorGUI
             this.buttonTrigUnits.UseVisualStyleBackColor = true;
             this.buttonTrigUnits.Click += new System.EventHandler(this.buttonTrigUnits_Click);
             // 
-            // Form1
+            // displayField
+            // 
+            this.displayField.BackColor = System.Drawing.SystemColors.Menu;
+            this.displayField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.displayField.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.displayField.Location = new System.Drawing.Point(228, 123);
+            this.displayField.Name = "displayField";
+            this.displayField.Size = new System.Drawing.Size(332, 61);
+            this.displayField.TabIndex = 19;
+            this.displayField.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(572, 597);
+            this.Controls.Add(this.displayField);
             this.Controls.Add(this.buttonTrigUnits);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button12);
@@ -819,11 +818,10 @@ namespace CalculatorGUI
             this.Controls.Add(this.buttonComma);
             this.Controls.Add(this.buttonSTD);
             this.Controls.Add(this.listBoxHistory);
-            this.Controls.Add(this.displayField);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.KeyPreview = true;
-            this.Name = "Form1";
+            this.Name = "CalculatorForm";
             this.Text = "Calculator";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.form_KeyDown);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -859,7 +857,6 @@ namespace CalculatorGUI
         private System.Windows.Forms.Button buttonModulus;
         private System.Windows.Forms.Button buttonClosedBracket;
         private System.Windows.Forms.Button buttonOpenBracket;
-        private System.Windows.Forms.TextBox displayField;
         private System.Windows.Forms.Button buttonEvaluate;
         private ListBox listBoxHistory;
         private Button buttonSTD;
@@ -905,6 +902,7 @@ namespace CalculatorGUI
         private Button button12;
         private Button button13;
         private Button buttonTrigUnits;
+        private TextBox displayField;
     }
 }
 

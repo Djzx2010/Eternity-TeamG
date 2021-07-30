@@ -104,6 +104,7 @@ namespace ScientificCalculator
             expression = expression.Replace("√", "Sqrt");
             expression = expression.Replace("π", "PI");
             expression = expression.Replace("Γ", "Gamma");
+            expression = expression.Replace("MAD", "MeanAbsDel");
             try
             {
                 if (expression.Contains("arr"))
