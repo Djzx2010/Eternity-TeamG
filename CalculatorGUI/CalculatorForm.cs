@@ -322,6 +322,32 @@ namespace CalculatorGUI
             }
         }
 
+        private void button14_Click(object sender, EventArgs e)
+        {
+            interpreter.MemoryClear();
+        }
 
+        private void button15_Click(object sender, EventArgs e)
+        {
+            Double memory = interpreter.MemoryRecall();
+            if (!Double.IsNaN(memory))
+                displayField.Text = memory.ToString();
+            else
+                displayField.Text = "";
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Double tryParse = Double.Parse(displayField.Text);
+                interpreter.MemorySave(tryParse);
+            }
+            catch(Exception exc)
+            {
+                displayField.Text = "Invalid Number";
+            }
+
+        }
     }
 }

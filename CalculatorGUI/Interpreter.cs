@@ -17,6 +17,7 @@ namespace ScientificCalculator
 
         private double answer;
         private double[] arr;
+        private double memory;
 
         private bool arrSet = false;
 
@@ -95,6 +96,21 @@ namespace ScientificCalculator
             arr = x;
             SetVariable("arr", arr);
             arrSet = true;
+        }
+
+        public void MemorySave(double memory)
+        {
+            this.memory = memory;
+        }
+
+        public void MemoryClear()
+        {
+            this.memory = Double.NaN;
+        }
+
+        public double MemoryRecall()
+        {
+            return memory;
         }
 
         public double EvaluateString(String expression)

@@ -99,6 +99,9 @@ namespace CalculatorGUI
             this.button13 = new System.Windows.Forms.Button();
             this.buttonTrigUnits = new System.Windows.Forms.Button();
             this.displayField = new System.Windows.Forms.TextBox();
+            this.MC = new System.Windows.Forms.Button();
+            this.MR = new System.Windows.Forms.Button();
+            this.MS = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -796,12 +799,45 @@ namespace CalculatorGUI
             this.displayField.TabIndex = 19;
             this.displayField.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // MC
+            // 
+            this.MC.Location = new System.Drawing.Point(13, 69);
+            this.MC.Name = "MC";
+            this.MC.Size = new System.Drawing.Size(64, 47);
+            this.MC.TabIndex = 20;
+            this.MC.Text = "MC";
+            this.MC.UseVisualStyleBackColor = true;
+            this.MC.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // MR
+            // 
+            this.MR.Location = new System.Drawing.Point(82, 69);
+            this.MR.Name = "MR";
+            this.MR.Size = new System.Drawing.Size(64, 47);
+            this.MR.TabIndex = 21;
+            this.MR.Text = "MR";
+            this.MR.UseVisualStyleBackColor = true;
+            this.MR.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // MS
+            // 
+            this.MS.Location = new System.Drawing.Point(152, 69);
+            this.MS.Name = "MS";
+            this.MS.Size = new System.Drawing.Size(64, 47);
+            this.MS.TabIndex = 22;
+            this.MS.Text = "MS";
+            this.MS.UseVisualStyleBackColor = true;
+            this.MS.Click += new System.EventHandler(this.button16_Click);
+            // 
             // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(572, 597);
+            this.Controls.Add(this.MS);
+            this.Controls.Add(this.MR);
+            this.Controls.Add(this.MC);
             this.Controls.Add(this.displayField);
             this.Controls.Add(this.buttonTrigUnits);
             this.Controls.Add(this.button13);
@@ -903,6 +939,9 @@ namespace CalculatorGUI
         private Button button13;
         private Button buttonTrigUnits;
         private TextBox displayField;
+        private Button MC;
+        private Button MR;
+        private Button MS;
     }
 }
 
