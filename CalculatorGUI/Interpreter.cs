@@ -121,6 +121,7 @@ namespace ScientificCalculator
             expression = expression.Replace("π", "PI");
             expression = expression.Replace("Γ", "Gamma");
             expression = expression.Replace("MAD", "MeanAbsDel");
+            expression = expression.Replace("Pow", "Power");
             try
             {
                 if (expression.Contains("arr"))
