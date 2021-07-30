@@ -163,7 +163,7 @@ namespace CalculatorGUI
             listBoxHistory.Items.Add(displayField.Text);
             Double res = interpreter.EvaluateString(displayField.Text);
             displayField.Text = res.ToString();
-            listBoxHistory.Items.Add(res.ToString());
+            listBoxHistory.Items.Add("= " + res.ToString());
         }
 
         // CLEAR
@@ -240,7 +240,7 @@ namespace CalculatorGUI
                 listBoxHistory.Items.Add(displayField.Text);
                 Double res = interpreter.EvaluateString(displayField.Text);
                 displayField.Text = res.ToString();
-                listBoxHistory.Items.Add(res.ToString());
+                listBoxHistory.Items.Add("= " + res.ToString());
             }
             else if(e.KeyCode == Keys.Back)
             {

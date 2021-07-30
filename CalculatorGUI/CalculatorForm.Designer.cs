@@ -135,7 +135,7 @@ namespace CalculatorGUI
             this.tableLayoutPanel1.Controls.Add(this.buttonClosedBracket, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonOpenBracket, 0, 0);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(172, 198);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(172, 206);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -760,9 +760,9 @@ namespace CalculatorGUI
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(10, 545);
+            this.button12.Location = new System.Drawing.Point(13, 545);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(134, 40);
+            this.button12.Size = new System.Drawing.Size(134, 54);
             this.button12.TabIndex = 16;
             this.button12.Text = "ans";
             this.button12.UseVisualStyleBackColor = true;
@@ -834,7 +834,7 @@ namespace CalculatorGUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(519, 597);
+            this.ClientSize = new System.Drawing.Size(519, 605);
             this.Controls.Add(this.MS);
             this.Controls.Add(this.MR);
             this.Controls.Add(this.MC);
