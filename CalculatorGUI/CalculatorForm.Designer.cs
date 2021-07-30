@@ -135,7 +135,7 @@ namespace CalculatorGUI
             this.tableLayoutPanel1.Controls.Add(this.buttonClosedBracket, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonOpenBracket, 0, 0);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(225, 198);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(172, 198);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -430,7 +430,7 @@ namespace CalculatorGUI
             // 
             this.listBoxHistory.FormattingEnabled = true;
             this.listBoxHistory.ItemHeight = 20;
-            this.listBoxHistory.Location = new System.Drawing.Point(225, 12);
+            this.listBoxHistory.Location = new System.Drawing.Point(172, 12);
             this.listBoxHistory.Name = "listBoxHistory";
             this.listBoxHistory.Size = new System.Drawing.Size(335, 104);
             this.listBoxHistory.TabIndex = 2;
@@ -449,9 +449,9 @@ namespace CalculatorGUI
             // 
             // buttonComma
             // 
-            this.buttonComma.Location = new System.Drawing.Point(152, 529);
+            this.buttonComma.Location = new System.Drawing.Point(80, 485);
             this.buttonComma.Name = "buttonComma";
-            this.buttonComma.Size = new System.Drawing.Size(64, 53);
+            this.buttonComma.Size = new System.Drawing.Size(64, 54);
             this.buttonComma.TabIndex = 4;
             this.buttonComma.Text = ",";
             this.buttonComma.UseVisualStyleBackColor = true;
@@ -492,9 +492,9 @@ namespace CalculatorGUI
             // 
             // buttonGamma
             // 
-            this.buttonGamma.Location = new System.Drawing.Point(150, 198);
+            this.buttonGamma.Location = new System.Drawing.Point(12, 141);
             this.buttonGamma.Name = "buttonGamma";
-            this.buttonGamma.Size = new System.Drawing.Size(64, 54);
+            this.buttonGamma.Size = new System.Drawing.Size(64, 48);
             this.buttonGamma.TabIndex = 8;
             this.buttonGamma.Text = "Γ";
             this.buttonGamma.UseVisualStyleBackColor = true;
@@ -538,7 +538,7 @@ namespace CalculatorGUI
             this.editToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(572, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(519, 28);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -740,7 +740,7 @@ namespace CalculatorGUI
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(12, 528);
+            this.button11.Location = new System.Drawing.Point(10, 485);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(64, 54);
             this.button11.TabIndex = 14;
@@ -750,7 +750,7 @@ namespace CalculatorGUI
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(12, 468);
+            this.button10.Location = new System.Drawing.Point(10, 425);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(64, 54);
             this.button10.TabIndex = 15;
@@ -760,9 +760,9 @@ namespace CalculatorGUI
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(82, 528);
+            this.button12.Location = new System.Drawing.Point(10, 545);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(64, 54);
+            this.button12.Size = new System.Drawing.Size(134, 40);
             this.button12.TabIndex = 16;
             this.button12.Text = "ans";
             this.button12.UseVisualStyleBackColor = true;
@@ -770,7 +770,7 @@ namespace CalculatorGUI
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(82, 468);
+            this.button13.Location = new System.Drawing.Point(80, 425);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(64, 54);
             this.button13.TabIndex = 17;
@@ -780,7 +780,7 @@ namespace CalculatorGUI
             // 
             // buttonTrigUnits
             // 
-            this.buttonTrigUnits.Location = new System.Drawing.Point(151, 258);
+            this.buttonTrigUnits.Location = new System.Drawing.Point(82, 141);
             this.buttonTrigUnits.Name = "buttonTrigUnits";
             this.buttonTrigUnits.Size = new System.Drawing.Size(64, 51);
             this.buttonTrigUnits.TabIndex = 18;
@@ -793,7 +793,7 @@ namespace CalculatorGUI
             this.displayField.BackColor = System.Drawing.SystemColors.Menu;
             this.displayField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.displayField.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.displayField.Location = new System.Drawing.Point(228, 123);
+            this.displayField.Location = new System.Drawing.Point(175, 122);
             this.displayField.Name = "displayField";
             this.displayField.Size = new System.Drawing.Size(332, 61);
             this.displayField.TabIndex = 19;
@@ -801,40 +801,40 @@ namespace CalculatorGUI
             // 
             // MC
             // 
-            this.MC.Location = new System.Drawing.Point(13, 69);
+            this.MC.Location = new System.Drawing.Point(13, 31);
             this.MC.Name = "MC";
             this.MC.Size = new System.Drawing.Size(64, 47);
             this.MC.TabIndex = 20;
             this.MC.Text = "MC";
             this.MC.UseVisualStyleBackColor = true;
-            this.MC.Click += new System.EventHandler(this.button14_Click);
+            this.MC.Click += new System.EventHandler(this.buttonMC_Click);
             // 
             // MR
             // 
-            this.MR.Location = new System.Drawing.Point(82, 69);
+            this.MR.Location = new System.Drawing.Point(80, 31);
             this.MR.Name = "MR";
             this.MR.Size = new System.Drawing.Size(64, 47);
             this.MR.TabIndex = 21;
             this.MR.Text = "MR";
             this.MR.UseVisualStyleBackColor = true;
-            this.MR.Click += new System.EventHandler(this.button15_Click);
+            this.MR.Click += new System.EventHandler(this.buttonMR_Click);
             // 
             // MS
             // 
-            this.MS.Location = new System.Drawing.Point(152, 69);
+            this.MS.Location = new System.Drawing.Point(13, 84);
             this.MS.Name = "MS";
-            this.MS.Size = new System.Drawing.Size(64, 47);
+            this.MS.Size = new System.Drawing.Size(133, 47);
             this.MS.TabIndex = 22;
             this.MS.Text = "MS";
             this.MS.UseVisualStyleBackColor = true;
-            this.MS.Click += new System.EventHandler(this.button16_Click);
+            this.MS.Click += new System.EventHandler(this.buttonMS_Click);
             // 
             // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(572, 597);
+            this.ClientSize = new System.Drawing.Size(519, 597);
             this.Controls.Add(this.MS);
             this.Controls.Add(this.MR);
             this.Controls.Add(this.MC);

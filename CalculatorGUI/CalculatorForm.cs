@@ -322,12 +322,12 @@ namespace CalculatorGUI
             }
         }
 
-        private void button14_Click(object sender, EventArgs e)
+        private void buttonMC_Click(object sender, EventArgs e)
         {
             interpreter.MemoryClear();
         }
 
-        private void button15_Click(object sender, EventArgs e)
+        private void buttonMR_Click(object sender, EventArgs e)
         {
             Double memory = interpreter.MemoryRecall();
             if (!Double.IsNaN(memory))
@@ -336,7 +336,7 @@ namespace CalculatorGUI
                 displayField.Text = "";
         }
 
-        private void button16_Click(object sender, EventArgs e)
+        private void buttonMS_Click(object sender, EventArgs e)
         {
             try
             {
