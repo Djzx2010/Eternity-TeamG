@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace CalculatorGUI
 {
-    partial class Form1
+    partial class CalculatorForm
     {
         /// <summary>
         ///  Required designer variable.

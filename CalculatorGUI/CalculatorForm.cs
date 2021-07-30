@@ -15,14 +15,16 @@ using System.Windows.Forms;
 
 namespace CalculatorGUI
 {
-    public partial class Form1 : Form
+    public partial class CalculatorForm : Form
     {
         private ScientificCalculator.Interpreter interpreter;
         bool shiftHeld = false;
-        public Form1()
+        public CalculatorForm()
         {
+            
             InitializeComponent();
             this.MinimumSize = this.Size;
+            this.MaximumSize = this.Size;
             this.displayField.ForeColor = Color.Red;
             interpreter = new ScientificCalculator.Interpreter();
             
