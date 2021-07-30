@@ -132,7 +132,7 @@ namespace CalculatorGUI
             this.tableLayoutPanel1.Controls.Add(this.buttonClosedBracket, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonOpenBracket, 0, 0);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(275, 195);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(225, 198);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -429,7 +429,7 @@ namespace CalculatorGUI
             this.displayField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.displayField.Enabled = false;
             this.displayField.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.displayField.Location = new System.Drawing.Point(275, 122);
+            this.displayField.Location = new System.Drawing.Point(225, 122);
             this.displayField.MaxLength = 34;
             this.displayField.Name = "displayField";
             this.displayField.Size = new System.Drawing.Size(335, 53);
@@ -440,7 +440,7 @@ namespace CalculatorGUI
             // 
             this.listBoxHistory.FormattingEnabled = true;
             this.listBoxHistory.ItemHeight = 20;
-            this.listBoxHistory.Location = new System.Drawing.Point(275, 12);
+            this.listBoxHistory.Location = new System.Drawing.Point(225, 12);
             this.listBoxHistory.Name = "listBoxHistory";
             this.listBoxHistory.Size = new System.Drawing.Size(335, 104);
             this.listBoxHistory.TabIndex = 2;
@@ -459,7 +459,7 @@ namespace CalculatorGUI
             // 
             // buttonComma
             // 
-            this.buttonComma.Location = new System.Drawing.Point(81, 195);
+            this.buttonComma.Location = new System.Drawing.Point(152, 529);
             this.buttonComma.Name = "buttonComma";
             this.buttonComma.Size = new System.Drawing.Size(64, 53);
             this.buttonComma.TabIndex = 4;
@@ -469,7 +469,7 @@ namespace CalculatorGUI
             // 
             // buttonArccos
             // 
-            this.buttonArccos.Location = new System.Drawing.Point(151, 195);
+            this.buttonArccos.Location = new System.Drawing.Point(80, 198);
             this.buttonArccos.Name = "buttonArccos";
             this.buttonArccos.Size = new System.Drawing.Size(64, 53);
             this.buttonArccos.TabIndex = 5;
@@ -502,7 +502,7 @@ namespace CalculatorGUI
             // 
             // buttonGamma
             // 
-            this.buttonGamma.Location = new System.Drawing.Point(151, 254);
+            this.buttonGamma.Location = new System.Drawing.Point(150, 198);
             this.buttonGamma.Name = "buttonGamma";
             this.buttonGamma.Size = new System.Drawing.Size(64, 54);
             this.buttonGamma.TabIndex = 8;
@@ -548,7 +548,7 @@ namespace CalculatorGUI
             this.editToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(622, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(572, 28);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -790,7 +790,7 @@ namespace CalculatorGUI
             // 
             // buttonTrigUnits
             // 
-            this.buttonTrigUnits.Location = new System.Drawing.Point(151, 314);
+            this.buttonTrigUnits.Location = new System.Drawing.Point(151, 258);
             this.buttonTrigUnits.Name = "buttonTrigUnits";
             this.buttonTrigUnits.Size = new System.Drawing.Size(64, 51);
             this.buttonTrigUnits.TabIndex = 18;
@@ -803,7 +803,7 @@ namespace CalculatorGUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(622, 594);
+            this.ClientSize = new System.Drawing.Size(572, 597);
             this.Controls.Add(this.buttonTrigUnits);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button12);

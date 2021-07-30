@@ -103,15 +103,23 @@ namespace ScientificCalculator
             expression = expression.Replace("σ", "StdDev");
             expression = expression.Replace("√", "Sqrt");
             expression = expression.Replace("π", "PI");
-            if(expression.Contains("arr"))
+            expression = expression.Replace("Γ", "Gamma");
+            try
             {
-                if (arrSet)
-                    answer = Eval<double>(expression);
+                if (expression.Contains("arr"))
+                {
+                    if (arrSet)
+                        answer = Eval<double>(expression);
+                    else
+                        answer = Double.NaN;
+                }
                 else
-                    answer = Double.NaN;
+                    answer = Eval<double>(expression);
             }
-            else
-                answer = Eval<double>(expression);
+            catch(Exception e)
+            {
+                answer = Double.NaN;
+            }
 
             SetVariable("ans", answer);
             return answer;
