@@ -75,13 +75,19 @@ namespace CalculatorGUI
                 catch (Exception exception)
                 {
                     if (!invalidIndex)
+                    {
                         MessageBox.Show("Error, invalid file, enter a valid file.");
+                        textBox1.BackColor = Color.Red;
+                    }
                     else
                         MessageBox.Show("Invalid index, enter an index of a valid column within the .csv file.");
                 }
             }
             else
+            {
                 MessageBox.Show("Error, invalid file path, enter a valid file path.");
+                textBox1.BackColor = Color.Red;
+            }
 
         }
 
