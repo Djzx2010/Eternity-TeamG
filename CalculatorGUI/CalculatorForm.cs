@@ -15,10 +15,15 @@ using System.Windows.Forms;
 
 namespace CalculatorGUI
 {
+
+
+
     public partial class CalculatorForm : Form
     {
         private ScientificCalculator.Interpreter interpreter;
-        bool shiftHeld = false;
+        private ColorScheme lightColorScheme;
+        private ColorScheme darkColorScheme;
+        private CurrentColorScheme currentColorScheme;
         public CalculatorForm()
         {
             
@@ -26,7 +31,55 @@ namespace CalculatorGUI
             this.MinimumSize = this.Size;
             this.MaximumSize = this.Size;
             interpreter = new ScientificCalculator.Interpreter();
-            
+
+            //Set the light color scheme based on the colors used in the current form
+            lightColorScheme.baseColors.background = this.BackColor;
+            lightColorScheme.baseColors.foreground = this.ForeColor;
+            lightColorScheme.menuPanelColors.background = menuStrip1.BackColor;
+            lightColorScheme.menuPanelColors.foreground = menuStrip1.ForeColor;
+            lightColorScheme.buttonsColors.background = Color.White;
+            lightColorScheme.buttonsColors.foreground = Color.Black;
+            lightColorScheme.historyColors.background = listBoxHistory.BackColor;
+            lightColorScheme.historyColors.foreground = listBoxHistory.ForeColor;
+            lightColorScheme.displayFeildColors.background = displayField.BackColor;
+            lightColorScheme.displayFeildColors.foreground = displayField.ForeColor;
+
+
+            //Set the dark color scheme
+            darkColorScheme.baseColors.background = Color.Black;
+            darkColorScheme.baseColors.foreground = Color.White;
+            darkColorScheme.menuPanelColors.background = Color.Black;
+            darkColorScheme.menuPanelColors.foreground = Color.White;
+            darkColorScheme.buttonsColors.background = Color.FromArgb(200, 30, 30, 30);
+            darkColorScheme.buttonsColors.foreground = Color.WhiteSmoke;
+            darkColorScheme.historyColors.background = Color.FromArgb( 30, 30, 30);
+            darkColorScheme.historyColors.foreground = Color.WhiteSmoke;
+            darkColorScheme.displayFeildColors.background = Color.FromArgb( 30, 30, 30);
+            darkColorScheme.displayFeildColors.foreground = Color.WhiteSmoke;
+            SetColorScheme(darkColorScheme);
+            currentColorScheme = CurrentColorScheme.DARK;
+        }
+
+        private void SetColorScheme(ColorScheme scheme)
+        {
+            this.BackColor = scheme.baseColors.background;
+            menuStrip1.BackColor = scheme.menuPanelColors.background;
+            menuStrip1.ForeColor = scheme.menuPanelColors.foreground;
+            foreach (var button in this.Controls.OfType<Button>())
+            {
+                button.BackColor = scheme.buttonsColors.background;
+                button.ForeColor = scheme.buttonsColors.foreground;
+            }
+
+            foreach (var button in tableLayoutPanel1.Controls.OfType<Button>())
+            {
+                button.BackColor = scheme.buttonsColors.background;
+                button.ForeColor = scheme.buttonsColors.foreground;
+            }
+            listBoxHistory.BackColor = scheme.historyColors.background;
+            listBoxHistory.ForeColor = scheme.historyColors.foreground;
+            displayField.BackColor = scheme.displayFeildColors.background;
+            displayField.ForeColor = scheme.displayFeildColors.foreground;
         }
 
         /*
@@ -160,6 +213,7 @@ namespace CalculatorGUI
         // Evaluate - =
         private void buttonEvaluate_Click(object sender, EventArgs e)
         {
+            SetColorScheme(lightColorScheme);
             listBoxHistory.Items.Add(displayField.Text);
             Double res = interpreter.EvaluateString(displayField.Text);
             displayField.Text = res.ToString();
@@ -331,7 +385,7 @@ namespace CalculatorGUI
         {
             Double memory = interpreter.MemoryRecall();
             if (!Double.IsNaN(memory))
-                displayField.Text = memory.ToString();
+                displayField.AppendText(memory.ToString());
             else
                 displayField.Text = "";
         }
@@ -349,5 +403,7 @@ namespace CalculatorGUI
             }
 
         }
+
+
     }
 }
