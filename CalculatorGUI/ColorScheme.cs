@@ -20,9 +20,4 @@ namespace CalculatorGUI
         public ColorContainer displayFeildColors;
     }
 
-    enum CurrentColorScheme
-    {
-        DARK = 0,
-        LIGHT = 1
-    }
 }

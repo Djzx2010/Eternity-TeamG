@@ -36,8 +36,6 @@ namespace CalculatorGUI
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonEvaluate = new System.Windows.Forms.Button();
             this.buttonDecimal = new System.Windows.Forms.Button();
-            this.button0 = new System.Windows.Forms.Button();
-            this.buttonPlusMinusAlt = new System.Windows.Forms.Button();
             this.buttonPlus = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -52,11 +50,12 @@ namespace CalculatorGUI
             this.button1 = new System.Windows.Forms.Button();
             this.buttonMultiply = new System.Windows.Forms.Button();
             this.buttonModulus = new System.Windows.Forms.Button();
+            this.buttonComma = new System.Windows.Forms.Button();
             this.buttonClosedBracket = new System.Windows.Forms.Button();
             this.buttonOpenBracket = new System.Windows.Forms.Button();
+            this.button0 = new System.Windows.Forms.Button();
             this.listBoxHistory = new System.Windows.Forms.ListBox();
             this.buttonSTD = new System.Windows.Forms.Button();
-            this.buttonComma = new System.Windows.Forms.Button();
             this.buttonArccos = new System.Windows.Forms.Button();
             this.buttonExponent = new System.Windows.Forms.Button();
             this.buttonLog = new System.Windows.Forms.Button();
@@ -70,9 +69,6 @@ namespace CalculatorGUI
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -113,8 +109,6 @@ namespace CalculatorGUI
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Controls.Add(this.buttonEvaluate, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.buttonDecimal, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.button0, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.buttonPlusMinusAlt, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.buttonPlus, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.button9, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.button8, 1, 3);
@@ -129,8 +123,10 @@ namespace CalculatorGUI
             this.tableLayoutPanel1.Controls.Add(this.button1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.buttonMultiply, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonModulus, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonComma, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.buttonClosedBracket, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonOpenBracket, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.button0, 1, 4);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(172, 206);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -170,34 +166,6 @@ namespace CalculatorGUI
             this.buttonDecimal.Text = ".";
             this.buttonDecimal.UseVisualStyleBackColor = true;
             this.buttonDecimal.Click += new System.EventHandler(this.buttonDecimal_Click);
-            // 
-            // button0
-            // 
-            this.button0.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button0.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button0.Location = new System.Drawing.Point(86, 311);
-            this.button0.Name = "button0";
-            this.button0.Size = new System.Drawing.Size(77, 73);
-            this.button0.TabIndex = 17;
-            this.button0.Text = "0";
-            this.button0.UseVisualStyleBackColor = true;
-            this.button0.Click += new System.EventHandler(this.button0_Click);
-            // 
-            // buttonPlusMinusAlt
-            // 
-            this.buttonPlusMinusAlt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonPlusMinusAlt.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonPlusMinusAlt.Location = new System.Drawing.Point(3, 311);
-            this.buttonPlusMinusAlt.Name = "buttonPlusMinusAlt";
-            this.buttonPlusMinusAlt.Size = new System.Drawing.Size(77, 73);
-            this.buttonPlusMinusAlt.TabIndex = 16;
-            this.buttonPlusMinusAlt.Text = "+/-";
-            this.buttonPlusMinusAlt.UseVisualStyleBackColor = true;
-            this.buttonPlusMinusAlt.Click += new System.EventHandler(this.buttonPlusMinusAlt_Click);
             // 
             // buttonPlus
             // 
@@ -395,6 +363,16 @@ namespace CalculatorGUI
             this.buttonModulus.UseVisualStyleBackColor = true;
             this.buttonModulus.Click += new System.EventHandler(this.buttonModulus_Click);
             // 
+            // buttonComma
+            // 
+            this.buttonComma.Location = new System.Drawing.Point(3, 311);
+            this.buttonComma.Name = "buttonComma";
+            this.buttonComma.Size = new System.Drawing.Size(77, 73);
+            this.buttonComma.TabIndex = 4;
+            this.buttonComma.Text = ",";
+            this.buttonComma.UseVisualStyleBackColor = true;
+            this.buttonComma.Click += new System.EventHandler(this.buttonComma_Click);
+            // 
             // buttonClosedBracket
             // 
             this.buttonClosedBracket.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -423,6 +401,20 @@ namespace CalculatorGUI
             this.buttonOpenBracket.UseVisualStyleBackColor = true;
             this.buttonOpenBracket.Click += new System.EventHandler(this.buttonOpenBracket_Click);
             // 
+            // button0
+            // 
+            this.button0.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button0.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button0.Location = new System.Drawing.Point(86, 311);
+            this.button0.Name = "button0";
+            this.button0.Size = new System.Drawing.Size(77, 73);
+            this.button0.TabIndex = 17;
+            this.button0.Text = "0";
+            this.button0.UseVisualStyleBackColor = true;
+            this.button0.Click += new System.EventHandler(this.button0_Click);
+            // 
             // listBoxHistory
             // 
             this.listBoxHistory.FormattingEnabled = true;
@@ -443,16 +435,6 @@ namespace CalculatorGUI
             this.toolTipInfo.SetToolTip(this.buttonSTD, "σ(x1, x2, x3, ..., xn)");
             this.buttonSTD.UseVisualStyleBackColor = true;
             this.buttonSTD.Click += new System.EventHandler(this.buttonSTD_Click);
-            // 
-            // buttonComma
-            // 
-            this.buttonComma.Location = new System.Drawing.Point(80, 485);
-            this.buttonComma.Name = "buttonComma";
-            this.buttonComma.Size = new System.Drawing.Size(64, 54);
-            this.buttonComma.TabIndex = 4;
-            this.buttonComma.Text = ",";
-            this.buttonComma.UseVisualStyleBackColor = true;
-            this.buttonComma.Click += new System.EventHandler(this.buttonComma_Click);
             // 
             // buttonArccos
             // 
@@ -519,7 +501,7 @@ namespace CalculatorGUI
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(13, 371);
+            this.buttonClear.Location = new System.Drawing.Point(12, 431);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(132, 48);
             this.buttonClear.TabIndex = 11;
@@ -538,8 +520,6 @@ namespace CalculatorGUI
             this.menuStrip1.Size = new System.Drawing.Size(519, 28);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
-            this.menuStrip1.Click += new System.EventHandler(this.menuStrip1_Click);
             // 
             // fileToolStripMenuItem
             // 
@@ -547,9 +527,6 @@ namespace CalculatorGUI
             this.newToolStripMenuItem,
             this.openToolStripMenuItem,
             this.toolStripSeparator,
-            this.saveToolStripMenuItem,
-            this.saveAsToolStripMenuItem,
-            this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
@@ -561,7 +538,8 @@ namespace CalculatorGUI
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.newToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
-            this.newToolStripMenuItem.Text = "&New";
+            this.newToolStripMenuItem.Text = "&Settings";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
@@ -576,25 +554,6 @@ namespace CalculatorGUI
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
             this.toolStripSeparator.Size = new System.Drawing.Size(208, 6);
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
-            this.saveToolStripMenuItem.Text = "&Save";
-            // 
-            // saveAsToolStripMenuItem
-            // 
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
-            this.saveAsToolStripMenuItem.Text = "Save &As";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(208, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -716,7 +675,7 @@ namespace CalculatorGUI
             // 
             this.button11.Location = new System.Drawing.Point(10, 485);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(64, 54);
+            this.button11.Size = new System.Drawing.Size(134, 54);
             this.button11.TabIndex = 14;
             this.button11.Text = "arr";
             this.button11.UseVisualStyleBackColor = true;
@@ -724,7 +683,7 @@ namespace CalculatorGUI
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(10, 425);
+            this.button10.Location = new System.Drawing.Point(13, 371);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(64, 54);
             this.button10.TabIndex = 15;
@@ -744,7 +703,7 @@ namespace CalculatorGUI
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(80, 425);
+            this.button13.Location = new System.Drawing.Point(83, 371);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(64, 54);
             this.button13.TabIndex = 17;
@@ -825,7 +784,6 @@ namespace CalculatorGUI
             this.Controls.Add(this.buttonLog);
             this.Controls.Add(this.buttonExponent);
             this.Controls.Add(this.buttonArccos);
-            this.Controls.Add(this.buttonComma);
             this.Controls.Add(this.buttonSTD);
             this.Controls.Add(this.listBoxHistory);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -850,7 +808,6 @@ namespace CalculatorGUI
         private System.Windows.Forms.Button evaluate;
         private System.Windows.Forms.Button buttonDecimal;
         private System.Windows.Forms.Button button0;
-        private System.Windows.Forms.Button buttonPlusMinusAlt;
         private System.Windows.Forms.Button buttonPlus;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
@@ -884,9 +841,6 @@ namespace CalculatorGUI
         private ToolStripMenuItem newToolStripMenuItem;
         private ToolStripMenuItem openToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator;
-        private ToolStripMenuItem saveToolStripMenuItem;
-        private ToolStripMenuItem saveAsToolStripMenuItem;
-        private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem exitToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem undoToolStripMenuItem;

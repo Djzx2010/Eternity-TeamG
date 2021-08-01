@@ -23,7 +23,8 @@ namespace CalculatorGUI
         private ScientificCalculator.Interpreter interpreter;
         private ColorScheme lightColorScheme;
         private ColorScheme darkColorScheme;
-        private CurrentColorScheme currentColorScheme;
+        private bool darkModeEnabled;
+        private bool audioEnabled;
         public CalculatorForm()
         {
             
@@ -31,6 +32,18 @@ namespace CalculatorGUI
             this.MinimumSize = this.Size;
             this.MaximumSize = this.Size;
             interpreter = new ScientificCalculator.Interpreter();
+
+            //Add an audio event to all the buttons
+            foreach (var button in this.Controls.OfType<Button>())
+            {
+
+                button.Click += new System.EventHandler(this.audioEvent_Click);
+            }
+            foreach (var button in tableLayoutPanel1.Controls.OfType<Button>())
+            {
+
+                button.Click += new System.EventHandler(this.audioEvent_Click);
+            }
 
             //Set the light color scheme based on the colors used in the current form
             lightColorScheme.baseColors.background = this.BackColor;
@@ -57,7 +70,9 @@ namespace CalculatorGUI
             darkColorScheme.displayFeildColors.background = Color.FromArgb( 30, 30, 30);
             darkColorScheme.displayFeildColors.foreground = Color.WhiteSmoke;
             SetColorScheme(darkColorScheme);
-            currentColorScheme = CurrentColorScheme.DARK;
+            darkModeEnabled = true;
+            audioEnabled = false;
+
         }
 
         private void SetColorScheme(ColorScheme scheme)
@@ -179,12 +194,7 @@ namespace CalculatorGUI
             displayField.AppendText("+");
         }
 
-        // Negation - +/-
-        private void buttonPlusMinusAlt_Click(object sender, EventArgs e)
-        {
-            //if(displayField.Text[0]!='-')
 
-        }
 
         // Subtraction - -
         private void buttonMinus_Click(object sender, EventArgs e)
@@ -213,7 +223,6 @@ namespace CalculatorGUI
         // Evaluate - =
         private void buttonEvaluate_Click(object sender, EventArgs e)
         {
-            SetColorScheme(lightColorScheme);
             listBoxHistory.Items.Add(displayField.Text);
             Double res = interpreter.EvaluateString(displayField.Text);
             displayField.Text = res.ToString();
@@ -285,6 +294,13 @@ namespace CalculatorGUI
         */
 
         private KeysConverter keyConverter = new KeysConverter();
+
+        private void audioEvent_Click(object sender, EventArgs e)
+        {
+            if(audioEnabled)
+                System.Media.SystemSounds.Beep.Play();
+        }
+
         private void form_KeyDown(object sender, KeyEventArgs e)
         {
 
@@ -312,32 +328,6 @@ namespace CalculatorGUI
             }
         }
 
-        private void displayField_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void menuStrip1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenForm openForm = new OpenForm();
-            DialogResult res = openForm.ShowDialog();
-
-            if(res == DialogResult.OK)
-            {
-                interpreter.LoadArrayFromCSV(openForm.fileLocation, (uint)openForm.column);
-            }
-            openForm.Dispose();
-        }
 
 
 
@@ -402,6 +392,37 @@ namespace CalculatorGUI
                 displayField.Text = "Invalid Number";
             }
 
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm(darkModeEnabled, audioEnabled);
+            settingsForm.Text = "Settings";
+            DialogResult res = settingsForm.ShowDialog();
+
+            if (res == DialogResult.OK)
+            {
+                darkModeEnabled = settingsForm.darkModeEnabled;
+                audioEnabled = settingsForm.audioEnabled;
+                if (darkModeEnabled)
+                    SetColorScheme(darkColorScheme);
+                else
+                    SetColorScheme(lightColorScheme);
+            }
+            settingsForm.Dispose();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenForm openForm = new OpenForm();
+            openForm.Text = "Load From CSV File";
+            DialogResult res = openForm.ShowDialog();
+
+            if (res == DialogResult.OK)
+            {
+                interpreter.LoadArrayFromCSV(openForm.fileLocation, (uint)openForm.column);
+            }
+            openForm.Dispose();
         }
 
 
