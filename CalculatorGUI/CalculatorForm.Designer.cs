@@ -66,10 +66,12 @@ namespace CalculatorGUI
             this.toolTipInfo = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.darkModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.audioFeedbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -525,7 +527,8 @@ namespace CalculatorGUI
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(550, 28);
@@ -535,22 +538,12 @@ namespace CalculatorGUI
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem,
             this.openToolStripMenuItem,
             this.toolStripSeparator,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
             this.fileToolStripMenuItem.Text = "&File";
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
-            this.newToolStripMenuItem.Text = "&Settings";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
@@ -572,6 +565,29 @@ namespace CalculatorGUI
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.darkModeToolStripMenuItem,
+            this.audioFeedbackToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // darkModeToolStripMenuItem
+            // 
+            this.darkModeToolStripMenuItem.Name = "darkModeToolStripMenuItem";
+            this.darkModeToolStripMenuItem.Size = new System.Drawing.Size(199, 26);
+            this.darkModeToolStripMenuItem.Text = "Dark Mode";
+            this.darkModeToolStripMenuItem.Click += new System.EventHandler(this.darkModeToolStripMenuItem_Click);
+            // 
+            // audioFeedbackToolStripMenuItem
+            // 
+            this.audioFeedbackToolStripMenuItem.Name = "audioFeedbackToolStripMenuItem";
+            this.audioFeedbackToolStripMenuItem.Size = new System.Drawing.Size(199, 26);
+            this.audioFeedbackToolStripMenuItem.Text = "Audio Feedback";
+            this.audioFeedbackToolStripMenuItem.Click += new System.EventHandler(this.audioFeedbackToolStripMenuItem_Click);
             // 
             // customizeToolStripMenuItem
             // 
@@ -845,7 +861,6 @@ namespace CalculatorGUI
         private ToolTip toolTipInfo;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripMenuItem newToolStripMenuItem;
         private ToolStripMenuItem openToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator;
         private ToolStripMenuItem exitToolStripMenuItem;
@@ -869,6 +884,9 @@ namespace CalculatorGUI
         private TableLayoutPanel tableLayoutPanel2;
         private PictureBox pictureBox1;
         private Timer timer1;
+        private ToolStripMenuItem settingsToolStripMenuItem;
+        private ToolStripMenuItem darkModeToolStripMenuItem;
+        private ToolStripMenuItem audioFeedbackToolStripMenuItem;
     }
 }
 

@@ -30,9 +30,9 @@ namespace CalculatorGUI
         int frameCount;
         int taskCount;
         private Mutex writeOutMutex;
+
         public CalculatorForm()
         {
-            
             InitializeComponent();
             this.MinimumSize = this.Size;
             this.MaximumSize = this.Size;
@@ -62,7 +62,6 @@ namespace CalculatorGUI
             lightColorScheme.displayFeildColors.background = displayField.BackColor;
             lightColorScheme.displayFeildColors.foreground = displayField.ForeColor;
 
-
             //Set the dark color scheme
             darkColorScheme.baseColors.background = Color.Black;
             darkColorScheme.baseColors.foreground = Color.White;
@@ -74,9 +73,12 @@ namespace CalculatorGUI
             darkColorScheme.historyColors.foreground = Color.WhiteSmoke;
             darkColorScheme.displayFeildColors.background = Color.FromArgb( 30, 30, 30);
             darkColorScheme.displayFeildColors.foreground = Color.WhiteSmoke;
+
             darkModeEnabled = true;
-            audioEnabled = false;
+            this.darkModeToolStripMenuItem.Checked = darkModeEnabled;
             SetColorScheme(darkColorScheme);
+
+            audioEnabled = false;
 
             //Set all the loading image properties
             pictureBox1.Visible = false;
@@ -88,10 +90,7 @@ namespace CalculatorGUI
             isEvaluating = false;
             taskCount = 0;
             writeOutMutex = new Mutex();
-           
         }
-        
-
 
         private void SetColorScheme(ColorScheme scheme)
         {
@@ -115,9 +114,13 @@ namespace CalculatorGUI
             displayField.ForeColor = scheme.displayFeildColors.foreground;
 
             if(darkModeEnabled)
+            {
                 pictureBox1.Image = global::CalculatorGUI.Properties.Resources.LoadingDark;
+            }
             else
+            {
                 pictureBox1.Image = global::CalculatorGUI.Properties.Resources.LoadingLight;
+            }
         }
 
         /*
@@ -216,8 +219,6 @@ namespace CalculatorGUI
         {
             displayField.AppendText("+");
         }
-
-
 
         // Subtraction - -
         private void buttonMinus_Click(object sender, EventArgs e)
@@ -331,8 +332,7 @@ namespace CalculatorGUI
 
         private async void form_KeyDown(object sender, KeyEventArgs e)
         {
-
-            //if(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9)
+            // if(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9)
             if (e.KeyCode == Keys.Enter)
             {
                 String expression = displayField.Text;
@@ -349,7 +349,6 @@ namespace CalculatorGUI
             {
                 displayField.Text = "";
             }
-
         }
 
         // HISTORY / MEMORY LISTBOX
@@ -360,9 +359,6 @@ namespace CalculatorGUI
                 displayField.Text = listBoxHistory.SelectedItem.ToString();
             }
         }
-
-
-
 
         private void button11_Click(object sender, EventArgs e)
         {
@@ -384,6 +380,7 @@ namespace CalculatorGUI
             displayField.AppendText("ans");
         }
 
+        // Toggle the results of Trig functions between radians and degrees
         private void buttonTrigUnits_Click(object sender, EventArgs e)
         {
             ScientificCalculator.Math.toggleTrigUnits();
@@ -427,23 +424,34 @@ namespace CalculatorGUI
 
         }
 
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SettingsForm settingsForm = new SettingsForm(darkModeEnabled, audioEnabled);
-            settingsForm.Text = "Settings";
-            DialogResult res = settingsForm.ShowDialog();
+        // DRAW EVENTS/FUNCTIONS
 
-            if (res == DialogResult.OK)
-            {
-                darkModeEnabled = settingsForm.darkModeEnabled;
-                audioEnabled = settingsForm.audioEnabled;
-                if (darkModeEnabled)
-                    SetColorScheme(darkColorScheme);
-                else
-                    SetColorScheme(lightColorScheme);
-            }
-            settingsForm.Dispose();
+        // Every tick even the rect is invalidated to call the OnPaint event
+        private void TickEvent(object o, EventArgs e)
+        {
+            UpdateImage();
+            Invalidate();
         }
+
+        // cycle through the gifs image every draw frame
+        public void UpdateImage()
+        {
+            if (taskCount>0)
+            {
+                imageFrame++;
+                if (imageFrame >= frameCount)
+                    imageFrame = 0;
+                pictureBox1.Image.SelectActiveFrame(dimension, imageFrame);
+            }
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            e.Graphics.DrawImage(pictureBox1.Image, pictureBox1.Location.X, pictureBox1.Location.Y, pictureBox1.Width, pictureBox1.Height);
+        }
+
+        // MENU STRIP CLICK HANDLERS
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -463,31 +471,36 @@ namespace CalculatorGUI
             this.Close();
         }
 
-        //DRAW EVENTS/FUNCTIONS
-
-        //Every tick even the rect is invalidated to call the OnPaint event
-        private void TickEvent(object o, EventArgs e)
+        // Handle dark mode toggling on menu item click
+        private void darkModeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateImage();
-            Invalidate();
-        }
-
-        //cycle through the gifs image every draw frame
-        public void UpdateImage()
-        {
-            if (taskCount>0)
+            if (darkModeEnabled)
             {
-                imageFrame++;
-                if (imageFrame >= frameCount)
-                    imageFrame = 0;
-                pictureBox1.Image.SelectActiveFrame(dimension, imageFrame);
+                darkModeEnabled = false;
+                SetColorScheme(lightColorScheme);
+                this.darkModeToolStripMenuItem.Checked = darkModeEnabled;
+            }
+            else
+            {
+                darkModeEnabled = true;
+                SetColorScheme(darkColorScheme);
+                this.darkModeToolStripMenuItem.Checked = darkModeEnabled;
             }
         }
 
-        protected override void OnPaint(PaintEventArgs e)
+        // Handle audio feedback toggling on menu item click
+        private void audioFeedbackToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            base.OnPaint(e);
-            e.Graphics.DrawImage(pictureBox1.Image, pictureBox1.Location.X, pictureBox1.Location.Y, pictureBox1.Width, pictureBox1.Height);
+            if (audioEnabled)
+            {
+                audioEnabled = false;
+                this.audioFeedbackToolStripMenuItem.Checked = audioEnabled;
+            }
+            else
+            {
+                audioEnabled = true;
+                this.audioFeedbackToolStripMenuItem.Checked = audioEnabled;
+            }
         }
     }
 }
