@@ -252,8 +252,8 @@ namespace CalculatorGUI
             taskCount--;
             displayField.Text = res.ToString();
             writeOutMutex.WaitOne();
-            listBoxHistory.Items.Add(expression);
-            listBoxHistory.Items.Add("= " + res.ToString());
+            listBoxHistory.Items.Insert(0, "= " + res.ToString());
+            listBoxHistory.Items.Insert(0, expression);
             writeOutMutex.ReleaseMutex();
         }
 
@@ -341,8 +341,8 @@ namespace CalculatorGUI
                 taskCount--;
                 displayField.Text = res.ToString();
                 writeOutMutex.WaitOne();
-                listBoxHistory.Items.Add(expression);
-                listBoxHistory.Items.Add("= " + res.ToString());
+                listBoxHistory.Items.Insert(0, "= " + res.ToString());
+                listBoxHistory.Items.Insert(0, expression);
                 writeOutMutex.ReleaseMutex();
             }
             else if(e.KeyCode == Keys.Back)
