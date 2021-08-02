@@ -88,10 +88,13 @@ namespace CalculatorGUI
             this.MS = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -425,9 +428,9 @@ namespace CalculatorGUI
             // buttonSTD
             // 
             this.buttonSTD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSTD.Location = new System.Drawing.Point(3, 162);
+            this.buttonSTD.Location = new System.Drawing.Point(3, 144);
             this.buttonSTD.Name = "buttonSTD";
-            this.buttonSTD.Size = new System.Drawing.Size(62, 47);
+            this.buttonSTD.Size = new System.Drawing.Size(62, 41);
             this.buttonSTD.TabIndex = 3;
             this.buttonSTD.Text = "σ";
             this.toolTipInfo.SetToolTip(this.buttonSTD, "σ(x1, x2, x3, ..., xn)");
@@ -437,9 +440,9 @@ namespace CalculatorGUI
             // buttonArccos
             // 
             this.buttonArccos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonArccos.Location = new System.Drawing.Point(71, 162);
+            this.buttonArccos.Location = new System.Drawing.Point(71, 144);
             this.buttonArccos.Name = "buttonArccos";
-            this.buttonArccos.Size = new System.Drawing.Size(63, 47);
+            this.buttonArccos.Size = new System.Drawing.Size(63, 41);
             this.buttonArccos.TabIndex = 5;
             this.buttonArccos.Text = "Arccos";
             this.toolTipInfo.SetToolTip(this.buttonArccos, "Arccos(x)");
@@ -449,9 +452,9 @@ namespace CalculatorGUI
             // buttonExponent
             // 
             this.buttonExponent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonExponent.Location = new System.Drawing.Point(3, 215);
+            this.buttonExponent.Location = new System.Drawing.Point(3, 191);
             this.buttonExponent.Name = "buttonExponent";
-            this.buttonExponent.Size = new System.Drawing.Size(62, 47);
+            this.buttonExponent.Size = new System.Drawing.Size(62, 41);
             this.buttonExponent.TabIndex = 6;
             this.buttonExponent.Text = "ab˟";
             this.toolTipInfo.SetToolTip(this.buttonExponent, "Pow(base, exponent)");
@@ -461,9 +464,9 @@ namespace CalculatorGUI
             // buttonLog
             // 
             this.buttonLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonLog.Location = new System.Drawing.Point(71, 215);
+            this.buttonLog.Location = new System.Drawing.Point(71, 191);
             this.buttonLog.Name = "buttonLog";
-            this.buttonLog.Size = new System.Drawing.Size(63, 47);
+            this.buttonLog.Size = new System.Drawing.Size(63, 41);
             this.buttonLog.TabIndex = 7;
             this.buttonLog.Text = "log";
             this.toolTipInfo.SetToolTip(this.buttonLog, "log(base, x) ");
@@ -473,9 +476,9 @@ namespace CalculatorGUI
             // buttonGamma
             // 
             this.buttonGamma.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonGamma.Location = new System.Drawing.Point(3, 109);
+            this.buttonGamma.Location = new System.Drawing.Point(3, 97);
             this.buttonGamma.Name = "buttonGamma";
-            this.buttonGamma.Size = new System.Drawing.Size(62, 47);
+            this.buttonGamma.Size = new System.Drawing.Size(62, 41);
             this.buttonGamma.TabIndex = 8;
             this.buttonGamma.Text = "Γ";
             this.buttonGamma.UseVisualStyleBackColor = true;
@@ -484,9 +487,9 @@ namespace CalculatorGUI
             // buttonMAD
             // 
             this.buttonMAD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonMAD.Location = new System.Drawing.Point(3, 268);
+            this.buttonMAD.Location = new System.Drawing.Point(3, 238);
             this.buttonMAD.Name = "buttonMAD";
-            this.buttonMAD.Size = new System.Drawing.Size(62, 47);
+            this.buttonMAD.Size = new System.Drawing.Size(62, 41);
             this.buttonMAD.TabIndex = 9;
             this.buttonMAD.Text = "MAD";
             this.buttonMAD.UseVisualStyleBackColor = true;
@@ -495,9 +498,9 @@ namespace CalculatorGUI
             // buttonSinh
             // 
             this.buttonSinh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSinh.Location = new System.Drawing.Point(71, 268);
+            this.buttonSinh.Location = new System.Drawing.Point(71, 238);
             this.buttonSinh.Name = "buttonSinh";
-            this.buttonSinh.Size = new System.Drawing.Size(63, 47);
+            this.buttonSinh.Size = new System.Drawing.Size(63, 41);
             this.buttonSinh.TabIndex = 10;
             this.buttonSinh.Text = "sinh";
             this.buttonSinh.UseVisualStyleBackColor = true;
@@ -507,9 +510,9 @@ namespace CalculatorGUI
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.buttonClear, 2);
             this.buttonClear.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonClear.Location = new System.Drawing.Point(3, 374);
+            this.buttonClear.Location = new System.Drawing.Point(3, 332);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(131, 47);
+            this.buttonClear.Size = new System.Drawing.Size(131, 41);
             this.buttonClear.TabIndex = 11;
             this.buttonClear.Text = "CLR";
             this.buttonClear.UseVisualStyleBackColor = true;
@@ -612,9 +615,9 @@ namespace CalculatorGUI
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.button11, 2);
             this.button11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button11.Location = new System.Drawing.Point(3, 427);
+            this.button11.Location = new System.Drawing.Point(3, 379);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(131, 47);
+            this.button11.Size = new System.Drawing.Size(131, 41);
             this.button11.TabIndex = 14;
             this.button11.Text = "arr";
             this.button11.UseVisualStyleBackColor = true;
@@ -623,9 +626,9 @@ namespace CalculatorGUI
             // button10
             // 
             this.button10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button10.Location = new System.Drawing.Point(3, 321);
+            this.button10.Location = new System.Drawing.Point(3, 285);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(62, 47);
+            this.button10.Size = new System.Drawing.Size(62, 41);
             this.button10.TabIndex = 15;
             this.button10.Text = "π";
             this.button10.UseVisualStyleBackColor = true;
@@ -635,9 +638,9 @@ namespace CalculatorGUI
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.button12, 2);
             this.button12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button12.Location = new System.Drawing.Point(3, 480);
+            this.button12.Location = new System.Drawing.Point(3, 426);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(131, 49);
+            this.button12.Size = new System.Drawing.Size(131, 50);
             this.button12.TabIndex = 16;
             this.button12.Text = "ans";
             this.button12.UseVisualStyleBackColor = true;
@@ -646,9 +649,9 @@ namespace CalculatorGUI
             // button13
             // 
             this.button13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button13.Location = new System.Drawing.Point(71, 321);
+            this.button13.Location = new System.Drawing.Point(71, 285);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(63, 47);
+            this.button13.Size = new System.Drawing.Size(63, 41);
             this.button13.TabIndex = 17;
             this.button13.Text = "e";
             this.button13.UseVisualStyleBackColor = true;
@@ -657,9 +660,9 @@ namespace CalculatorGUI
             // buttonTrigUnits
             // 
             this.buttonTrigUnits.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonTrigUnits.Location = new System.Drawing.Point(71, 109);
+            this.buttonTrigUnits.Location = new System.Drawing.Point(71, 97);
             this.buttonTrigUnits.Name = "buttonTrigUnits";
-            this.buttonTrigUnits.Size = new System.Drawing.Size(63, 47);
+            this.buttonTrigUnits.Size = new System.Drawing.Size(63, 41);
             this.buttonTrigUnits.TabIndex = 18;
             this.buttonTrigUnits.Text = "RAD";
             this.buttonTrigUnits.UseVisualStyleBackColor = true;
@@ -683,7 +686,7 @@ namespace CalculatorGUI
             this.MC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MC.Location = new System.Drawing.Point(3, 3);
             this.MC.Name = "MC";
-            this.MC.Size = new System.Drawing.Size(62, 47);
+            this.MC.Size = new System.Drawing.Size(62, 41);
             this.MC.TabIndex = 20;
             this.MC.Text = "MC";
             this.MC.UseVisualStyleBackColor = true;
@@ -694,7 +697,7 @@ namespace CalculatorGUI
             this.MR.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MR.Location = new System.Drawing.Point(71, 3);
             this.MR.Name = "MR";
-            this.MR.Size = new System.Drawing.Size(63, 47);
+            this.MR.Size = new System.Drawing.Size(63, 41);
             this.MR.TabIndex = 21;
             this.MR.Text = "MR";
             this.MR.UseVisualStyleBackColor = true;
@@ -704,9 +707,9 @@ namespace CalculatorGUI
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.MS, 2);
             this.MS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MS.Location = new System.Drawing.Point(3, 56);
+            this.MS.Location = new System.Drawing.Point(3, 50);
             this.MS.Name = "MS";
-            this.MS.Size = new System.Drawing.Size(131, 47);
+            this.MS.Size = new System.Drawing.Size(131, 41);
             this.MS.TabIndex = 22;
             this.MS.Text = "MS";
             this.MS.UseVisualStyleBackColor = true;
@@ -733,7 +736,7 @@ namespace CalculatorGUI
             this.tableLayoutPanel2.Controls.Add(this.buttonExponent, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.buttonMAD, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.buttonLog, 1, 4);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 32);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 85);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 10;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -746,7 +749,7 @@ namespace CalculatorGUI
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(137, 532);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(137, 479);
             this.tableLayoutPanel2.TabIndex = 23;
             // 
             // tableLayoutPanel3
@@ -764,16 +767,27 @@ namespace CalculatorGUI
             this.tableLayoutPanel3.Size = new System.Drawing.Size(397, 159);
             this.tableLayoutPanel3.TabIndex = 24;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CalculatorGUI.Properties.Resources.LoadingDark;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(137, 48);
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            // 
             // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(550, 569);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.KeyPreview = true;
             this.Name = "CalculatorForm";
             this.Text = "Calculator";
@@ -784,6 +798,7 @@ namespace CalculatorGUI
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -849,6 +864,8 @@ namespace CalculatorGUI
         private Button MS;
         private TableLayoutPanel tableLayoutPanel3;
         private TableLayoutPanel tableLayoutPanel2;
+        private PictureBox pictureBox1;
+        private Timer timer1;
     }
 }
 

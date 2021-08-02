@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -22,6 +23,10 @@ namespace CalculatorGUI
         private ColorScheme darkColorScheme;
         private bool darkModeEnabled;
         private bool audioEnabled;
+        private bool isEvaluating; 
+        private int imageFrame;
+        private FrameDimension dimension;
+        int frameCount;
         public CalculatorForm()
         {
             
@@ -66,11 +71,22 @@ namespace CalculatorGUI
             darkColorScheme.historyColors.foreground = Color.WhiteSmoke;
             darkColorScheme.displayFeildColors.background = Color.FromArgb( 30, 30, 30);
             darkColorScheme.displayFeildColors.foreground = Color.WhiteSmoke;
-            SetColorScheme(darkColorScheme);
             darkModeEnabled = true;
             audioEnabled = false;
+            SetColorScheme(darkColorScheme);
 
+            //Set all the loading image properties
+            pictureBox1.Visible = false;
+            dimension = new FrameDimension(pictureBox1.Image.FrameDimensionsList[0]);
+            frameCount = pictureBox1.Image.GetFrameCount(dimension);
+            imageFrame = 0;
+            timer1.Enabled = true;
+            timer1.Tick += new EventHandler(TickEvent);
+            isEvaluating = false;
+           
         }
+        
+
 
         private void SetColorScheme(ColorScheme scheme)
         {
@@ -92,6 +108,11 @@ namespace CalculatorGUI
             listBoxHistory.ForeColor = scheme.historyColors.foreground;
             displayField.BackColor = scheme.displayFeildColors.background;
             displayField.ForeColor = scheme.displayFeildColors.foreground;
+
+            if(darkModeEnabled)
+                pictureBox1.Image = global::CalculatorGUI.Properties.Resources.LoadingDark;
+            else
+                pictureBox1.Image = global::CalculatorGUI.Properties.Resources.LoadingLight;
         }
 
         /*
@@ -221,7 +242,9 @@ namespace CalculatorGUI
         private async void buttonEvaluate_Click(object sender, EventArgs e)
         {
             listBoxHistory.Items.Add(displayField.Text);
+            isEvaluating = true;
             Double res = await Task.Run(() => interpreter.EvaluateString(displayField.Text));
+            isEvaluating = false;
             displayField.Text = res.ToString();
             listBoxHistory.Items.Add("= " + res.ToString());
         }
@@ -305,7 +328,9 @@ namespace CalculatorGUI
             if (e.KeyCode == Keys.Enter)
             {
                 listBoxHistory.Items.Add(displayField.Text);
-                Double res = await Task.Run(() =>interpreter.EvaluateString(displayField.Text));
+                isEvaluating = true;
+                Double res = await Task.Run(() => interpreter.EvaluateString(displayField.Text));
+                isEvaluating = false;
                 displayField.Text = res.ToString();
                 listBoxHistory.Items.Add("= " + res.ToString());
             }
@@ -425,6 +450,33 @@ namespace CalculatorGUI
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        //DRAW EVENTS/FUNCTIONS
+
+        //Every tick even the rect is invalidated to call the OnPaint event
+        private void TickEvent(object o, EventArgs e)
+        {
+            UpdateImage();
+            Invalidate();
+        }
+
+        //cycle through the gifs image every draw frame
+        public void UpdateImage()
+        {
+            if (isEvaluating)
+            {
+                imageFrame++;
+                if (imageFrame >= frameCount)
+                    imageFrame = 0;
+                pictureBox1.Image.SelectActiveFrame(dimension, imageFrame);
+            }
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            e.Graphics.DrawImage(pictureBox1.Image, pictureBox1.Location.X, pictureBox1.Location.Y, pictureBox1.Width, pictureBox1.Height);
         }
     }
 }
