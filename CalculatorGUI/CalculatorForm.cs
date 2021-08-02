@@ -31,8 +31,9 @@ namespace CalculatorGUI
             interpreter = new ScientificCalculator.Interpreter();
 
             //Add an audio event to all the buttons
-            foreach (var button in tableLayoutPanel2.Controls.OfType<Button>())
+            foreach (var button in this.Controls.OfType<Button>())
             {
+
                 button.Click += new System.EventHandler(this.audioEvent_Click);
             }
             foreach (var button in tableLayoutPanel1.Controls.OfType<Button>())
@@ -76,7 +77,7 @@ namespace CalculatorGUI
             this.BackColor = scheme.baseColors.background;
             menuStrip1.BackColor = scheme.menuPanelColors.background;
             menuStrip1.ForeColor = scheme.menuPanelColors.foreground;
-            foreach (var button in tableLayoutPanel2.Controls.OfType<Button>())
+            foreach (var button in this.Controls.OfType<Button>())
             {
                 button.BackColor = scheme.buttonsColors.background;
                 button.ForeColor = scheme.buttonsColors.foreground;
