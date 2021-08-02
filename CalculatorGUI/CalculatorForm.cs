@@ -11,6 +11,7 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -28,6 +29,7 @@ namespace CalculatorGUI
         private FrameDimension dimension;
         int frameCount;
         int taskCount;
+        private Mutex writeOutMutex;
         public CalculatorForm()
         {
             
@@ -85,6 +87,7 @@ namespace CalculatorGUI
             timer1.Tick += new EventHandler(TickEvent);
             isEvaluating = false;
             taskCount = 0;
+            writeOutMutex = new Mutex();
            
         }
         
@@ -247,9 +250,11 @@ namespace CalculatorGUI
             taskCount++;
             Double res = await Task.Run(() => interpreter.EvaluateString(displayField.Text));
             taskCount--;
-            listBoxHistory.Items.Add(expression);
             displayField.Text = res.ToString();
+            writeOutMutex.WaitOne();
+            listBoxHistory.Items.Add(expression);
             listBoxHistory.Items.Add("= " + res.ToString());
+            writeOutMutex.ReleaseMutex();
         }
 
         // CLEAR
@@ -334,9 +339,11 @@ namespace CalculatorGUI
                 taskCount++;
                 Double res = await Task.Run(() => interpreter.EvaluateString(displayField.Text));
                 taskCount--;
-                listBoxHistory.Items.Add(expression);
                 displayField.Text = res.ToString();
+                writeOutMutex.WaitOne();
+                listBoxHistory.Items.Add(expression);
                 listBoxHistory.Items.Add("= " + res.ToString());
+                writeOutMutex.ReleaseMutex();
             }
             else if(e.KeyCode == Keys.Back)
             {
