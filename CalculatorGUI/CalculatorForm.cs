@@ -218,10 +218,10 @@ namespace CalculatorGUI
         }
 
         // Evaluate - =
-        private void buttonEvaluate_Click(object sender, EventArgs e)
+        private async void buttonEvaluate_Click(object sender, EventArgs e)
         {
             listBoxHistory.Items.Add(displayField.Text);
-            Double res = interpreter.EvaluateString(displayField.Text);
+            Double res = await Task.Run(() => interpreter.EvaluateString(displayField.Text));
             displayField.Text = res.ToString();
             listBoxHistory.Items.Add("= " + res.ToString());
         }
@@ -298,14 +298,14 @@ namespace CalculatorGUI
                 System.Media.SystemSounds.Beep.Play();
         }
 
-        private void form_KeyDown(object sender, KeyEventArgs e)
+        private async void form_KeyDown(object sender, KeyEventArgs e)
         {
 
             //if(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9)
             if (e.KeyCode == Keys.Enter)
             {
                 listBoxHistory.Items.Add(displayField.Text);
-                Double res = interpreter.EvaluateString(displayField.Text);
+                Double res = await Task.Run(() =>interpreter.EvaluateString(displayField.Text));
                 displayField.Text = res.ToString();
                 listBoxHistory.Items.Add("= " + res.ToString());
             }

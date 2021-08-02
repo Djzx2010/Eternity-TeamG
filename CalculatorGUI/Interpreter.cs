@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 using DynamicExpresso;
 
 namespace ScientificCalculator
@@ -113,7 +114,7 @@ namespace ScientificCalculator
             return memory;
         }
 
-        public double EvaluateString(String expression)
+        public async Task<double> EvaluateString(String expression)
         {
             expression = expression.Replace("x", "*");
             expression = expression.Replace("σ", "StdDev");
