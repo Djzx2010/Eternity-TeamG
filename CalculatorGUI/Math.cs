@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using System;
-
+﻿
 namespace ScientificCalculator
 {
 	public enum TrigUnits
@@ -61,7 +59,7 @@ namespace ScientificCalculator
 		public static double Sqrt(double x)
 		{
 			if (x < 0)
-				return Double.NaN;
+				return double.NaN;
 
 			double sqrt;
 			double x0 = x;
@@ -89,7 +87,7 @@ namespace ScientificCalculator
 		public static double Mean(params double[] x)
 		{
 			if (x.Length == 0)
-				return Double.NaN;
+				return double.NaN;
 
 			double mean = 0.0;
 
@@ -119,7 +117,7 @@ namespace ScientificCalculator
 			}
 			else
 			{
-				return Double.NaN;
+				return double.NaN;
 			}
 
 		}
@@ -136,7 +134,7 @@ namespace ScientificCalculator
 
 				double result = 1;
 				var isExponentPositive = exponent > 0;
-				var roundedExponent = Math.Abs(exponent);
+				var roundedExponent = Abs(exponent);
 
 				for (var i = 0; i < roundedExponent; i++)
 				{
@@ -157,14 +155,12 @@ namespace ScientificCalculator
 
 				// Example: 0.5^2=0.25 so answer is lower than A.
 				var isAnsMoreThanA = ((x > 1) && (exponent > 1)) || ((x < 1) && (exponent < 1));
-				// TODO: Replace "System.Math.Log"
-				double total = System.Math.Log(x) * accuracy * exponent;
+				double total = Log(EULERS_NUMBER, x) * accuracy * exponent;
 				double t = x;
 
 				while (true)
 				{
-					// TODO: Replace "System.Math.Log"
-					double t2 = System.Math.Log(t) * accuracy;
+					double t2 = Log(EULERS_NUMBER, t) * accuracy;
 
 					if ((isAnsMoreThanA && t2 > total) || (!isAnsMoreThanA && t2 < total))
 					{
@@ -282,7 +278,7 @@ namespace ScientificCalculator
 			// Arccos is only defined within the range of [-1, 1]
 			if (x < -1 || x > 1)
 			{
-				return Double.NaN;
+				return double.NaN;
 			}
 
 
@@ -295,7 +291,7 @@ namespace ScientificCalculator
 			}
 			else if (x == -1)
 			{
-				return System.Math.PI;
+				return PI;
 			}
 			else
 			{
@@ -315,7 +311,7 @@ namespace ScientificCalculator
 					result += ((fact / (pow1 * pow2)) * b);
 				}
 
-				result = ((System.Math.PI / 2) - result);
+				result = ((PI / 2) - result);
 
 				if(unitType == TrigUnits.DEG)
                 {
@@ -327,7 +323,10 @@ namespace ScientificCalculator
 		}
 
 		// Convert RADS to DEG
-		public static Func<double, double> toDegrees = (rads) => rads * (180 / System.Math.PI);
+		public static double toDegrees(double rads)
+        {
+			return rads * (180 / PI);
+		}
 
 		// Iterative factorial function
 		public static double Factorial(int x)
@@ -447,7 +446,7 @@ namespace ScientificCalculator
 			{
 				if (b < 0)
 				{
-					return Double.NaN;
+					return double.NaN;
 				}
 				else
 				{
@@ -455,13 +454,13 @@ namespace ScientificCalculator
 					x = Abs(x);
 					bool smallBase = (b > 1 && x > 1) || (b < 1 && x < 1);
 
-					double total = System.Math.Log(b) * ACCURACY * x;
+					double total = Log(EULERS_NUMBER, b) * ACCURACY * x;
 					double tempAccuracy = 1.0 + 1.0 / ACCURACY;
 					double res = b;
 
 					while (true)
 					{
-						double t2 = System.Math.Log(res) * ACCURACY;
+						double t2 = Log(EULERS_NUMBER, res) * ACCURACY;
 
 						if ((smallBase && t2 > total) || (!smallBase && t2 < total))
 						{
@@ -496,7 +495,7 @@ namespace ScientificCalculator
 			{
 				if (b == 0 && x == -1)
 				{
-					return Double.NaN;
+					return double.NaN;
 				}
 				else
 				{
