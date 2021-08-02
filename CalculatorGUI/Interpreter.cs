@@ -75,10 +75,17 @@ namespace ScientificCalculator
                 List<double> arrList = new List<double>();
                 while (!reader.EndOfStream)
                 {
-                    String line = reader.ReadLine();
-                    String[] tokens = line.Split(',');
-                    if (column < tokens.Length && tokens[column] != "")
-                        arrList.Add(Double.Parse(tokens[column]));
+                    try
+                    {
+                        String line = reader.ReadLine();
+                        String[] tokens = line.Split(',');
+                        if (column < tokens.Length && tokens[column] != "")
+                            arrList.Add(Double.Parse(tokens[column]));
+                    }
+                    catch(Exception e)
+                    {
+                        //unable to parse number
+                    }
                 }
                 if (arrList.Count > 0)
                 {

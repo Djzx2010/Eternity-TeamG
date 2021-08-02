@@ -481,6 +481,7 @@ namespace CalculatorGUI
             this.buttonGamma.Size = new System.Drawing.Size(62, 41);
             this.buttonGamma.TabIndex = 8;
             this.buttonGamma.Text = "Γ";
+            this.toolTipInfo.SetToolTip(this.buttonGamma, "Γ(x)");
             this.buttonGamma.UseVisualStyleBackColor = true;
             this.buttonGamma.Click += new System.EventHandler(this.buttonGamma_Click);
             // 
@@ -492,6 +493,7 @@ namespace CalculatorGUI
             this.buttonMAD.Size = new System.Drawing.Size(62, 41);
             this.buttonMAD.TabIndex = 9;
             this.buttonMAD.Text = "MAD";
+            this.toolTipInfo.SetToolTip(this.buttonMAD, "MAD(x1, x2, x3, ..., xn)");
             this.buttonMAD.UseVisualStyleBackColor = true;
             this.buttonMAD.Click += new System.EventHandler(this.buttonMAD_Click);
             // 
@@ -503,6 +505,7 @@ namespace CalculatorGUI
             this.buttonSinh.Size = new System.Drawing.Size(63, 41);
             this.buttonSinh.TabIndex = 10;
             this.buttonSinh.Text = "sinh";
+            this.toolTipInfo.SetToolTip(this.buttonSinh, "Sinh(x)");
             this.buttonSinh.UseVisualStyleBackColor = true;
             this.buttonSinh.Click += new System.EventHandler(this.buttonSinh_Click);
             // 
