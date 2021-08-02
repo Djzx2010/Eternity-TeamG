@@ -15,9 +15,6 @@ using System.Windows.Forms;
 
 namespace CalculatorGUI
 {
-
-
-
     public partial class CalculatorForm : Form
     {
         private ScientificCalculator.Interpreter interpreter;

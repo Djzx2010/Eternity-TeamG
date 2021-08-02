@@ -118,6 +118,7 @@ namespace ScientificCalculator
             expression = expression.Replace("x", "*");
             expression = expression.Replace("σ", "StdDev");
             expression = expression.Replace("√", "Sqrt");
+            expression = expression.Replace("÷", "/");
             expression = expression.Replace("π", "PI");
             expression = expression.Replace("Γ", "Gamma");
             expression = expression.Replace("MAD", "MeanAbsDel");
