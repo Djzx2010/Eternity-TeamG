@@ -27,6 +27,7 @@ namespace CalculatorGUI
         private int imageFrame;
         private FrameDimension dimension;
         int frameCount;
+        int taskCount;
         public CalculatorForm()
         {
             
@@ -83,6 +84,7 @@ namespace CalculatorGUI
             timer1.Enabled = true;
             timer1.Tick += new EventHandler(TickEvent);
             isEvaluating = false;
+            taskCount = 0;
            
         }
         
@@ -241,10 +243,11 @@ namespace CalculatorGUI
         // Evaluate - =
         private async void buttonEvaluate_Click(object sender, EventArgs e)
         {
-            listBoxHistory.Items.Add(displayField.Text);
-            isEvaluating = true;
+            String expression = displayField.Text;
+            taskCount++;
             Double res = await Task.Run(() => interpreter.EvaluateString(displayField.Text));
-            isEvaluating = false;
+            taskCount--;
+            listBoxHistory.Items.Add(expression);
             displayField.Text = res.ToString();
             listBoxHistory.Items.Add("= " + res.ToString());
         }
@@ -327,10 +330,11 @@ namespace CalculatorGUI
             //if(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9)
             if (e.KeyCode == Keys.Enter)
             {
-                listBoxHistory.Items.Add(displayField.Text);
-                isEvaluating = true;
+                String expression = displayField.Text;
+                taskCount++;
                 Double res = await Task.Run(() => interpreter.EvaluateString(displayField.Text));
-                isEvaluating = false;
+                taskCount--;
+                listBoxHistory.Items.Add(expression);
                 displayField.Text = res.ToString();
                 listBoxHistory.Items.Add("= " + res.ToString());
             }
@@ -464,7 +468,7 @@ namespace CalculatorGUI
         //cycle through the gifs image every draw frame
         public void UpdateImage()
         {
-            if (isEvaluating)
+            if (taskCount>0)
             {
                 imageFrame++;
                 if (imageFrame >= frameCount)

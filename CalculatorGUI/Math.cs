@@ -216,13 +216,19 @@ namespace ScientificCalculator
 		public static double Sin(double x) // using Taylor's Series
 		{
 			const int TERMS = 7;
-			x %= 360;
-			double rad = x * PI / 180;
+			double rad = x;
+			if (unitType == TrigUnits.DEG)
+			{
+				rad %= 360;
+				rad *= PI / 180;
+			}
+			else
+				rad %= PI;
 			double sin = 0;
 
 			for (int i = 0; i < TERMS; i++)
 			{
-				sin += (Exponent(-1, i) * Exponent(rad, 2 * i + 1) / Factorial(2 * i + 1));
+				sin += (Power(-1, i) * Power(rad, 2 * i + 1) / Factorial(2 * i + 1));
 			}
 			return sin;
 		}
