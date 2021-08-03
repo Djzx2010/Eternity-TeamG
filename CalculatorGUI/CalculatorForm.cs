@@ -356,7 +356,7 @@ namespace CalculatorGUI
         {
             if (listBoxHistory.SelectedItem != null)
             {
-                displayField.Text = listBoxHistory.SelectedItem.ToString();
+                displayField.Text = listBoxHistory.SelectedItem.ToString().TrimStart('=');
             }
         }
 
