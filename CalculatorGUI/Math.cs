@@ -122,73 +122,9 @@ namespace ScientificCalculator
 
 		}
 
-		public static double Exponent(double x, double exponent)
-		{
-			// Integer exponent
-			if (exponent % 1 == 0)
-			{
-				if (exponent == 0)
-				{
-					return 1;
-				}
-
-				double result = 1;
-				var isExponentPositive = exponent > 0;
-				var roundedExponent = Abs(exponent);
-
-				for (var i = 0; i < roundedExponent; i++)
-				{
-					result = isExponentPositive ? (result * x) : (result / x);
-				}
-
-				return result;
-			}
-			// Floating point exponent
-			else
-			{
-				// https://stackoverflow.com/a/29877278/7916867
-				int accuracy = 1000000;
-				double accuracy2 = 1.0 + 1.0 / accuracy;
-
-				bool isExponentNegative = (exponent < 0);
-				exponent = Abs(exponent);
-
-				// Example: 0.5^2=0.25 so answer is lower than A.
-				var isAnsMoreThanA = ((x > 1) && (exponent > 1)) || ((x < 1) && (exponent < 1));
-				double total = Log(EULERS_NUMBER, x) * accuracy * exponent;
-				double t = x;
-
-				while (true)
-				{
-					double t2 = Log(EULERS_NUMBER, t) * accuracy;
-
-					if ((isAnsMoreThanA && t2 > total) || (!isAnsMoreThanA && t2 < total))
-					{
-						break;
-					}
-
-					if (isAnsMoreThanA)
-					{
-						t *= accuracy2;
-					}
-					else
-					{
-						t /= accuracy2;
-					}
-				}
-
-				if (isExponentNegative)
-				{
-					t = 1 / t;
-				}
-
-				return t;
-			}
-		}
-
 		public static double Sinh(double x)
 		{
-			double result = (Exponent(EULERS_NUMBER, x) - Exponent(EULERS_NUMBER, (x * -1))) / 2;
+			double result = (Power(EULERS_NUMBER, x) - Power(EULERS_NUMBER, (x * -1))) / 2;
 
 			if (unitType == TrigUnits.DEG)
 			{
@@ -246,7 +182,7 @@ namespace ScientificCalculator
 
 		public static double Gamma(double x)
 		{
-			return Exponent(EULERS_NUMBER, LnGamma(x));
+			return Power(EULERS_NUMBER, LnGamma(x));
 		}
 		public static double LnGamma(double x)
 		{
@@ -304,10 +240,10 @@ namespace ScientificCalculator
 				for (var i = 0; i < 99; i++)
 				{
 					var fact = Factorial(2 * i);
-					var pow1 = Exponent(2, 2 * i);
-					var pow2 = Exponent(Factorial(i), 2);
+					var pow1 = Power(2, 2 * i);
+					var pow2 = Power(Factorial(i), 2);
 					var exponent = (2 * i) + 1;
-					var b = Exponent(x, exponent) / exponent;
+					var b = Power(x, exponent) / exponent;
 
 					if (double.IsInfinity(fact))
 					{
