@@ -24,11 +24,10 @@ namespace CalculatorGUI
         private ColorScheme darkColorScheme;
         private bool darkModeEnabled;
         private bool audioEnabled;
-        private bool isEvaluating; 
         private int imageFrame;
         private FrameDimension dimension;
-        int frameCount;
-        int taskCount;
+        private int frameCount;
+        private int taskCount;
         private Mutex writeOutMutex;
 
         public CalculatorForm()
@@ -87,7 +86,6 @@ namespace CalculatorGUI
             imageFrame = 0;
             timer1.Enabled = true;
             timer1.Tick += new EventHandler(TickEvent);
-            isEvaluating = false;
             taskCount = 0;
             writeOutMutex = new Mutex();
         }
@@ -249,7 +247,8 @@ namespace CalculatorGUI
         {
             String expression = displayField.Text;
             int numMissingCloseParenthesis = expression.Count(x => x == '(') - expression.Count(x => x == ')');
-            expression += new String(')', numMissingCloseParenthesis);
+            if(numMissingCloseParenthesis>0)
+                expression += new String(')', numMissingCloseParenthesis);
             taskCount++;
             Double res = await Task.Run(() => interpreter.EvaluateString(expression));
             taskCount--;
@@ -334,18 +333,9 @@ namespace CalculatorGUI
 
         private async void form_KeyDown(object sender, KeyEventArgs e)
         {
-            // if(e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9)
-            if (e.KeyCode == Keys.Enter)
+           if (e.KeyCode == Keys.Enter)
             {
-                String expression = displayField.Text;
-                taskCount++;
-                Double res = await Task.Run(() => interpreter.EvaluateString(displayField.Text));
-                taskCount--;
-                displayField.Text = res.ToString();
-                writeOutMutex.WaitOne();
-                listBoxHistory.Items.Insert(0, "= " + res.ToString());
-                listBoxHistory.Items.Insert(0, expression);
-                writeOutMutex.ReleaseMutex();
+                buttonEvaluate_Click(sender, e);
             }
             else if(e.KeyCode == Keys.Back)
             {
@@ -431,21 +421,17 @@ namespace CalculatorGUI
         // Every tick even the rect is invalidated to call the OnPaint event
         private void TickEvent(object o, EventArgs e)
         {
-            UpdateImage();
-            Invalidate();
-        }
-
-        // cycle through the gifs image every draw frame
-        public void UpdateImage()
-        {
-            if (taskCount>0)
+            //If a task is running, upate the current frame and invalidate the rect to paint
+            if (taskCount > 0)
             {
                 imageFrame++;
                 if (imageFrame >= frameCount)
                     imageFrame = 0;
                 pictureBox1.Image.SelectActiveFrame(dimension, imageFrame);
+                Invalidate();
             }
         }
+
 
         protected override void OnPaint(PaintEventArgs e)
         {
