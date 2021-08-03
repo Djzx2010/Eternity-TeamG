@@ -248,8 +248,10 @@ namespace CalculatorGUI
         private async void buttonEvaluate_Click(object sender, EventArgs e)
         {
             String expression = displayField.Text;
+            int numMissingCloseParenthesis = expression.Count(x => x == '(') - expression.Count(x => x == ')');
+            expression += new String(')', numMissingCloseParenthesis);
             taskCount++;
-            Double res = await Task.Run(() => interpreter.EvaluateString(displayField.Text));
+            Double res = await Task.Run(() => interpreter.EvaluateString(expression));
             taskCount--;
             displayField.Text = res.ToString();
             writeOutMutex.WaitOne();
