@@ -12,6 +12,7 @@ namespace ScientificCalculator
     {
 
         private delegate double Function1d(double x);
+        private delegate float Functionf1d(double x);
         private delegate double Function2d(double x, double y);
         private delegate double FunctionNd(params double[] x);
         private delegate double[] GetArray(params double[] x);
@@ -37,6 +38,7 @@ namespace ScientificCalculator
             Function1d sinhDel = ScientificCalculator.Math.Sinh;
             Function1d sinDel = ScientificCalculator.Math.Sin;
             Function1d gammaDel = ScientificCalculator.Math.Gamma;
+            Functionf1d lnDel = ScientificCalculator.Math.Ln;
             FunctionNd meanAbsDevDel = ScientificCalculator.Math.MeanAbsoluteDeviation;
             FunctionNd meanDel = ScientificCalculator.Math.Mean;
             FunctionNd stddevDel = ScientificCalculator.Math.StdDev;
@@ -52,6 +54,7 @@ namespace ScientificCalculator
             SetFunction("Sinh", sinhDel);
             SetFunction("Sin", sinDel);
             SetFunction("Gamma", gammaDel);
+            SetFunction("Ln", lnDel);
             SetFunction("MeanAbsDel", meanAbsDevDel);
             SetFunction("Mean", meanDel);
             SetFunction("StdDev", stddevDel);
