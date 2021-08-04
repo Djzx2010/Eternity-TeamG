@@ -24,9 +24,6 @@ namespace CalculatorGUI
         private ColorScheme darkColorScheme;
         private bool darkModeEnabled;
         private bool audioEnabled;
-        private int imageFrame;
-        private FrameDimension dimension;
-        private int frameCount;
         private int taskCount;
         private Mutex writeOutMutex;
 
@@ -79,11 +76,6 @@ namespace CalculatorGUI
 
             audioEnabled = false;
 
-            //Set all the loading image properties
-            pictureBox1.Visible = false;
-            dimension = new FrameDimension(pictureBox1.Image.FrameDimensionsList[0]);
-            frameCount = pictureBox1.Image.GetFrameCount(dimension);
-            imageFrame = 0;
             timer1.Enabled = true;
             timer1.Tick += new EventHandler(TickEvent);
             taskCount = 0;
@@ -111,14 +103,6 @@ namespace CalculatorGUI
             displayField.BackColor = scheme.displayFeildColors.background;
             displayField.ForeColor = scheme.displayFeildColors.foreground;
 
-            if(darkModeEnabled)
-            {
-                pictureBox1.Image = global::CalculatorGUI.Properties.Resources.LoadingDark;
-            }
-            else
-            {
-                pictureBox1.Image = global::CalculatorGUI.Properties.Resources.LoadingLight;
-            }
         }
 
         /*
@@ -418,25 +402,17 @@ namespace CalculatorGUI
 
         // DRAW EVENTS/FUNCTIONS
 
-        // Every tick even the rect is invalidated to call the OnPaint event
+        // Every tick
         private void TickEvent(object o, EventArgs e)
         {
-            //If a task is running, upate the current frame and invalidate the rect to paint
             if (taskCount > 0)
             {
-                imageFrame++;
-                if (imageFrame >= frameCount)
-                    imageFrame = 0;
-                pictureBox1.Image.SelectActiveFrame(dimension, imageFrame);
-                Invalidate();
+                Cursor.Current = Cursors.WaitCursor;
             }
-        }
-
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
-            e.Graphics.DrawImage(pictureBox1.Image, pictureBox1.Location.X, pictureBox1.Location.Y, pictureBox1.Width, pictureBox1.Height);
+            else
+            {
+                Cursor.Current = Cursors.Default;
+            }
         }
 
         // MENU STRIP CLICK HANDLERS

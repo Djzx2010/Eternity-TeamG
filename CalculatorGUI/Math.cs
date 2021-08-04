@@ -192,7 +192,7 @@ namespace ScientificCalculator
 				// Use Euler's reflection formula:
 				// Gamma(x) = Pi / [Sin[Pi*z] * Gamma[1-z]];
 				// TODO: Replace sinh with sin
-				return Log(EULERS_NUMBER, PI / Sin(PI * x)) - LnGamma(1.0 - x);
+				return Ln(PI / Sin(PI * x)) - LnGamma(1.0 - x);
 			}
 
 			else
@@ -209,7 +209,7 @@ namespace ScientificCalculator
 				sum += p[0];
 
 				// TODO: Update these to not use built in functions
-				return ((_SQRT_2PI + Log(EULERS_NUMBER, sum)) - ba) + Log(EULERS_NUMBER, ba) * (x + 0.5);
+				return ((_SQRT_2PI + Ln(sum)) - ba) + Ln(ba) * (x + 0.5);
 			}
 
 		}
@@ -396,13 +396,13 @@ namespace ScientificCalculator
 					x = Abs(x);
 					bool smallBase = (b > 1 && x > 1) || (b < 1 && x < 1);
 
-					double total = Log(EULERS_NUMBER, b) * ACCURACY * x;
+					double total = Ln(b) * ACCURACY * x;
 					double tempAccuracy = 1.0 + 1.0 / ACCURACY;
 					double res = b;
 
 					while (true)
 					{
-						double t2 = Log(EULERS_NUMBER, res) * ACCURACY;
+						double t2 = Ln(res) * ACCURACY;
 
 						if ((smallBase && t2 > total) || (!smallBase && t2 < total))
 						{
@@ -455,6 +455,23 @@ namespace ScientificCalculator
 					return a * Power(b, x);
 				}
 			}
+		}
+
+		//Fast ln function needed for gamma and power
+		//unsafe keyword needed for pointer access
+		//see reference -> https://gist.github.com/LingDong-/7e4c4cae5cbbc44400a05fba65f06f23 
+		//for more details on the derivation
+		public static unsafe float Ln(double xd)
+		{
+			float x = (float)xd;
+			uint bx = *(uint*)(&x);
+			uint ex = bx >> 23;
+			int t = (int)ex - (int)127;
+			uint s = (uint)((t < 0) ? (-t) : t);
+			bx = 1065353216 | (bx & 8388607);
+			x = *(float*)(&bx);
+			return -1.7417939f + (2.8212026f + (-1.4699568f + (0.44717955f - 0.056570851f * x) * x) * x) * x + 0.6931471806f * t;
+
 		}
 	}
 }
