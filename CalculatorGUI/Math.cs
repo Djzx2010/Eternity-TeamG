@@ -463,13 +463,20 @@ namespace ScientificCalculator
 		//for more details on the derivation
 		public static unsafe float Ln(double xd)
 		{
+			//First the number needs to be normalized between 1 and 2 using some hacks
+			//The double is first casted to a float and reinterpreted as an unsigned int
 			float x = (float)xd;
 			uint bx = *(uint*)(&x);
+			//The exponent portion of the float is extracted through bit shifting 23 places
 			uint ex = bx >> 23;
+			//subtract the bias (2^7-1)
 			int t = (int)ex - (int)127;
 			uint s = (uint)((t < 0) ? (-t) : t);
+			//Reinterpret back as a float
 			bx = 1065353216 | (bx & 8388607);
 			x = *(float*)(&bx);
+
+			//Finally the remez algorithing is used to approcimate ln(x) between 1 and 2
 			return -1.7417939f + (2.8212026f + (-1.4699568f + (0.44717955f - 0.056570851f * x) * x) * x) * x + 0.6931471806f * t;
 
 		}
