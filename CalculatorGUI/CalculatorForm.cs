@@ -265,6 +265,15 @@ namespace CalculatorGUI
             displayField.Text = "";
         }
 
+        // BACKSPACE
+        private void buttonBackspace_Click(object sender, EventArgs e)
+        {
+            if (displayField.Text.Length > 0)
+            {
+                displayField.Text = displayField.Text.Remove(displayField.Text.Length - 1);
+            }
+        }
+
         /*
           _____ _   _ _   _  ____ _____ ___ ___  _   _ ____  
          |  ___| | | | \ | |/ ___|_   _|_ _/ _ \| \ | / ___| 
@@ -339,7 +348,7 @@ namespace CalculatorGUI
             }
             else if(e.KeyCode == Keys.Back)
             {
-                displayField.Text = "";
+                buttonBackspace_Click(sender, e);
             }
         }
 

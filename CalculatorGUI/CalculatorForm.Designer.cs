@@ -89,6 +89,7 @@ namespace CalculatorGUI
             this.MR = new System.Windows.Forms.Button();
             this.MS = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonBackspace = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -127,7 +128,8 @@ namespace CalculatorGUI
             this.tableLayoutPanel1.Controls.Add(this.buttonOpenBracket, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.button0, 1, 4);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(146, 191);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(128, 143);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -135,7 +137,7 @@ namespace CalculatorGUI
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(397, 372);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(347, 279);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // buttonEvaluate
@@ -144,9 +146,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonEvaluate.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonEvaluate.Location = new System.Drawing.Point(300, 299);
+            this.buttonEvaluate.Location = new System.Drawing.Point(261, 222);
+            this.buttonEvaluate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonEvaluate.Name = "buttonEvaluate";
-            this.buttonEvaluate.Size = new System.Drawing.Size(94, 70);
+            this.buttonEvaluate.Size = new System.Drawing.Size(83, 55);
             this.buttonEvaluate.TabIndex = 19;
             this.buttonEvaluate.Text = "=";
             this.buttonEvaluate.UseVisualStyleBackColor = true;
@@ -158,9 +161,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDecimal.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonDecimal.Location = new System.Drawing.Point(201, 299);
+            this.buttonDecimal.Location = new System.Drawing.Point(175, 222);
+            this.buttonDecimal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDecimal.Name = "buttonDecimal";
-            this.buttonDecimal.Size = new System.Drawing.Size(93, 70);
+            this.buttonDecimal.Size = new System.Drawing.Size(80, 55);
             this.buttonDecimal.TabIndex = 18;
             this.buttonDecimal.Text = ".";
             this.buttonDecimal.UseVisualStyleBackColor = true;
@@ -172,9 +176,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonPlus.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonPlus.Location = new System.Drawing.Point(300, 225);
+            this.buttonPlus.Location = new System.Drawing.Point(261, 167);
+            this.buttonPlus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonPlus.Name = "buttonPlus";
-            this.buttonPlus.Size = new System.Drawing.Size(94, 68);
+            this.buttonPlus.Size = new System.Drawing.Size(83, 51);
             this.buttonPlus.TabIndex = 15;
             this.buttonPlus.Text = "+";
             this.buttonPlus.UseVisualStyleBackColor = true;
@@ -186,9 +191,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button9.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button9.Location = new System.Drawing.Point(201, 225);
+            this.button9.Location = new System.Drawing.Point(175, 167);
+            this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(93, 68);
+            this.button9.Size = new System.Drawing.Size(80, 51);
             this.button9.TabIndex = 14;
             this.button9.Text = "9";
             this.button9.UseVisualStyleBackColor = true;
@@ -200,9 +206,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button8.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button8.Location = new System.Drawing.Point(102, 225);
+            this.button8.Location = new System.Drawing.Point(89, 167);
+            this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(93, 68);
+            this.button8.Size = new System.Drawing.Size(80, 51);
             this.button8.TabIndex = 13;
             this.button8.Text = "8";
             this.button8.UseVisualStyleBackColor = true;
@@ -214,9 +221,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button7.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button7.Location = new System.Drawing.Point(3, 225);
+            this.button7.Location = new System.Drawing.Point(3, 167);
+            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(93, 68);
+            this.button7.Size = new System.Drawing.Size(80, 51);
             this.button7.TabIndex = 12;
             this.button7.Text = "7";
             this.button7.UseVisualStyleBackColor = true;
@@ -228,9 +236,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonMinus.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonMinus.Location = new System.Drawing.Point(300, 151);
+            this.buttonMinus.Location = new System.Drawing.Point(261, 112);
+            this.buttonMinus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonMinus.Name = "buttonMinus";
-            this.buttonMinus.Size = new System.Drawing.Size(94, 68);
+            this.buttonMinus.Size = new System.Drawing.Size(83, 51);
             this.buttonMinus.TabIndex = 11;
             this.buttonMinus.Text = "-";
             this.buttonMinus.UseVisualStyleBackColor = true;
@@ -242,9 +251,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button6.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button6.Location = new System.Drawing.Point(201, 151);
+            this.button6.Location = new System.Drawing.Point(175, 112);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(93, 68);
+            this.button6.Size = new System.Drawing.Size(80, 51);
             this.button6.TabIndex = 10;
             this.button6.Text = "6";
             this.button6.UseVisualStyleBackColor = true;
@@ -256,9 +266,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button5.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button5.Location = new System.Drawing.Point(102, 151);
+            this.button5.Location = new System.Drawing.Point(89, 112);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(93, 68);
+            this.button5.Size = new System.Drawing.Size(80, 51);
             this.button5.TabIndex = 9;
             this.button5.Text = "5";
             this.button5.UseVisualStyleBackColor = true;
@@ -270,9 +281,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button4.Location = new System.Drawing.Point(3, 151);
+            this.button4.Location = new System.Drawing.Point(3, 112);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(93, 68);
+            this.button4.Size = new System.Drawing.Size(80, 51);
             this.button4.TabIndex = 8;
             this.button4.Text = "4";
             this.button4.UseVisualStyleBackColor = true;
@@ -284,9 +296,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDivide.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonDivide.Location = new System.Drawing.Point(300, 77);
+            this.buttonDivide.Location = new System.Drawing.Point(261, 57);
+            this.buttonDivide.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDivide.Name = "buttonDivide";
-            this.buttonDivide.Size = new System.Drawing.Size(94, 68);
+            this.buttonDivide.Size = new System.Drawing.Size(83, 51);
             this.buttonDivide.TabIndex = 7;
             this.buttonDivide.Text = "÷";
             this.buttonDivide.UseVisualStyleBackColor = true;
@@ -298,9 +311,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(201, 77);
+            this.button3.Location = new System.Drawing.Point(175, 57);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 68);
+            this.button3.Size = new System.Drawing.Size(80, 51);
             this.button3.TabIndex = 6;
             this.button3.Text = "3";
             this.button3.UseVisualStyleBackColor = true;
@@ -312,9 +326,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(102, 77);
+            this.button2.Location = new System.Drawing.Point(89, 57);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 68);
+            this.button2.Size = new System.Drawing.Size(80, 51);
             this.button2.TabIndex = 5;
             this.button2.Text = "2";
             this.button2.UseVisualStyleBackColor = true;
@@ -326,9 +341,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(3, 77);
+            this.button1.Location = new System.Drawing.Point(3, 57);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 68);
+            this.button1.Size = new System.Drawing.Size(80, 51);
             this.button1.TabIndex = 4;
             this.button1.Text = "1";
             this.button1.UseVisualStyleBackColor = true;
@@ -340,9 +356,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonMultiply.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonMultiply.Location = new System.Drawing.Point(300, 3);
+            this.buttonMultiply.Location = new System.Drawing.Point(261, 2);
+            this.buttonMultiply.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonMultiply.Name = "buttonMultiply";
-            this.buttonMultiply.Size = new System.Drawing.Size(94, 68);
+            this.buttonMultiply.Size = new System.Drawing.Size(83, 51);
             this.buttonMultiply.TabIndex = 3;
             this.buttonMultiply.Text = "×";
             this.buttonMultiply.UseVisualStyleBackColor = true;
@@ -354,9 +371,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonModulus.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonModulus.Location = new System.Drawing.Point(201, 3);
+            this.buttonModulus.Location = new System.Drawing.Point(175, 2);
+            this.buttonModulus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonModulus.Name = "buttonModulus";
-            this.buttonModulus.Size = new System.Drawing.Size(93, 68);
+            this.buttonModulus.Size = new System.Drawing.Size(80, 51);
             this.buttonModulus.TabIndex = 2;
             this.buttonModulus.Text = "%";
             this.buttonModulus.UseVisualStyleBackColor = true;
@@ -365,9 +383,10 @@ namespace CalculatorGUI
             // buttonComma
             // 
             this.buttonComma.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonComma.Location = new System.Drawing.Point(3, 299);
+            this.buttonComma.Location = new System.Drawing.Point(3, 222);
+            this.buttonComma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonComma.Name = "buttonComma";
-            this.buttonComma.Size = new System.Drawing.Size(93, 70);
+            this.buttonComma.Size = new System.Drawing.Size(80, 55);
             this.buttonComma.TabIndex = 4;
             this.buttonComma.Text = ",";
             this.buttonComma.UseVisualStyleBackColor = true;
@@ -379,9 +398,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonClosedBracket.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonClosedBracket.Location = new System.Drawing.Point(102, 3);
+            this.buttonClosedBracket.Location = new System.Drawing.Point(89, 2);
+            this.buttonClosedBracket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonClosedBracket.Name = "buttonClosedBracket";
-            this.buttonClosedBracket.Size = new System.Drawing.Size(93, 68);
+            this.buttonClosedBracket.Size = new System.Drawing.Size(80, 51);
             this.buttonClosedBracket.TabIndex = 1;
             this.buttonClosedBracket.Text = ")";
             this.buttonClosedBracket.UseVisualStyleBackColor = true;
@@ -393,9 +413,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOpenBracket.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonOpenBracket.Location = new System.Drawing.Point(3, 3);
+            this.buttonOpenBracket.Location = new System.Drawing.Point(3, 2);
+            this.buttonOpenBracket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonOpenBracket.Name = "buttonOpenBracket";
-            this.buttonOpenBracket.Size = new System.Drawing.Size(93, 68);
+            this.buttonOpenBracket.Size = new System.Drawing.Size(80, 51);
             this.buttonOpenBracket.TabIndex = 0;
             this.buttonOpenBracket.Text = "(";
             this.buttonOpenBracket.UseVisualStyleBackColor = true;
@@ -407,9 +428,10 @@ namespace CalculatorGUI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button0.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button0.Location = new System.Drawing.Point(102, 299);
+            this.button0.Location = new System.Drawing.Point(89, 222);
+            this.button0.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button0.Name = "button0";
-            this.button0.Size = new System.Drawing.Size(93, 70);
+            this.button0.Size = new System.Drawing.Size(80, 55);
             this.button0.TabIndex = 17;
             this.button0.Text = "0";
             this.button0.UseVisualStyleBackColor = true;
@@ -420,19 +442,21 @@ namespace CalculatorGUI
             this.tableLayoutPanel3.SetColumnSpan(this.listBoxHistory, 2);
             this.listBoxHistory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxHistory.FormattingEnabled = true;
-            this.listBoxHistory.ItemHeight = 20;
-            this.listBoxHistory.Location = new System.Drawing.Point(3, 3);
+            this.listBoxHistory.ItemHeight = 15;
+            this.listBoxHistory.Location = new System.Drawing.Point(3, 2);
+            this.listBoxHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxHistory.Name = "listBoxHistory";
-            this.listBoxHistory.Size = new System.Drawing.Size(391, 84);
+            this.listBoxHistory.Size = new System.Drawing.Size(341, 63);
             this.listBoxHistory.TabIndex = 2;
             this.listBoxHistory.DoubleClick += new System.EventHandler(this.listBoxHistory_DoubleClick);
             // 
             // buttonSTD
             // 
             this.buttonSTD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSTD.Location = new System.Drawing.Point(3, 144);
+            this.buttonSTD.Location = new System.Drawing.Point(3, 107);
+            this.buttonSTD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSTD.Name = "buttonSTD";
-            this.buttonSTD.Size = new System.Drawing.Size(62, 41);
+            this.buttonSTD.Size = new System.Drawing.Size(54, 31);
             this.buttonSTD.TabIndex = 3;
             this.buttonSTD.Text = "σ";
             this.toolTipInfo.SetToolTip(this.buttonSTD, "σ(x1, x2, x3, ..., xn)");
@@ -442,9 +466,10 @@ namespace CalculatorGUI
             // buttonArccos
             // 
             this.buttonArccos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonArccos.Location = new System.Drawing.Point(71, 144);
+            this.buttonArccos.Location = new System.Drawing.Point(63, 107);
+            this.buttonArccos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonArccos.Name = "buttonArccos";
-            this.buttonArccos.Size = new System.Drawing.Size(63, 41);
+            this.buttonArccos.Size = new System.Drawing.Size(54, 31);
             this.buttonArccos.TabIndex = 5;
             this.buttonArccos.Text = "Arccos";
             this.toolTipInfo.SetToolTip(this.buttonArccos, "Arccos(x)");
@@ -454,9 +479,10 @@ namespace CalculatorGUI
             // buttonExponent
             // 
             this.buttonExponent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonExponent.Location = new System.Drawing.Point(3, 191);
+            this.buttonExponent.Location = new System.Drawing.Point(3, 142);
+            this.buttonExponent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonExponent.Name = "buttonExponent";
-            this.buttonExponent.Size = new System.Drawing.Size(62, 41);
+            this.buttonExponent.Size = new System.Drawing.Size(54, 31);
             this.buttonExponent.TabIndex = 6;
             this.buttonExponent.Text = "ab˟";
             this.toolTipInfo.SetToolTip(this.buttonExponent, "Pow(base, exponent)");
@@ -466,9 +492,10 @@ namespace CalculatorGUI
             // buttonLog
             // 
             this.buttonLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonLog.Location = new System.Drawing.Point(71, 191);
+            this.buttonLog.Location = new System.Drawing.Point(63, 142);
+            this.buttonLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonLog.Name = "buttonLog";
-            this.buttonLog.Size = new System.Drawing.Size(63, 41);
+            this.buttonLog.Size = new System.Drawing.Size(54, 31);
             this.buttonLog.TabIndex = 7;
             this.buttonLog.Text = "log";
             this.toolTipInfo.SetToolTip(this.buttonLog, "log(base, x) ");
@@ -478,9 +505,10 @@ namespace CalculatorGUI
             // buttonGamma
             // 
             this.buttonGamma.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonGamma.Location = new System.Drawing.Point(3, 97);
+            this.buttonGamma.Location = new System.Drawing.Point(3, 72);
+            this.buttonGamma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonGamma.Name = "buttonGamma";
-            this.buttonGamma.Size = new System.Drawing.Size(62, 41);
+            this.buttonGamma.Size = new System.Drawing.Size(54, 31);
             this.buttonGamma.TabIndex = 8;
             this.buttonGamma.Text = "Γ";
             this.toolTipInfo.SetToolTip(this.buttonGamma, "Γ(x)");
@@ -490,9 +518,10 @@ namespace CalculatorGUI
             // buttonMAD
             // 
             this.buttonMAD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonMAD.Location = new System.Drawing.Point(3, 238);
+            this.buttonMAD.Location = new System.Drawing.Point(3, 177);
+            this.buttonMAD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonMAD.Name = "buttonMAD";
-            this.buttonMAD.Size = new System.Drawing.Size(62, 41);
+            this.buttonMAD.Size = new System.Drawing.Size(54, 31);
             this.buttonMAD.TabIndex = 9;
             this.buttonMAD.Text = "MAD";
             this.toolTipInfo.SetToolTip(this.buttonMAD, "MAD(x1, x2, x3, ..., xn)");
@@ -502,9 +531,10 @@ namespace CalculatorGUI
             // buttonSinh
             // 
             this.buttonSinh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSinh.Location = new System.Drawing.Point(71, 238);
+            this.buttonSinh.Location = new System.Drawing.Point(63, 177);
+            this.buttonSinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSinh.Name = "buttonSinh";
-            this.buttonSinh.Size = new System.Drawing.Size(63, 41);
+            this.buttonSinh.Size = new System.Drawing.Size(54, 31);
             this.buttonSinh.TabIndex = 10;
             this.buttonSinh.Text = "sinh";
             this.toolTipInfo.SetToolTip(this.buttonSinh, "Sinh(x)");
@@ -515,9 +545,10 @@ namespace CalculatorGUI
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.buttonClear, 2);
             this.buttonClear.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonClear.Location = new System.Drawing.Point(3, 332);
+            this.buttonClear.Location = new System.Drawing.Point(3, 282);
+            this.buttonClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(131, 41);
+            this.buttonClear.Size = new System.Drawing.Size(114, 31);
             this.buttonClear.TabIndex = 11;
             this.buttonClear.Text = "CLR";
             this.buttonClear.UseVisualStyleBackColor = true;
@@ -531,7 +562,8 @@ namespace CalculatorGUI
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(550, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(481, 24);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -542,7 +574,7 @@ namespace CalculatorGUI
             this.toolStripSeparator,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // openToolStripMenuItem
@@ -550,19 +582,19 @@ namespace CalculatorGUI
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.openToolStripMenuItem.Text = "&Open CSV";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(208, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(167, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -572,20 +604,20 @@ namespace CalculatorGUI
             this.darkModeToolStripMenuItem,
             this.audioFeedbackToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
             // darkModeToolStripMenuItem
             // 
             this.darkModeToolStripMenuItem.Name = "darkModeToolStripMenuItem";
-            this.darkModeToolStripMenuItem.Size = new System.Drawing.Size(199, 26);
+            this.darkModeToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.darkModeToolStripMenuItem.Text = "Dark Mode";
             this.darkModeToolStripMenuItem.Click += new System.EventHandler(this.darkModeToolStripMenuItem_Click);
             // 
             // audioFeedbackToolStripMenuItem
             // 
             this.audioFeedbackToolStripMenuItem.Name = "audioFeedbackToolStripMenuItem";
-            this.audioFeedbackToolStripMenuItem.Size = new System.Drawing.Size(199, 26);
+            this.audioFeedbackToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.audioFeedbackToolStripMenuItem.Text = "Audio Feedback";
             this.audioFeedbackToolStripMenuItem.Click += new System.EventHandler(this.audioFeedbackToolStripMenuItem_Click);
             // 
@@ -632,11 +664,11 @@ namespace CalculatorGUI
             // 
             // button11
             // 
-            this.tableLayoutPanel2.SetColumnSpan(this.button11, 2);
             this.button11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button11.Location = new System.Drawing.Point(3, 379);
+            this.button11.Location = new System.Drawing.Point(3, 247);
+            this.button11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(131, 41);
+            this.button11.Size = new System.Drawing.Size(54, 31);
             this.button11.TabIndex = 14;
             this.button11.Text = "arr";
             this.button11.UseVisualStyleBackColor = true;
@@ -645,9 +677,10 @@ namespace CalculatorGUI
             // button10
             // 
             this.button10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button10.Location = new System.Drawing.Point(3, 285);
+            this.button10.Location = new System.Drawing.Point(3, 212);
+            this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(62, 41);
+            this.button10.Size = new System.Drawing.Size(54, 31);
             this.button10.TabIndex = 15;
             this.button10.Text = "π";
             this.button10.UseVisualStyleBackColor = true;
@@ -657,9 +690,10 @@ namespace CalculatorGUI
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.button12, 2);
             this.button12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button12.Location = new System.Drawing.Point(3, 426);
+            this.button12.Location = new System.Drawing.Point(3, 317);
+            this.button12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(131, 50);
+            this.button12.Size = new System.Drawing.Size(114, 40);
             this.button12.TabIndex = 16;
             this.button12.Text = "ans";
             this.button12.UseVisualStyleBackColor = true;
@@ -668,9 +702,10 @@ namespace CalculatorGUI
             // button13
             // 
             this.button13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button13.Location = new System.Drawing.Point(71, 285);
+            this.button13.Location = new System.Drawing.Point(63, 212);
+            this.button13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(63, 41);
+            this.button13.Size = new System.Drawing.Size(54, 31);
             this.button13.TabIndex = 17;
             this.button13.Text = "e";
             this.button13.UseVisualStyleBackColor = true;
@@ -679,9 +714,10 @@ namespace CalculatorGUI
             // buttonTrigUnits
             // 
             this.buttonTrigUnits.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonTrigUnits.Location = new System.Drawing.Point(71, 97);
+            this.buttonTrigUnits.Location = new System.Drawing.Point(63, 72);
+            this.buttonTrigUnits.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonTrigUnits.Name = "buttonTrigUnits";
-            this.buttonTrigUnits.Size = new System.Drawing.Size(63, 41);
+            this.buttonTrigUnits.Size = new System.Drawing.Size(54, 31);
             this.buttonTrigUnits.TabIndex = 18;
             this.buttonTrigUnits.Text = "RAD";
             this.buttonTrigUnits.UseVisualStyleBackColor = true;
@@ -694,18 +730,20 @@ namespace CalculatorGUI
             this.tableLayoutPanel3.SetColumnSpan(this.displayField, 2);
             this.displayField.Dock = System.Windows.Forms.DockStyle.Fill;
             this.displayField.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.displayField.Location = new System.Drawing.Point(3, 93);
+            this.displayField.Location = new System.Drawing.Point(3, 69);
+            this.displayField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.displayField.Name = "displayField";
-            this.displayField.Size = new System.Drawing.Size(391, 61);
+            this.displayField.Size = new System.Drawing.Size(341, 50);
             this.displayField.TabIndex = 19;
             this.displayField.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // MC
             // 
             this.MC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MC.Location = new System.Drawing.Point(3, 3);
+            this.MC.Location = new System.Drawing.Point(3, 2);
+            this.MC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MC.Name = "MC";
-            this.MC.Size = new System.Drawing.Size(62, 41);
+            this.MC.Size = new System.Drawing.Size(54, 31);
             this.MC.TabIndex = 20;
             this.MC.Text = "MC";
             this.MC.UseVisualStyleBackColor = true;
@@ -714,9 +752,10 @@ namespace CalculatorGUI
             // MR
             // 
             this.MR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MR.Location = new System.Drawing.Point(71, 3);
+            this.MR.Location = new System.Drawing.Point(63, 2);
+            this.MR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MR.Name = "MR";
-            this.MR.Size = new System.Drawing.Size(63, 41);
+            this.MR.Size = new System.Drawing.Size(54, 31);
             this.MR.TabIndex = 21;
             this.MR.Text = "MR";
             this.MR.UseVisualStyleBackColor = true;
@@ -726,9 +765,10 @@ namespace CalculatorGUI
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.MS, 2);
             this.MS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MS.Location = new System.Drawing.Point(3, 50);
+            this.MS.Location = new System.Drawing.Point(3, 37);
+            this.MS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MS.Name = "MS";
-            this.MS.Size = new System.Drawing.Size(131, 41);
+            this.MS.Size = new System.Drawing.Size(114, 31);
             this.MS.TabIndex = 22;
             this.MS.Text = "MS";
             this.MS.UseVisualStyleBackColor = true;
@@ -739,13 +779,14 @@ namespace CalculatorGUI
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.buttonBackspace, 1, 7);
             this.tableLayoutPanel2.Controls.Add(this.MC, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.MS, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.button12, 0, 9);
             this.tableLayoutPanel2.Controls.Add(this.button13, 1, 6);
-            this.tableLayoutPanel2.Controls.Add(this.button11, 0, 8);
+            this.tableLayoutPanel2.Controls.Add(this.button11, 0, 7);
             this.tableLayoutPanel2.Controls.Add(this.buttonTrigUnits, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.buttonClear, 0, 7);
+            this.tableLayoutPanel2.Controls.Add(this.buttonClear, 0, 8);
             this.tableLayoutPanel2.Controls.Add(this.MR, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.button10, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.buttonGamma, 0, 2);
@@ -755,7 +796,8 @@ namespace CalculatorGUI
             this.tableLayoutPanel2.Controls.Add(this.buttonExponent, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.buttonMAD, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.buttonLog, 1, 4);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 85);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(5, 64);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 10;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -768,8 +810,21 @@ namespace CalculatorGUI
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(137, 479);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(120, 359);
             this.tableLayoutPanel2.TabIndex = 23;
+            // 
+            // buttonBackspace
+            // 
+            this.buttonBackspace.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonBackspace.Location = new System.Drawing.Point(63, 247);
+            this.buttonBackspace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonBackspace.Name = "buttonBackspace";
+            this.buttonBackspace.Size = new System.Drawing.Size(54, 31);
+            this.buttonBackspace.TabIndex = 23;
+            this.buttonBackspace.Text = "⌫";
+            this.buttonBackspace.UseVisualStyleBackColor = true;
+            this.buttonBackspace.Click += new System.EventHandler(this.buttonBackspace_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -778,29 +833,31 @@ namespace CalculatorGUI
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.listBoxHistory, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.displayField, 0, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(146, 32);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(128, 24);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.60378F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.39622F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(397, 159);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(347, 119);
             this.tableLayoutPanel3.TabIndex = 24;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CalculatorGUI.Properties.Resources.LoadingDark;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 31);
+            this.pictureBox1.Location = new System.Drawing.Point(5, 23);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(137, 48);
+            this.pictureBox1.Size = new System.Drawing.Size(120, 36);
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
             // 
             // CalculatorForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(550, 569);
+            this.ClientSize = new System.Drawing.Size(481, 427);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
@@ -808,6 +865,7 @@ namespace CalculatorGUI
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CalculatorForm";
             this.Text = "Calculator";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.form_KeyDown);
@@ -887,6 +945,7 @@ namespace CalculatorGUI
         private ToolStripMenuItem settingsToolStripMenuItem;
         private ToolStripMenuItem darkModeToolStripMenuItem;
         private ToolStripMenuItem audioFeedbackToolStripMenuItem;
+        private Button buttonBackspace;
     }
 }
 
