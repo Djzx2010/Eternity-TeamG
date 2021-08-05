@@ -466,5 +466,10 @@ namespace CalculatorGUI
                 this.audioFeedbackToolStripMenuItem.Checked = audioEnabled;
             }
         }
+
+        private void clearHistoryMenuItem_Click(object sender, EventArgs e)
+        {
+            listBoxHistory.Items.Clear();
+        }
     }
 }

@@ -91,6 +91,7 @@ namespace CalculatorGUI
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.clearHistoryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -568,7 +569,8 @@ namespace CalculatorGUI
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.darkModeToolStripMenuItem,
-            this.audioFeedbackToolStripMenuItem});
+            this.audioFeedbackToolStripMenuItem,
+            this.clearHistoryMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
             this.settingsToolStripMenuItem.Text = "Settings";
@@ -784,6 +786,13 @@ namespace CalculatorGUI
             this.tableLayoutPanel3.Size = new System.Drawing.Size(397, 159);
             this.tableLayoutPanel3.TabIndex = 24;
             // 
+            // clearHistoryMenuItem
+            // 
+            this.clearHistoryMenuItem.Name = "clearHistoryMenuItem";
+            this.clearHistoryMenuItem.Size = new System.Drawing.Size(199, 26);
+            this.clearHistoryMenuItem.Text = "Clear History";
+            this.clearHistoryMenuItem.Click += new System.EventHandler(this.clearHistoryMenuItem_Click);
+            // 
             // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -873,6 +882,7 @@ namespace CalculatorGUI
         private ToolStripMenuItem settingsToolStripMenuItem;
         private ToolStripMenuItem darkModeToolStripMenuItem;
         private ToolStripMenuItem audioFeedbackToolStripMenuItem;
+        private ToolStripMenuItem clearHistoryMenuItem;
     }
 }
 
