@@ -20,6 +20,7 @@ namespace CalculatorGUI
         public OpenForm()
         {
             InitializeComponent();
+            label2.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -76,17 +77,19 @@ namespace CalculatorGUI
                 {
                     if (!invalidIndex)
                     {
-                        MessageBox.Show("Error, invalid file, enter a valid file.");
+                        MessageBox.Show("Invalid file path, enter a valid file path.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         textBox1.BackColor = Color.Red;
+                        label2.Show();
                     }
                     else
-                        MessageBox.Show("Invalid index, enter an index of a valid column within the .csv file.");
+                        MessageBox.Show("Invalid index, enter an index of a valid column within the .csv file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Error, invalid file path, enter a valid file path.");
+                MessageBox.Show("Invalid file path, enter a valid file path.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox1.BackColor = Color.Red;
+                label2.Show();
             }
 
         }
