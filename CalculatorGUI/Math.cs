@@ -233,7 +233,6 @@ namespace ScientificCalculator
 				return double.NaN;
 			}
 
-
 			double result = 0;
 
 			// Arccos(1) = 0 and Arccos(-1) = PI, return the values right away instead of wasting resources calculating
@@ -247,22 +246,25 @@ namespace ScientificCalculator
 			}
 			else
 			{
+				// Acts as our summation, 99 can be increased for potential accuracy increase but increases runtime
 				for (var i = 0; i < 99; i++)
 				{
-					var fact = Factorial(2 * i);
-					var pow1 = Power(2, 2 * i);
-					var pow2 = Power(Factorial(i), 2);
-					var exponent = (2 * i) + 1;
-					var b = Power(x, exponent) / exponent;
+					var fact = Factorial(2 * i); // (2n)!
+					var pow1 = Power(2, 2 * i); // 2^2n
+					var pow2 = Power(Factorial(i), 2); // (n!)^2
+					var exponent = (2 * i) + 1; // 2n + 1
+					var equationOne = fact / (pow1 * pow2); // (2n)!/(2^(2n)n!^2)
+					var equationTwo = Power(x, exponent) / exponent; // (x^(2n + 1)/(2n + 1))
 
 					if (double.IsInfinity(fact))
 					{
 						break;
 					}
 
-					result += ((fact / (pow1 * pow2)) * b);
+					result += (equationOne * equationTwo);
 				}
 
+				// Finalize the result by subtracting pi/2 by the summation
 				result = ((PI / 2) - result);
 
 				if(unitType == TrigUnits.DEG)
