@@ -439,35 +439,7 @@ namespace ScientificCalculator
 					return res;
 				}
 			}
-		}
-
-		// ab^x
-		// Power function (double * double^double).
-		public static double Power(double a, double b, double x)
-		{
-			if (a == 0)
-			{
-				if (b == 0 && x == -1)
-				{
-					return double.NaN;
-				}
-				else
-				{
-					return a;
-				}
-			}
-			else
-			{
-				if (x == 0 && b == 0)
-				{
-					return 1;
-				}
-				else
-				{
-					return a * Power(b, x);
-				}
-			}
-		}
+		}		
 
 		//Fast ln function needed for gamma and power
 		//unsafe keyword needed for pointer access
