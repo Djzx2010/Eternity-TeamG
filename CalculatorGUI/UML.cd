@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CalculatorGUI.CalculatorForm">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JSSSERCYGjaYgAUFIJKqGUASK99/ASRo1vBfyiaMQHA=</HashCode>
+      <FileName>CalculatorForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScientificCalculator.Interpreter">
+    <Position X="6.25" Y="2.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="ScientificCalculator.Interpreter.Function1d" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Interpreter.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="ScientificCalculator.Interpreter.Functionf1d" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Interpreter.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="ScientificCalculator.Interpreter.Function2d" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Interpreter.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="ScientificCalculator.Interpreter.FunctionNd" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Interpreter.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="ScientificCalculator.Interpreter.GetArray" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Interpreter.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAgAAAAAIAAAAAAAAgCAAAAEAAAIBgEIAAAI=</HashCode>
+      <FileName>Interpreter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScientificCalculator.Math">
+    <Position X="2.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQgAgAAgAQAAAAAEgAAEAIAAAAyAFCANEkQkAAKBAAA=</HashCode>
+      <FileName>Math.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CalculatorGUI.OpenForm">
+    <Position X="4.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACEAABQAAACAAAASQAA4AEAAEHAAAAAAAAA=</HashCode>
+      <FileName>OpenForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CalculatorGUI.Program">
+    <Position X="6.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DynamicExpresso.Interpreter">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Struct Name="CalculatorGUI.ColorContainer">
+    <Position X="1.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>ColorScheme.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="CalculatorGUI.ColorScheme">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BABAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAg=</HashCode>
+      <FileName>ColorScheme.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="ScientificCalculator.TrigUnits">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Math.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
