@@ -1,14 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="CalculatorGUI.CalculatorForm">
-    <Position X="9.5" Y="0.5" Width="1.5" />
+    <Position X="14.5" Y="0.5" Width="3.75" />
+    <AssociationLine Name="lightColorScheme" Type="CalculatorGUI.ColorScheme">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.099" Y="0.291" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>JSSSERCYGjaYgAUFIJKqGUASK99/ASRo1vBfyiaMQHA=</HashCode>
       <FileName>CalculatorForm.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="interpreter" />
+      <Field Name="darkColorScheme" />
+      <Field Name="lightColorScheme" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="ScientificCalculator.Interpreter">
-    <Position X="6.25" Y="2.25" Width="1.75" />
+    <Position X="10.75" Y="1.75" Width="2.5" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -45,46 +55,107 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ScientificCalculator.Math">
-    <Position X="2.25" Y="4" Width="1.5" />
+    <Position X="2.75" Y="3.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AQgAgAAgAQAAAAAEgAAEAIAAAAyAFCANEkQkAAKBAAA=</HashCode>
       <FileName>Math.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CalculatorGUI.OpenForm">
-    <Position X="4.25" Y="5.75" Width="1.5" />
+    <Position X="19.25" Y="4.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACEAABQAAACAAAASQAA4AEAAEHAAAAAAAAA=</HashCode>
       <FileName>OpenForm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CalculatorGUI.Program">
-    <Position X="6.25" Y="8.75" Width="1.5" />
+    <Position X="6.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DynamicExpresso.Interpreter">
-    <Position X="6.25" Y="0.5" Width="1.5" />
+    <Position X="6.25" Y="0.75" Width="3.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Windows.Forms.Form" Collapsed="true">
+    <Position X="20.5" Y="13.75" Width="1.5" />
+    <NestedTypes>
+      <Class Name="System.Windows.Forms.Form.ControlCollection" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+    </NestedTypes>
     <TypeIdentifier />
   </Class>
   <Struct Name="CalculatorGUI.ColorContainer">
-    <Position X="1.5" Y="1.75" Width="1.5" />
+    <Position X="0.5" Y="2.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
       <FileName>ColorScheme.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Struct Name="CalculatorGUI.ColorScheme">
-    <Position X="3.25" Y="1.75" Width="1.5" />
+    <Position X="4" Y="0.75" Width="1.5" />
+    <AssociationLine Name="baseColors" Type="CalculatorGUI.ColorContainer">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.653" Y="1.121" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="buttonsColors" Type="CalculatorGUI.ColorContainer" ManuallyRouted="true">
+      <Path>
+        <Point X="4" Y="1.432" />
+        <Point X="3.644" Y="1.432" />
+        <Point X="3.644" Y="1.756" />
+        <Point X="1.849" Y="1.756" />
+        <Point X="1.849" Y="2.25" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.199" Y="0.544" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="displayFeildColors" Type="CalculatorGUI.ColorContainer">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.333" Y="1.38" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="historyColors" Type="CalculatorGUI.ColorContainer" ManuallyRouted="true">
+      <Path>
+        <Point X="4" Y="1.556" />
+        <Point X="3.711" Y="1.556" />
+        <Point X="3.711" Y="2.25" />
+        <Point X="2.086" Y="2.25" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.414" Y="0.048" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="menuPanelColors" Type="CalculatorGUI.ColorContainer" ManuallyRouted="true">
+      <Path>
+        <Point X="4" Y="1.308" />
+        <Point X="3.577" Y="1.308" />
+        <Point X="3.577" Y="1.486" />
+        <Point X="1.612" Y="1.486" />
+        <Point X="1.612" Y="2.25" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.395" Y="0.834" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>BABAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAg=</HashCode>
       <FileName>ColorScheme.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="baseColors" />
+      <Field Name="buttonsColors" />
+      <Field Name="displayFeildColors" />
+      <Field Name="historyColors" />
+      <Field Name="menuPanelColors" />
+    </ShowAsAssociation>
   </Struct>
   <Enum Name="ScientificCalculator.TrigUnits">
-    <Position X="0.5" Y="4.75" Width="1.5" />
+    <Position X="0.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Math.cs</FileName>
