@@ -182,7 +182,17 @@ namespace ScientificCalculator
 
 		public static double Gamma(double x)
 		{
-			return Power(EULERS_NUMBER, LnGamma(x));
+			if (x > 0)
+			{
+				if (x % 1 != 0)
+					return Power(EULERS_NUMBER, LnGamma(x));
+				else
+					return Factorial((int)x - 1);
+			}
+			else if (x == 0)
+				return double.PositiveInfinity;
+			else
+				return double.NaN;
 		}
 		public static double LnGamma(double x)
 		{

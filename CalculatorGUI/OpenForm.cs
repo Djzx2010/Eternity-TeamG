@@ -82,7 +82,11 @@ namespace CalculatorGUI
                         label2.Show();
                     }
                     else
+                    {
                         MessageBox.Show("Invalid index, enter an index of a valid column within the .csv file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        textBox1.BackColor = Color.White;
+                        label2.Hide();
+                    }
                 }
             }
             else

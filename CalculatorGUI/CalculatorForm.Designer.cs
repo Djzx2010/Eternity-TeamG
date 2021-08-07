@@ -72,6 +72,7 @@ namespace CalculatorGUI
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.audioFeedbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearHistoryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,7 +92,6 @@ namespace CalculatorGUI
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.clearHistoryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -589,6 +589,13 @@ namespace CalculatorGUI
             this.audioFeedbackToolStripMenuItem.Text = "Audio Feedback";
             this.audioFeedbackToolStripMenuItem.Click += new System.EventHandler(this.audioFeedbackToolStripMenuItem_Click);
             // 
+            // clearHistoryMenuItem
+            // 
+            this.clearHistoryMenuItem.Name = "clearHistoryMenuItem";
+            this.clearHistoryMenuItem.Size = new System.Drawing.Size(199, 26);
+            this.clearHistoryMenuItem.Text = "Clear History";
+            this.clearHistoryMenuItem.Click += new System.EventHandler(this.clearHistoryMenuItem_Click);
+            // 
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
@@ -785,13 +792,6 @@ namespace CalculatorGUI
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.39622F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(397, 159);
             this.tableLayoutPanel3.TabIndex = 24;
-            // 
-            // clearHistoryMenuItem
-            // 
-            this.clearHistoryMenuItem.Name = "clearHistoryMenuItem";
-            this.clearHistoryMenuItem.Size = new System.Drawing.Size(199, 26);
-            this.clearHistoryMenuItem.Text = "Clear History";
-            this.clearHistoryMenuItem.Click += new System.EventHandler(this.clearHistoryMenuItem_Click);
             // 
             // CalculatorForm
             // 
