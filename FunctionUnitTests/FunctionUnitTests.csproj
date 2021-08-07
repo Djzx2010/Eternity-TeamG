@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CalculatorGUI\CalculatorGUI.csproj" />
     <ProjectReference Include="..\ScientificCalculator\ScientificCalculator.csproj" />
   </ItemGroup>
 
