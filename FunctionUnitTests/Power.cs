@@ -81,32 +81,6 @@ namespace FunctionUnitTests
             Assert.AreEqual(custom_result, native_result);
         }
 
-        //[TestMethod]
-        //// Test random double exponent value
-        //public void Power_CorrectValue_DoubleExponent_TestRandom()
-        //{
-        //    double max = 10000;
-        //    double min = 0;
-        //    System.Random random = new System.Random();                       
-
-        //    var tempVar = random.NextDouble();
-        //    double a = (tempVar * max + (1 - tempVar) * min);
-
-        //    tempVar = random.NextDouble();
-        //    double b = tempVar * max + (1 - tempVar) * min;
-
-        //    tempVar = random.NextDouble();
-        //    double x = tempVar * max + (1 - tempVar) * min;
-
-        //    double custom_result = a * ScientificCalculator.Math.Power(b,x);
-        //    double native_result = a * System.Math.Pow(b,x);
-
-        //    testContextInstance.WriteLine($"Custom: {custom_result}, Native: {native_result}");
-        //    Assert.AreEqual(custom_result, native_result, 10);
-        //}
-
-
-
         [TestMethod]
         // Test random double exponent value
         public void Power_CorrectValue_Algebraic()
