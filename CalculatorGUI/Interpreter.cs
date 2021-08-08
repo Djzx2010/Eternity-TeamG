@@ -85,7 +85,7 @@ namespace ScientificCalculator
                         if (column < tokens.Length && tokens[column] != "")
                             arrList.Add(Double.Parse(tokens[column]));
                     }
-                    catch(Exception e)
+                    catch (Exception e)
                     {
                         //unable to parse number
                     }
@@ -148,7 +148,7 @@ namespace ScientificCalculator
                 else
                     answer = Eval<double>(expression);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 answer = Double.NaN;
             }
