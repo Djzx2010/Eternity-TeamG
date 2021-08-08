@@ -7,6 +7,7 @@
 -->
 
 <!-- PROJECT LOGO -->
+
 <p align="center">
   <a href="https://github.com/Djzx2010/Eternity-TeamG">
     <img src="https://i.pinimg.com/originals/43/28/c3/4328c30611e0c3a5556fa1d4cb35dae7.png" alt="Logo" height="150">
@@ -25,6 +26,7 @@
 </p>
 
 <!-- TABLE OF CONTENTS -->
+
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
@@ -32,7 +34,9 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
-        <li><a href="#special-functions-implemented">Special Functions Implemented</a></li>
+        <li><a href="#programming-format-and-conventions">Programming Format and Conventions</a></li>        
+        <li><a href="#special-functions">Special Functions</a></li>
+        <li><a href="#authors">Authors</a></li>
       </ul>
     </li>
     <li>
@@ -57,8 +61,12 @@ With a modern and sleek design, Eternity is calculator that focuses on the user'
 
 ### Built With
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+- [DynamicExpresso Parser](https://github.com/davideicardi/DynamicExpresso)
 
-### Special functions implemented
+### Programming Format and Conventions
+- [C# Coding Conventions](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions)
+
+### Special Functions
 1. arccos(x)
 2. ab<sup>x</sup>
 3. log<sub>b</sub>(x)
@@ -66,7 +74,15 @@ With a modern and sleek design, Eternity is calculator that focuses on the user'
 5. MAD (Mean Absolute Deviation)
 6. σ (Standard Deviation)
 7. sinh(x)
-8. x<sup>y</sup>
+
+### Authors
+1. Steven Labelle
+2. Vaansh Vikas Lakhwara
+3. Connor King
+4. Derek Lam
+5. Nabil Khoury
+6. Xavier Knoll
+7. Jeremy Kissoon-Cantave
 
 <!-- GETTING STARTED -->
 
