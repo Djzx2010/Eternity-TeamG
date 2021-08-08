@@ -373,7 +373,7 @@ namespace ScientificCalculator
             return res;
         }
 
-        // Aux function: Power function (double^double).
+        // Power function (double^double).
         public static double Power(double b, double x)
         {
             if (b == 0)
