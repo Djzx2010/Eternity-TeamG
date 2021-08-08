@@ -324,6 +324,9 @@ namespace CalculatorGUI
 
         private async void form_KeyDown(object sender, KeyEventArgs e)
         {
+            if(!displayField.Focused)
+                displayField.Focus();
+            clearTextAfterEvaluate(sender, e);
             if (e.KeyCode == Keys.Enter)
             {
                 buttonEvaluate_Click(sender, e);
@@ -488,6 +491,11 @@ namespace CalculatorGUI
                     displayField.Text = displayField.Text.Remove(pos, toStrip.Length);
                 clearAfterEvaluate = false;
             }
+        }
+
+        private void displayField_TextChanged(object sender, EventArgs e)
+        {
+            clearTextAfterEvaluate(sender, e);
         }
     }
 }

@@ -706,6 +706,7 @@ namespace CalculatorGUI
             this.displayField.Size = new System.Drawing.Size(391, 61);
             this.displayField.TabIndex = 19;
             this.displayField.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.displayField.TextChanged += new System.EventHandler(this.displayField_TextChanged);
             // 
             // MC
             // 
