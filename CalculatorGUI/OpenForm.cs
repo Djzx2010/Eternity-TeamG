@@ -34,7 +34,7 @@ namespace CalculatorGUI
             };
 
 
-            if (ofd.ShowDialog() == DialogResult.OK)
+            if(ofd.ShowDialog() == DialogResult.OK)
             {
                 textBox1.Text = ofd.FileName;
             }

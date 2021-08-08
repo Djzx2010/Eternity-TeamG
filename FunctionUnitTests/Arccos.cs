@@ -92,7 +92,7 @@ namespace FunctionUnitTests
         // Test random number value between -1 and 1
         public void Correct_Value_Test_Algebraic()
         {
-            double testValue = System.Math.PI / 7;
+            double testValue =  System.Math.PI / 7;
 
             double customResult = ScientificCalculator.Math.Arccos(testValue);
             double nativeResult = System.Math.Acos(testValue);

@@ -65,9 +65,9 @@ namespace CalculatorGUI
             darkColorScheme.menuPanelColors.foreground = Color.White;
             darkColorScheme.buttonsColors.background = Color.FromArgb(200, 30, 30, 30);
             darkColorScheme.buttonsColors.foreground = Color.WhiteSmoke;
-            darkColorScheme.historyColors.background = Color.FromArgb(30, 30, 30);
+            darkColorScheme.historyColors.background = Color.FromArgb( 30, 30, 30);
             darkColorScheme.historyColors.foreground = Color.WhiteSmoke;
-            darkColorScheme.displayFeildColors.background = Color.FromArgb(30, 30, 30);
+            darkColorScheme.displayFeildColors.background = Color.FromArgb( 30, 30, 30);
             darkColorScheme.displayFeildColors.foreground = Color.WhiteSmoke;
 
             darkModeEnabled = true;
@@ -231,7 +231,7 @@ namespace CalculatorGUI
         {
             String expression = displayField.Text;
             int numMissingCloseParenthesis = expression.Count(x => x == '(') - expression.Count(x => x == ')');
-            if (numMissingCloseParenthesis > 0)
+            if(numMissingCloseParenthesis>0)
                 expression += new String(')', numMissingCloseParenthesis);
             taskCount++;
             Double res = await Task.Run(() => interpreter.EvaluateString(expression));
@@ -311,17 +311,17 @@ namespace CalculatorGUI
 
         private void audioEvent_Click(object sender, EventArgs e)
         {
-            if (audioEnabled)
+            if(audioEnabled)
                 System.Media.SystemSounds.Beep.Play();
         }
 
         private async void form_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+           if (e.KeyCode == Keys.Enter)
             {
                 buttonEvaluate_Click(sender, e);
             }
-            else if (e.KeyCode == Keys.Back)
+            else if(e.KeyCode == Keys.Back)
             {
                 displayField.Text = "";
             }
@@ -393,7 +393,7 @@ namespace CalculatorGUI
                 Double tryParse = Double.Parse(displayField.Text);
                 interpreter.MemorySave(tryParse);
             }
-            catch (Exception exc)
+            catch(Exception exc)
             {
                 displayField.Text = "Invalid Number";
             }

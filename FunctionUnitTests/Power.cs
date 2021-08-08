@@ -19,15 +19,15 @@ namespace FunctionUnitTests
         // 0 * 1/0 = Error
         public void Power_ExceptionalCaseZeroOneZero_ArgumentExceptionThrown()
         {
-            Assert.IsTrue(double.IsNaN(0 * ScientificCalculator.Math.Power(0, -1)));
+            Assert.IsTrue(double.IsNaN(0*ScientificCalculator.Math.Power(0, -1)));
         }
 
-        [TestMethod]
+        [TestMethod]        
         // 0 * x^y = 0
         public void Power_InputIsZero_ReturnZero()
         {
             System.Random rand = new System.Random();
-            double result = 0 * ScientificCalculator.Math.Power(rand.NextDouble(), rand.NextDouble());
+            double result =  0 * ScientificCalculator.Math.Power(rand.NextDouble(), rand.NextDouble());
             Assert.IsTrue(result == 0);
         }
 
@@ -36,7 +36,7 @@ namespace FunctionUnitTests
         public void Power_BaseIsZeroZeroExponent_ReturnOne()
         {
             System.Random rand = new System.Random();
-            double result = ScientificCalculator.Math.Power(0, 0);
+            double result = ScientificCalculator.Math.Power( 0, 0);
             Assert.IsTrue(result == 1);
         }
 
@@ -45,7 +45,7 @@ namespace FunctionUnitTests
         public void Power_BaseIsZeroPositiveExponent_ReturnZero()
         {
             System.Random rand = new System.Random();
-            double result = rand.NextDouble() * ScientificCalculator.Math.Power(0, rand.NextDouble());
+            double result = rand.NextDouble()*ScientificCalculator.Math.Power(0, rand.NextDouble());
             Assert.IsTrue(result == 0);
         }
 
@@ -54,7 +54,7 @@ namespace FunctionUnitTests
         public void Power_BaseIsZeroNegativeExponent_ReturnPositiveInfinity()
         {
             System.Random rand = new System.Random();
-            double result = rand.NextDouble() * ScientificCalculator.Math.Power(0, -1 * rand.NextDouble());
+            double result = rand.NextDouble()*ScientificCalculator.Math.Power(0, -1 * rand.NextDouble());
             Assert.IsTrue(result == double.PositiveInfinity);
         }
 
@@ -115,7 +115,7 @@ namespace FunctionUnitTests
             double b = System.Math.Sqrt(2);
             double x = 12;
 
-            double custom_result = a * ScientificCalculator.Math.Power(b, x);
+            double custom_result = a*ScientificCalculator.Math.Power(b, x);
             double native_result = a * System.Math.Pow(b, x);
 
             testContextInstance.WriteLine($"Custom: {custom_result}, Native: {native_result}");
