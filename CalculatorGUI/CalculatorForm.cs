@@ -333,7 +333,9 @@ namespace CalculatorGUI
             }
             else if (e.KeyCode == Keys.Back)
             {
-                displayField.Text = "";
+                if(displayField.Text.Length>0)
+                    displayField.Text = displayField.Text.Substring(0, displayField.Text.Length);
+                displayField.SelectionStart = displayField.Text.Length;
             }
         }
 
@@ -490,6 +492,7 @@ namespace CalculatorGUI
                 if(pos>=0)
                     displayField.Text = displayField.Text.Remove(pos, toStrip.Length);
                 clearAfterEvaluate = false;
+                displayField.SelectionStart = displayField.Text.Length;
             }
         }
 
