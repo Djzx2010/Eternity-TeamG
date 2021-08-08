@@ -26,6 +26,8 @@ namespace CalculatorGUI
         private bool audioEnabled;
         private int taskCount;
         private Mutex writeOutMutex;
+        String toStrip;
+        
 
         public CalculatorForm()
         {
@@ -37,12 +39,12 @@ namespace CalculatorGUI
             //Add an audio event to all the buttons
             foreach (var button in tableLayoutPanel2.Controls.OfType<Button>())
             {
-
+                button.Click += new System.EventHandler(this.clearTextAfterEvaluate);
                 button.Click += new System.EventHandler(this.audioEvent_Click);
             }
             foreach (var button in tableLayoutPanel1.Controls.OfType<Button>())
             {
-
+                button.Click += new System.EventHandler(this.clearTextAfterEvaluate);
                 button.Click += new System.EventHandler(this.audioEvent_Click);
             }
 
@@ -80,6 +82,8 @@ namespace CalculatorGUI
             timer1.Tick += new EventHandler(TickEvent);
             taskCount = 0;
             writeOutMutex = new Mutex();
+
+            clearAfterEvaluate = false;
         }
 
         private void SetColorScheme(ColorScheme scheme)
@@ -241,6 +245,8 @@ namespace CalculatorGUI
             listBoxHistory.Items.Insert(0, "= " + res.ToString());
             listBoxHistory.Items.Insert(0, expression);
             writeOutMutex.ReleaseMutex();
+            clearAfterEvaluate = true;
+            toStrip = displayField.Text;
         }
 
         // CLEAR
@@ -308,6 +314,7 @@ namespace CalculatorGUI
         */
 
         private KeysConverter keyConverter = new KeysConverter();
+        private bool clearAfterEvaluate;
 
         private void audioEvent_Click(object sender, EventArgs e)
         {
@@ -470,6 +477,17 @@ namespace CalculatorGUI
         private void clearHistoryMenuItem_Click(object sender, EventArgs e)
         {
             listBoxHistory.Items.Clear();
+        }
+
+        private void clearTextAfterEvaluate(object sender, EventArgs e)
+        {
+            if (clearAfterEvaluate)
+            {
+                int pos = displayField.Text.IndexOf(toStrip);
+                if(pos>=0)
+                    displayField.Text = displayField.Text.Remove(pos, toStrip.Length);
+                clearAfterEvaluate = false;
+            }
         }
     }
 }
