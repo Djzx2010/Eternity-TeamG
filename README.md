@@ -64,6 +64,7 @@ With a modern and sleek design, Eternity is calculator that focuses on the user'
 - [DynamicExpresso Parser](https://github.com/davideicardi/DynamicExpresso)
 
 ### Programming Format and Conventions
+- [Dotnet Format](https://github.com/dotnet/format)
 - [C# Coding Conventions](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions)
 
 ### Special Functions
