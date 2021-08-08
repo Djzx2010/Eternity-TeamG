@@ -68,22 +68,22 @@ With a modern and sleek design, Eternity is calculator that focuses on the user'
 - [C# Coding Conventions](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions)
 
 ### Special Functions
-1. arccos(x)
-2. σ (Standard Deviation)
-3. ab<sup>x</sup>
-4. log<sub>b</sub>(x)
-5. Γ(x) (Gamma Function)
-6. MAD (Mean Absolute Deviation)
-7. sinh(x)
+- arccos(x)
+- σ (Standard Deviation)
+- ab<sup>x</sup>
+- log<sub>b</sub>(x)
+- Γ(x) (Gamma Function)
+- MAD (Mean Absolute Deviation)
+- sinh(x)
 
 ### Authors
-1. Steven Labelle
-2. Xavier Knoll
-3. Vaansh Vikas Lakhwara
-4. Jeremy Kissoon-Cantave
-5. Connor King
-6. Derek Lam
-7. Nabil Khoury
+- Steven Labelle
+- Xavier Knoll
+- Vaansh Vikas Lakhwara
+- Jeremy Kissoon-Cantave
+- Connor King
+- Derek Lam
+- Nabil Khoury
 
 <!-- GETTING STARTED -->
 
@@ -96,12 +96,12 @@ To get a local copy up and running follow these simple example steps.
 - [Visual Studio Community (or Enterprise edition)](https://visualstudio.microsoft.com/vs/community/)
 
 ### Setup Instructions
-- Clone the git repository / unpack the source archive to the directory of your choice.
-- Open Visual Studio.
-- Select 'Open a project or solution' button in the startup window.
-- Open 'CalculatorGUI.sln' from your chosen directory in Step 1.
-- Wait for the project to build and for Visual studio to download the required dependencies.
-- Run the project by hitting the F5 key shortcut or by hitting the run button located at the top.
+1. Clone the git repository / unpack the source archive to the directory of your choice.
+2. Open Visual Studio.
+3. Select 'Open a project or solution' button in the startup window.
+4. Open 'CalculatorGUI.sln' from your chosen directory in Step 1.
+5. Wait for the project to build and for Visual studio to download the required dependencies.
+6. Run the project by hitting the F5 key shortcut or by hitting the run button located at the top.
 
 ## Contributing
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
