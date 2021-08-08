@@ -69,11 +69,11 @@ With a modern and sleek design, Eternity is calculator that focuses on the user'
 
 ### Special Functions
 1. arccos(x)
-2. ab<sup>x</sup>
-3. log<sub>b</sub>(x)
-4. Γ(x) (Gamma Function)
-5. MAD (Mean Absolute Deviation)
-6. σ (Standard Deviation)
+2. σ (Standard Deviation)
+3. ab<sup>x</sup>
+4. log<sub>b</sub>(x)
+5. Γ(x) (Gamma Function)
+6. MAD (Mean Absolute Deviation)
 7. sinh(x)
 
 ### Authors
