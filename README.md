@@ -53,6 +53,7 @@
 </details>
 
 ## About The Project
+
 With a modern and sleek design, Eternity is calculator that focuses on the user's productivity by providing a rich set of efficient functions along with a number of handy features, such as the ability to load CSV files and choose a UI mode.
 
 <p align="center">
@@ -60,23 +61,27 @@ With a modern and sleek design, Eternity is calculator that focuses on the user'
 </p>
 
 ### Built With
+
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 - [DynamicExpresso Parser](https://github.com/davideicardi/DynamicExpresso)
 
 ### Programming Format and Conventions
+
 - [Dotnet Format](https://github.com/dotnet/format)
 - [C# Coding Conventions](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions)
 
 ### Special Functions
+
 - arccos(x)
-- σ (Standard Deviation)
 - ab<sup>x</sup>
 - log<sub>b</sub>(x)
 - Γ(x) (Gamma Function)
 - MAD (Mean Absolute Deviation)
+- σ (Standard Deviation)
 - sinh(x)
 
 ### Authors
+
 - Steven Labelle
 - Xavier Knoll
 - Vaansh Vikas Lakhwara
@@ -88,14 +93,17 @@ With a modern and sleek design, Eternity is calculator that focuses on the user'
 <!-- GETTING STARTED -->
 
 ## Getting Started
+
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/)
 - [Visual Studio Community (or Enterprise edition)](https://visualstudio.microsoft.com/vs/community/)
 
 ### Setup Instructions
+
 1. Clone the git repository / unpack the source archive to the directory of your choice.
 2. Open Visual Studio.
 3. Select 'Open a project or solution' button in the startup window.
@@ -104,6 +112,7 @@ To get a local copy up and running follow these simple example steps.
 6. Run the project by hitting the F5 key shortcut or by hitting the run button located at the top.
 
 ## Contributing
+
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
@@ -115,10 +124,13 @@ Contributions are what make the open source community such an amazing place to b
 <!-- LICENSE -->
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)
 
 <!-- ACKNOWLEDGEMENTS -->
 
 ## Acknowledgements
+
 - [Logo](https://www.vippng.com/ps/ios-11-calculator-icon/)
+- [Markdown Format](https://prettier.io)
 - [Open Source License](https://choosealicense.com)
