@@ -105,7 +105,7 @@ To get a local copy up and running follow these simple example steps.
 ### Setup Instructions
 
 1. Clone the git repository / unpack the source archive to the directory of your choice.
-2. Open Visual Studio.
+2. Open Visual Studio 2019 Community or Professional.
 3. Select 'Open a project or solution' button in the startup window.
 4. Open 'CalculatorGUI.sln' from your chosen directory in Step 1.
 5. Wait for the project to build and for Visual studio to download the required dependencies.
