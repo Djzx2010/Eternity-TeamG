@@ -16,6 +16,8 @@ namespace CalculatorGUI
     public partial class OpenForm : Form
     {
         public String fileLocation { get; set; }
+        private String invalidFilePath = "Enter a valid file path";
+        private String invalidFileType = "Enter a valid .csv file";
         public decimal column { get; set; }
         public OpenForm()
         {
@@ -36,6 +38,7 @@ namespace CalculatorGUI
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
+                textBox1.BackColor = Color.White;
                 textBox1.Text = ofd.FileName;
             }
         }
@@ -49,53 +52,50 @@ namespace CalculatorGUI
         {
             column = numericUpDown1.Value;
             fileLocation = textBox1.Text;
-
-            //File path should be in C:/something/filename.csv
-            //will verify format with the following regex
-            Regex rx = new Regex(@"[a-zA-Z]:[\\\/](?:[a-zA-Z0-9]+[\\\/])*([a-zA-Z0-9]+.csv)",
-            RegexOptions.Compiled);
-            MatchCollection matches = rx.Matches(fileLocation);
-            bool invalidIndex = false;
-            if (matches.Count > 0)
+            bool fileExists = true;
+            try
             {
-                try
+                String extension = Path.GetExtension(fileLocation);
+                if (File.Exists(fileLocation) && !extension.Equals(".csv"))
                 {
-                    var file = new StreamReader(fileLocation);
-                    String line = file.ReadLine();
-                    String[] tokens = line.Split(',');
-                    if (column >= tokens.Length)
-                    {
-                        invalidIndex = true;
-                        throw new Exception();
-                    }
-                    file.Close();
-
-                    //If no exceptions are thrown the file and column are valid
-                    this.DialogResult = DialogResult.OK;
+                    MessageBox.Show("Invalid file type, the file you are trying to open is not a valid .csv file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox1.BackColor = Color.Red;
+                    label2.Text = invalidFileType;
+                    label2.Show();
+                    fileExists = false;
+                    throw new Exception();
                 }
-                catch (Exception exception)
+                //Try to open the file, if the file doesn't exist notify the user
+                else if (!File.Exists(fileLocation))
                 {
-                    if (!invalidIndex)
-                    {
-                        MessageBox.Show("Invalid file path, enter a valid file path.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        textBox1.BackColor = Color.Red;
-                        label2.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid index, enter an index of a valid column within the .csv file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        textBox1.BackColor = Color.White;
-                        label2.Hide();
-                    }
+                    MessageBox.Show("Invalid file, the file you are attempting to open does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox1.BackColor = Color.White;
+                    label2.Text = invalidFilePath;
+                    label2.Show();
+                    fileExists = false;
+                }
+
+                //an exception is thown if the file doesnt exist.
+                var file = new StreamReader(fileLocation);
+                String line = file.ReadLine();
+                String[] tokens = line.Split(',');
+                //if the file exists but the column is invalid, then throw and exception
+                if (column >= tokens.Length)
+                    throw new Exception();
+                file.Close();
+
+                //If no exceptions are thrown the file and column are valid
+                this.DialogResult = DialogResult.OK;
+            }
+            catch (Exception exception)
+            {
+                if (fileExists)
+                {
+                    MessageBox.Show("Invalid index, enter an index of a valid column within the .csv file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox1.BackColor = Color.White;
+                    label2.Hide();
                 }
             }
-            else
-            {
-                MessageBox.Show("Invalid file path, enter a valid file path.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBox1.BackColor = Color.Red;
-                label2.Show();
-            }
-
         }
 
         private void button3_Click(object sender, EventArgs e)
