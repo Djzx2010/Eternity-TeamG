@@ -394,16 +394,17 @@ namespace CalculatorGUI
             Double memory = interpreter.MemoryRecall();
             if (!Double.IsNaN(memory))
                 displayField.AppendText(memory.ToString());
-            else
-                displayField.Text = "";
         }
 
         private void buttonMS_Click(object sender, EventArgs e)
         {
             try
             {
-                Double tryParse = Double.Parse(displayField.Text);
-                interpreter.MemorySave(tryParse);
+                if (!String.IsNullOrWhiteSpace(displayField.Text))
+                {
+                    Double tryParse = Double.Parse(displayField.Text);
+                    interpreter.MemorySave(tryParse);
+                }
             }
             catch (Exception exc)
             {
